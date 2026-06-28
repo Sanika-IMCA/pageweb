@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE — Case Study: Content Engine</title>
+  <meta name="description" content="Read the Content Engine case study. Generative copywriting calendar platform built by PAGE product studio.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <div id="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html" class="active">Work</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="log.html">Log</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Build Your Product</a>
+    </div>
+  </header>
+
+  <!-- Case Study Hero -->
+  <section class="page-intro-header">
+    <div class="container reveal-on-scroll">
+      <span class="badge">SaaS MVP</span>
+      <h1>Content Engine.</h1>
+      <p class="lead">A unified generative copywriting schedule platform designed to research, draft, structure, and queue multi-channel marketing campaigns.</p>
+      
+      <!-- Actions Box -->
+      <div class="cs-header-ctas">
+        <a href="https://github.com/page-studio/content-engine" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 6px;"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          View GitHub Repository
+        </a>
+        <button class="btn btn-primary" onclick="alert('Launching content engine demo instance...');">Launch Live Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Content -->
+  <section class="section-padding" style="background: var(--bg-deep);">
+    <div class="container">
+      
+      <!-- Meta & Overview Header Bar -->
+      <div class="case-study-header-bar reveal-on-scroll">
+        <div>
+          <h3>Overview</h3>
+          <p style="margin-top: 1.5rem; font-size: 1.1rem; line-height: 1.75;">Maintaining marketing cadence across multiple digital channels represents a significant operations drag for early-stage companies. Founders and marketing directors often spend 15+ hours weekly researching topics, writing drafts, and scheduling them across platforms. We built Content Engine to centralize this entire pipeline.</p>
+        </div>
+        <div class="case-study-meta-box">
+          <div class="meta-field">
+            <span>Project Type</span>
+            <p>SaaS MVP</p>
+          </div>
+          <div class="meta-field">
+            <span>Timeline</span>
+            <p>4 Weeks</p>
+          </div>
+          <div class="meta-field">
+            <span>Core Outcome</span>
+            <p>340+ articles generated</p>
+          </div>
+          <div class="meta-field">
+            <span>Client State</span>
+            <p>Active MVP Launch</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem & Discovery Grid -->
+      <div class="case-study-grid reveal-on-scroll" style="margin-top: 4rem; border-top: 1px solid var(--border-subtle); padding-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">The Problem</h4>
+          <p>Creating content consistently is difficult. Traditional content calendars hold posts but do not help write them. In contrast, standard copywriting AI tools output generic templates that lack company voice consistency and fail to link directly with social APIs. Founders get bogged down copying and pasting drafts between tools.</p>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Discovery Workshop</h4>
+          <p>We found that user engagement increases when articles are structured as structural outlines rather than fully automated text. Presenting founders with a researched outline that they can edit and refine led to higher publication rates and real narrative quality.</p>
+        </div>
+      </div>
+
+      <!-- Product Thinking & Design Options -->
+      <div class="case-study-grid reveal-on-scroll" style="margin-top: 4rem; border-top: 1px solid var(--border-subtle); padding-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Product Thinking</h4>
+          <p>We structured the content engine around outlines rather than raw text generation. Handing founders a structural guide to iterate on ensures that the final published copy retains real personal insight and narrative tone, increasing conversions.</p>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Design &amp; UX</h4>
+          <p>We designed a minimalist split editor. The left side controls the keyword outline structures, and the right provides a clean typography text editor that directly updates calendar delivery tracks.</p>
+        </div>
+      </div>
+
+      <!-- Screenshots & Interactive Walkthrough Simulator -->
+      <div class="reveal-on-scroll" style="margin-top: 5rem;">
+        <h4 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 2rem;">Interactive Walkthrough Simulator</h4>
+        
+        <div class="simulator-box">
+          <div class="simulator-header">
+            <div class="simulator-dots">
+              <div class="simulator-dot sim-red"></div>
+              <div class="simulator-dot sim-yellow"></div>
+              <div class="simulator-dot sim-green"></div>
+            </div>
+            <div class="simulator-title">Generative Outline Compiler</div>
+          </div>
+          <div class="simulator-body" id="sim-content-logs">
+            <div class="visual-line"><span>$</span> <span>Ready to compile campaign copywriting outlines...</span></div>
+          </div>
+          <div class="sim-action-row">
+            <button class="simulator-btn" id="btn-gen-outline">Generate Campaign Outline</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture & Tech Stack -->
+      <div class="case-study-grid reveal-on-scroll" style="margin-top: 5rem; border-top: 1px solid var(--border-subtle); padding-top: 5rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 5rem; align-items: start;">
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">System Architecture</h4>
+          <p style="margin-bottom: 1.5rem;">The engine links keyword search metrics to an LLM writing pipeline. The system utilizes structured prompt models to ingest company background context, matches it to current industry trends, drafts content trees, and delivers them directly into a drag-and-drop Kanban interface queue connected to social API endpoints.</p>
+          
+          <!-- SVG Architecture Diagram -->
+          <div style="margin-top: 2rem; margin-bottom: 2rem;">
+            <svg viewBox="0 0 600 120" width="100%" height="auto" style="border: 1px solid var(--border-subtle); border-radius: 8px; background: rgba(0,0,0,0.1); padding: 1.5rem;">
+              <rect x="10" y="35" width="100" height="50" rx="6" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="2"/>
+              <text x="60" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-family="monospace">React Panel</text>
+              <path d="M 110 60 L 160 60" stroke="var(--border-strong)" stroke-width="2" fill="none"/>
+              
+              <rect x="160" y="35" width="100" height="50" rx="6" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="2"/>
+              <text x="210" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-family="monospace">LLM Router</text>
+              <path d="M 260 60 L 310 60" stroke="var(--border-strong)" stroke-width="2" fill="none"/>
+              
+              <rect x="310" y="35" width="100" height="50" rx="6" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="2"/>
+              <text x="360" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-family="monospace">Prisma / PG</text>
+              <path d="M 410 60 L 460 60" stroke="var(--border-strong)" stroke-width="2" fill="none"/>
+
+              <rect x="460" y="35" width="120" height="50" rx="6" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="2"/>
+              <text x="520" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-family="monospace">Social APIs</text>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Tech Stack</h4>
+          <div>
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">OpenAI API</span>
+            <span class="tech-tag">Prisma ORM</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">LinkedIn &amp; Twitter API</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features & Challenges -->
+      <div class="case-study-grid reveal-on-scroll" style="margin-top: 5rem; border-top: 1px solid var(--border-subtle); padding-top: 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Key Features</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><span style="color: var(--accent-color);">⚡</span> <span><strong>Kanban Queue:</strong> Interactive schedule management with drag-and-drop blocks.</span></li>
+            <li style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><span style="color: var(--accent-color);">⚡</span> <span><strong>Content Outline Builder:</strong> Auto-generates structured headers and key talking points.</span></li>
+            <li style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><span style="color: var(--accent-color);">⚡</span> <span><strong>API Publish Hooks:</strong> Single-click scheduling directly to LinkedIn and blogs.</span></li>
+            <li style="display: flex; gap: 0.8rem; font-size: 0.95rem;"><span style="color: var(--accent-color);">⚡</span> <span><strong>Trend Telemetry:</strong> Automatically audits organic search volume metrics.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Engineering Challenges</h4>
+          <p>Maintaining narrative coherence across multiple channel posts required careful state management. Generative queries often hallucinated details or diverged from configured customer profiles. We solved this by implementing strict context window boundaries and utilizing validation checks that audit final drafts before release queues.</p>
+        </div>
+      </div>
+
+      <!-- Outcome & Future Roadmap -->
+      <div class="case-study-grid reveal-on-scroll" style="margin-top: 5rem; border-top: 1px solid var(--border-subtle); padding-top: 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Outcome</h4>
+          <p>Our customers saw a 16.4% MoM traffic growth during early validation. Content Engine generated more than 345 publishing-approved drafts, reducing founder copywriting overhead from 15 hours to 2 hours weekly.</p>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Future Roadmap</h4>
+          <p>We are deploying semantic scraping agents designed to follow specific LinkedIn/Twitter discussions, automatically suggesting contextual replies or brand outreach opportunities to target leads.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final Inspired CTA -->
+  <section class="final-cta-section" style="border-top: 1px solid var(--border-subtle); background: var(--bg-card);">
+    <div class="container reveal-on-scroll">
+      <h2>Inspired by this project?</h2>
+      <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem auto;">Let's build your software. Move from concept to reality in weeks.</p>
+      <a href="build.html" class="btn btn-primary btn-lg">Build Your Product</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-motto">
+        <h3>Every company starts with an idea.<br>Every idea starts on a page.<br>We turn pages into products.</h3>
+        <p class="footer-mantra">Write. Build. Launch. Repeat.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Selected Work</a>
+        <a href="process.html">Our Process</a>
+        <a href="log.html">Build Log</a>
+        <a href="about.html">About Page</a>
+        <a href="build.html">Build Your Product</a>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAGE Studio Inc. All rights reserved.</span>
+        <span>Built by Page Studio.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

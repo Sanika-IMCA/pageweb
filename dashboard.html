@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE — Client Onboarding Dashboard Preview</title>
+  <meta name="description" content="Preview the PAGE client onboarding portal and live build roadmap tracking systems.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <!-- Ambient background lighting glow -->
+  <div id="ambient-glow"></div>
+
+  <!-- Dashboard Navigation Header -->
+  <header class="db-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-color); margin-left: 0.5rem; text-transform: uppercase; border: 1px solid var(--border-subtle); padding: 0.2rem 0.6rem; border-radius: 4px;">WORKSPACE PREVIEW</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+        <a href="build.html" class="btn btn-secondary btn-sm">Exit Preview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Area -->
+  <section class="db-main-section">
+    <div class="container">
+      
+      <!-- Welcome Panel -->
+      <div class="db-welcome-panel reveal-on-scroll">
+        <div class="db-user-meta">
+          <h2>Welcome back, Founder.</h2>
+          <p style="color: var(--text-secondary); font-size: 1rem;">Project: <strong style="color: var(--text-primary);">Page Pipeline MVP</strong> (Active Sandbox)</p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <span style="border: 1px solid rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05); color: #10B981; font-family: var(--font-mono); font-size: 0.8rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+            Staging Server Active
+          </span>
+          <span style="border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 6px;">
+            Studio Partner: Page Team
+          </span>
+        </div>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="db-grid-three-col">
+        
+        <!-- Left Section: Timeline Progress & Roadmap Board -->
+        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+          
+          <!-- Milestone Progress Card -->
+          <div class="db-panel-card reveal-on-scroll">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              Project Phase Progress
+            </h3>
+            
+            <div class="db-milestones-stepper">
+              <div class="db-step-node completed">
+                <div class="db-step-dot">✓</div>
+                <span class="db-step-label">Discovery</span>
+              </div>
+              
+              <div class="db-step-node completed">
+                <div class="db-step-dot">✓</div>
+                <span class="db-step-label">Architecture</span>
+              </div>
+
+              <div class="db-step-node active">
+                <div class="db-step-dot">3</div>
+                <span class="db-step-label">UI/UX Design</span>
+              </div>
+
+              <div class="db-step-node">
+                <div class="db-step-dot">4</div>
+                <span class="db-step-label">Development</span>
+              </div>
+
+              <div class="db-step-node">
+                <div class="db-step-dot">5</div>
+                <span class="db-step-label">Launch MVP</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-mono);">Current Task</span>
+                <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-top: 0.2rem;">Finalizing Figma wireframes and auth endpoints schema</p>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-color);">Sprint 2 of 6</span>
+            </div>
+          </div>
+
+          <!-- Interactive Roadmap Kanban Board -->
+          <div class="db-panel-card reveal-on-scroll">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                <path d="M7 7h10M7 12h10M7 17h10"/>
+              </svg>
+              Interactive Product Roadmap
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Drag tasks to reorganize priorities or check engineering status logs.</p>
+            
+            <div class="db-kanban-board">
+              
+              <!-- Column 1: Backlog -->
+              <div class="kanban-col">
+                <h4>Backlog <span style="font-family: var(--font-mono); font-size: 0.75rem;">(2)</span></h4>
+                <div class="kanban-card">
+                  <strong>Stripe Subscriptions Integration</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Configure billing webhooks & checkout models.</p>
+                  <span class="tag">Payments</span>
+                </div>
+                <div class="kanban-card">
+                  <strong>Mobile Web Safari Polish</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Resolve layout overflows on mobile dashboard previews.</p>
+                  <span class="tag">UI/UX</span>
+                </div>
+              </div>
+
+              <!-- Column 2: In Progress -->
+              <div class="kanban-col" style="border-color: rgba(99, 102, 241, 0.3); background: rgba(99, 102, 241, 0.01);">
+                <h4>In Progress <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);">(2)</span></h4>
+                <div class="kanban-card" style="border-color: var(--accent-color);">
+                  <strong>OpenAI Triage Pipeline</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Write classification logic to sort leads in Redis Queue.</p>
+                  <span class="tag" style="background: rgba(99, 102, 241, 0.1); color: var(--accent-color);">AI Middleware</span>
+                </div>
+                <div class="kanban-card">
+                  <strong>UI Figma Wireframes</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Complete screen templates for client settings and statistics graphs.</p>
+                  <span class="tag">Design</span>
+                </div>
+              </div>
+
+              <!-- Column 3: Released -->
+              <div class="kanban-col">
+                <h4>Released <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #10B981;">(2)</span></h4>
+                <div class="kanban-card">
+                  <strong>System DB Schemas</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Deploy PostgreSQL database structure with indexes.</p>
+                  <span class="tag" style="color: #10B981;">Devops</span>
+                </div>
+                <div class="kanban-card">
+                  <strong>Discovery Workshop</strong>
+                  <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Document technical constraints & roadmap feature scope.</p>
+                  <span class="tag" style="color: #10B981;">Strategy</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Section: Files, Meetings, Invoices & AI Chat Assistant -->
+        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+          
+          <!-- Files & Meetings Sidebar Panel -->
+          <div class="db-panel-card reveal-on-scroll">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+              </svg>
+              Portal Workspace
+            </h3>
+            
+            <div class="db-sidebar-list">
+              <!-- Deliverable File -->
+              <div class="db-sidebar-item">
+                <div class="db-item-details">
+                  <h5>Technical_Blueprint.pdf</h5>
+                  <p>System architecture flowchart document</p>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color); cursor: pointer; text-decoration: underline;">Download</span>
+              </div>
+              
+              <!-- Scoping Meeting -->
+              <div class="db-sidebar-item">
+                <div class="db-item-details">
+                  <h5>Sprint Review Call</h5>
+                  <p>Wed, 3:00 PM (Google Meet)</p>
+                </div>
+                <span class="db-badge-status confirmed">Scheduled</span>
+              </div>
+
+              <!-- Invoice Paid -->
+              <div class="db-sidebar-item">
+                <div class="db-item-details">
+                  <h5>Phase 1 Setup Scoping</h5>
+                  <p>Invoiced scoping invoice paid receipt</p>
+                </div>
+                <span class="db-badge-status paid">Paid</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Project Assistant Simulator Chat Panel -->
+          <div class="db-panel-card reveal-on-scroll">
+            <h3>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              AI Project Assistant
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Ask our custom assistant questions about your current project milestones.</p>
+            
+            <!-- Chat Simulator UI container -->
+            <div class="chat-simulator-panel">
+              <div class="chat-simulator-messages" id="chat-messages-container">
+                <div class="chat-bubble assistant">
+                  Welcome to the Page Client Onboarding Assistant! How can I help you understand your project roadmap today? Click a scoping query chip below.
+                </div>
+              </div>
+              <div class="chat-simulator-chips">
+                <button type="button" class="chat-chip" data-query="timeline">What is our timeline?</button>
+                <button type="button" class="chat-chip" data-query="design">Where are the designs?</button>
+                <button type="button" class="chat-chip" data-query="features">What features are active?</button>
+                <button type="button" class="chat-chip" data-query="launch">When do we launch MVP?</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

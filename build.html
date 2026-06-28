@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE — Build Your Product</title>
+  <meta name="description" content="Start a conversation with PAGE. Submit your project details, stage, and challenges to begin a product partnership.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <!-- Ambient background lighting glow -->
+  <div id="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="log.html">Log</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Build Your Product</a>
+    </div>
+  </header>
+
+  <!-- Page Intro Header -->
+  <section class="page-intro-header" style="padding-bottom: 2rem;">
+    <div class="container reveal-on-scroll">
+      <span class="badge">Onboarding</span>
+      <h1>Build Your Product.</h1>
+      <p>Begin a product partnership. Tell us about your concepts, stage, and outcomes below. We review every submission personally and map a custom strategy session.</p>
+    </div>
+  </section>
+
+  <!-- Split Discovery Form & Deliverables Section -->
+  <section style="background: var(--bg-deep); padding-bottom: 8rem;">
+    <div class="container">
+      <div class="build-split-layout">
+        
+        <!-- Left: Funnel Container -->
+        <div class="funnel-container reveal-on-scroll">
+          
+          <!-- Step Indicators (Steps 1 to 6) -->
+          <div class="funnel-nav-steps" id="funnel-indicators">
+            <div class="funnel-step-indicator active" data-ind="1">1</div>
+            <div class="funnel-step-indicator" data-ind="2">2</div>
+            <div class="funnel-step-indicator" data-ind="3">3</div>
+            <div class="funnel-step-indicator" data-ind="4">4</div>
+            <div class="funnel-step-indicator" data-ind="5">5</div>
+            <div class="funnel-step-indicator" data-ind="6">6</div>
+          </div>
+
+          <form id="funnel-form">
+            <!-- Step 1: Tell us about your idea -->
+            <div class="form-step active" data-step="1">
+              <h3>Tell us about your idea.</h3>
+              <p>Describe your software concept. Help us understand the core vision.</p>
+              
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <label for="funnel-build-q">What are you trying to build?</label>
+                <textarea id="funnel-build-q" required placeholder="e.g. An AI-assisted CRM tool, automated logistics scraper, SaaS CRM MVP..."></textarea>
+              </div>
+              
+              <div class="form-group" style="margin-top: 1.2rem;">
+                <label for="funnel-problem-q">What problem are you solving?</label>
+                <textarea id="funnel-problem-q" required placeholder="e.g. Sales reps waste 5 hours a week manually scraping lead contact detail grids..."></textarea>
+              </div>
+
+              <div class="form-group" style="margin-top: 1.2rem;">
+                <label for="funnel-audience-q">Who is it for?</label>
+                <input type="text" id="funnel-audience-q" required placeholder="e.g. B2B Sales operators, early stage founders, ops managers...">
+              </div>
+            </div>
+
+            <!-- Step 2: Current Stage -->
+            <div class="form-step" data-step="2">
+              <h3>What is your current stage?</h3>
+              <p>Select the option that matches your project validation phase.</p>
+              <div class="options-vertical-grid">
+                <button type="button" class="option-select-btn" data-stage="Idea">Idea Only</button>
+                <button type="button" class="option-select-btn" data-stage="Research">Research &amp; Planning</button>
+                <button type="button" class="option-select-btn" data-stage="Prototype">Prototype / Mockup Built</button>
+                <button type="button" class="option-select-btn" data-stage="MVP">MVP Released</button>
+                <button type="button" class="option-select-btn" data-stage="Growing Product">Growing Product</button>
+                <button type="button" class="option-select-btn" data-stage="Existing Business">Existing Business Operations</button>
+              </div>
+              <input type="hidden" id="funnel-stage-input" required>
+            </div>
+
+            <!-- Step 3: Current Challenge -->
+            <div class="form-step" data-step="3">
+              <h3>What is your current bottleneck?</h3>
+              <p>Select the primary challenge blocking your product momentum.</p>
+              <div class="options-vertical-grid">
+                <button type="button" class="option-select-btn" data-challenge="Validation">Validation &amp; Product Strategy</button>
+                <button type="button" class="option-select-btn" data-challenge="Product Design">Product Design &amp; UI UX Polish</button>
+                <button type="button" class="option-select-btn" data-challenge="Technical Development">Technical Development &amp; Architecture</button>
+                <button type="button" class="option-select-btn" data-challenge="AI Integration">AI Integration &amp; LLM Orchestration</button>
+                <button type="button" class="option-select-btn" data-challenge="Internal Software">Internal Software Platforms</button>
+                <button type="button" class="option-select-btn" data-challenge="Automation">Workflow Automation / Scripts</button>
+                <button type="button" class="option-select-btn" data-challenge="Scaling">Scaling Database / Infrastructure</button>
+                <button type="button" class="option-select-btn" data-challenge="Other">Other Operational Constraints</button>
+              </div>
+              <input type="hidden" id="funnel-challenge-input" required>
+            </div>
+
+            <!-- Step 4: Desired Outcome -->
+            <div class="form-step" data-step="4">
+              <h3>What is your desired outcome?</h3>
+              <p>Select what achievement is most critical for your business.</p>
+              <div class="options-vertical-grid">
+                <button type="button" class="option-select-btn" data-outcome="Launch MVP">Launch an MVP to market</button>
+                <button type="button" class="option-select-btn" data-outcome="Save Time">Save manual team hours</button>
+                <button type="button" class="option-select-btn" data-outcome="Increase Revenue">Increase direct business revenue</button>
+                <button type="button" class="option-select-btn" data-outcome="Reduce Manual Work">Reduce manual script work errors</button>
+                <button type="button" class="option-select-btn" data-outcome="Build Internal Platform">Build internal operator systems</button>
+                <button type="button" class="option-select-btn" data-outcome="Test New Business">Test new business validation ideas</button>
+              </div>
+              <input type="hidden" id="funnel-outcome-input" required>
+            </div>
+
+            <!-- Step 5: Timeline -->
+            <div class="form-step" data-step="5">
+              <h3>What is your target timeline?</h3>
+              <p>Select when you'd like to push this software live.</p>
+              <div class="options-vertical-grid">
+                <button type="button" class="option-select-btn" data-time="Immediately">Immediately (High Priority)</button>
+                <button type="button" class="option-select-btn" data-time="Within 30 Days">Within 30 Days</button>
+                <button type="button" class="option-select-btn" data-time="1-3 Months">1 - 3 Months</button>
+                <button type="button" class="option-select-btn" data-time="Flexible">Flexible / Open Timeline</button>
+              </div>
+              <input type="hidden" id="funnel-timeline-input" required>
+            </div>
+
+            <!-- Step 6: Project Details & Contact -->
+            <div class="form-step" data-step="6">
+              <h3>Project details &amp; contact info.</h3>
+              <p>Encourage explaining your vision freely. Share how we should connect.</p>
+              
+              <div class="form-group" style="margin-top: 1rem;">
+                <label for="funnel-details">Share your vision freely</label>
+                <textarea id="funnel-details" required placeholder="Outline core integrations, technical constraints, database layouts, or growth plans..."></textarea>
+              </div>
+              <div class="form-group" style="margin-top: 1.2rem;">
+                <label for="funnel-name">Your Full Name</label>
+                <input type="text" id="funnel-name" required placeholder="e.g. Alex Rivera">
+              </div>
+              <div class="form-group" style="margin-top: 1.2rem;">
+                <label for="funnel-email">Work Email Address</label>
+                <input type="email" id="funnel-email" required placeholder="e.g. alex@startup.com">
+              </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="funnel-controls">
+              <button type="button" class="btn btn-secondary" id="btn-back" style="visibility: hidden;">Back</button>
+              <button type="button" class="btn btn-primary" id="btn-next">Next Step</button>
+            </div>
+          </form>
+
+          <!-- Step 7: Confirmation / Onboarding Success overlay -->
+          <div class="funnel-success-overlay" id="funnel-success">
+            <div class="success-icon" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--accent-color); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2rem;">✓</div>
+            <h2>Product Onboarding Form Received.</h2>
+            <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 450px; font-size: 1rem; line-height: 1.6; text-align: center;">
+              Thank you. Here is what happens next in our partnership:
+            </p>
+            
+            <div style="text-align: left; width: 100%; max-width: 450px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem; border-top: 1px solid var(--border-subtle); padding-top: 2rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="font-family: var(--font-mono); color: var(--accent-color); font-weight: bold;">01</span>
+                <div>
+                  <strong style="color: var(--text-primary);">We review your project.</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">We analyze your requirements and bottlenecks against our product studio patterns.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="font-family: var(--font-mono); color: var(--accent-color); font-weight: bold;">02</span>
+                <div>
+                  <strong style="color: var(--text-primary);">We identify high-risk assumptions.</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">We locate operational or technical complexity friction risks early.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="font-family: var(--font-mono); color: var(--accent-color); font-weight: bold;">03</span>
+                <div>
+                  <strong style="color: var(--text-primary);">We prepare ideas before calling.</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">We outline high-leverage software architectures and UX workflows beforehand.</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="font-family: var(--font-mono); color: var(--accent-color); font-weight: bold;">04</span>
+                <div>
+                  <strong style="color: var(--text-primary);">We schedule a strategy session.</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">We get on a 30-minute scoping call to map out a launch-ready action plan.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+              <a href="dashboard.html" class="btn btn-primary">Preview Client Dashboard</a>
+              <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Deliverables Sidebar -->
+        <div class="strategy-session-sidebar reveal-on-scroll">
+          <h4>
+            <span>Scoping Call</span>
+            Product Strategy Session
+          </h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+            We do not offer generic sales consults. When we schedule our call, we hand over five core scope deliverables for your product roadmap.
+          </p>
+          
+          <div class="sidebar-deliverable-list">
+            <div class="sidebar-deliverable-item">
+              <span class="icon-circle">01</span>
+              <div>
+                <h5>Problem Breakdown</h5>
+                <p>Teardown analysis of technical risk bottlenecks and scoping trade-offs.</p>
+              </div>
+            </div>
+            
+            <div class="sidebar-deliverable-item">
+              <span class="icon-circle">02</span>
+              <div>
+                <h5>Product Direction</h5>
+                <p>Draft workflow sketches mapping out UX layouts and integrations.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-deliverable-item">
+              <span class="icon-circle">03</span>
+              <div>
+                <h5>Feature Prioritization</h5>
+                <p>Separating critical MVP engine variables from long-term feature plans.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-deliverable-item">
+              <span class="icon-circle">04</span>
+              <div>
+                <h5>Technical Recommendation</h5>
+                <p>Curated tech stack recommendations, queue models, and database schema drafts.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-deliverable-item">
+              <span class="icon-circle">05</span>
+              <div>
+                <h5>Launch Plan</h5>
+                <p>A step-by-step phased execution sequence to go from zero to production launch.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion FAQs Section -->
+  <section class="faq-section">
+    <div class="container reveal-on-scroll">
+      <h2>Frequently Asked Questions.</h2>
+      
+      <div class="faq-accordion-container">
+        
+        <div class="faq-accordion">
+          <button class="faq-header" aria-expanded="false">
+            How long does an MVP take?
+            <span class="faq-icon-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We typically build and launch custom MVPs in 4 to 8 weeks. Our modular product components (scrapers, LLM triagers, queues, auth) enable us to focus engineering energy entirely on your unique business logic rather than generic boilerplate details.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion">
+          <button class="faq-header" aria-expanded="false">
+            How involved will I be?
+            <span class="faq-icon-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              You'll be fully aligned but never bogged down. We handle full technical design and execution. We synchronize milestones weekly in your client dashboard and run short product reviews to gather feedback. You focus on validation and customers; we handle the software.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion">
+          <button class="faq-header" aria-expanded="false">
+            Can you work with an existing team?
+            <span class="faq-icon-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. We often partner with active marketing, ops, or development teams to audit friction, define architectures, and compile high-complexity core components (like custom scraping engines or automated queue architectures) that plug into their existing repos.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion">
+          <button class="faq-header" aria-expanded="false">
+            Can Page improve an existing product?
+            <span class="faq-icon-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Absolutely. We look at database bottlenecks, rewrite brittle automation script runs, implement AI processing tools, and polish UX layouts to increase conversion performance. We upgrade software to feel modern and run with complete resilience.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-accordion">
+          <button class="faq-header" aria-expanded="false">
+            What happens after launch?
+            <span class="faq-icon-plus"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We don't just hand off code and disappear. We monitor error thresholds, handle scaling infrastructure, support iterations, and help hire/onboard your full-time technical engineers as your startup scales.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-motto">
+        <h3>Every company starts with an idea.<br>Every idea starts on a page.<br>We turn pages into products.</h3>
+        <p class="footer-mantra">Write. Build. Launch. Repeat.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Selected Work</a>
+        <a href="process.html">Our Process</a>
+        <a href="log.html">Build Log</a>
+        <a href="about.html">About Page</a>
+        <a href="build.html">Build Your Product</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAGE Studio Inc. All rights reserved.</span>
+        <span>Built by Page Studio.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

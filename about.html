@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE — About Us</title>
+  <meta name="description" content="A personal founder-to-founder letter explaining why PAGE exists, who we partner with, and our long-term product vision.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <div id="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="log.html">Log</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Build Your Product</a>
+    </div>
+  </header>
+
+  <!-- Page Intro Header -->
+  <section class="page-intro-header">
+    <div class="container reveal-on-scroll">
+      <span class="badge">Founder Letter</span>
+      <h1>Our Story.</h1>
+      <p>Ideas are cheap. Shipping code is hard. Here is a personal look into why PAGE exists, who we partner with, and where we are heading.</p>
+    </div>
+  </section>
+
+  <!-- Letter Content Section -->
+  <section class="section-padding" style="background: var(--bg-deep);">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 4rem; box-shadow: var(--shadow-card);" class="reveal-on-scroll glow-card">
+        
+        <!-- Letter Body -->
+        <div style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); display: flex; flex-direction: column; gap: 2rem;">
+          <p style="color: var(--text-primary); font-weight: 600;">Dear Founder,</p>
+          
+          <p>Every company starts with an idea. Every idea starts on a page. But most ideas never get beyond that page.</p>
+
+          <p>We founded <strong>PAGE</strong> to change that. Having spent years in the tech ecosystem, we grew tired of seeing ambitious founders get bogged down in agency bureaucracy, over-engineered architectures, and standard outsourcing pitfalls. You don't need a presentation slide deck; you need working software in your users' hands.</p>
+
+          <p>We are a product studio. We do not position ourselves as an automation agency, a web design shop, or an AI wrapper factory. We are builders who partner with Ambition. We design premium interfaces, map structured database schemas, and write high-leverage vanilla code to solve actual business challenges.</p>
+
+          <h3 style="color: var(--text-primary); font-family: var(--font-heading); margin-top: 1rem; font-size: 1.5rem;">Who We Partner With</h3>
+          <p>We work with ambitious founders, startups, businesses, operators, and creators who understand that technology should build leverage, remove friction, and solve real bottlenecks. If you prioritize visual craft, absolute speed, and code cleanliness over corporate meetings, you are in the right place.</p>
+
+          <h3 style="color: var(--text-primary); font-family: var(--font-heading); margin-top: 1rem; font-size: 1.5rem;">The Next Decade</h3>
+          <p>Our long-term roadmap is clear. We are starting as a product studio, helping ambition launch. In the next phase, we will co-found internal software products as a venture studio. Ultimately, we are building an integrated ecosystem of SaaS products and tools designed to create leverage for operators globally.</p>
+
+          <p>Every great product starts somewhere. Let's turn your page into a product.</p>
+
+          <div style="margin-top: 2rem; border-top: 1px solid var(--border-subtle); padding-top: 2rem;">
+            <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">The Founding Team</p>
+            <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-color);">PAGE Studio</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- The Page Ecosystem Section -->
+  <section class="ecosystem-section" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container reveal-on-scroll">
+      <span class="badge" style="margin: 0 auto 1.5rem auto; display: table;">Ecosystem</span>
+      <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1.5rem;">The PAGE Trajectory.</h2>
+      <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; line-height: 1.6;">
+        We are building something much larger than a typical services agency. The PAGE ecosystem is designed to systematically evolve from design execution to venture building.
+      </p>
+      
+      <div class="ecosystem-grid">
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 01</span>
+          <h3>Product Studio</h3>
+          <p>We partner with founders and business operators to transform concepts into working production software in weeks.</p>
+        </div>
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 02</span>
+          <h3>Internal Products</h3>
+          <p>We build, test, and co-found our own software tools and automated platforms, spinning out independent teams.</p>
+        </div>
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 03</span>
+          <h3>Open Source</h3>
+          <p>We compile and release core scraper libraries, classification utilities, and layout frameworks to the developer ecosystem.</p>
+        </div>
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 04</span>
+          <h3>Community</h3>
+          <p>We Build in Public, hosting workshops, publishing engineering lessons learned, and sharing technical essays.</p>
+        </div>
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 05</span>
+          <h3>Venture Studio</h3>
+          <p>We leverage our studio speed to provide direct equity incubation, software resources, and funding to scaling startups.</p>
+        </div>
+        <div class="ecosystem-card">
+          <span class="card-num">Phase 06</span>
+          <h3>Software Company</h3>
+          <p>An integrated network of high-leverage SaaS, AI agents, and developer workflow systems operating globally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container reveal-on-scroll">
+      <h2>Let's build.</h2>
+      <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem auto;">Ready to collaborate with a partner who thinks like a co-founder? Let's connect.</p>
+      <a href="build.html" class="btn btn-primary btn-lg">Build Your Product</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-motto">
+        <h3>Every company starts with an idea.<br>Every idea starts on a page.<br>We turn pages into products.</h3>
+        <p class="footer-mantra">Write. Build. Launch. Repeat.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Selected Work</a>
+        <a href="process.html">Our Process</a>
+        <a href="log.html">Build Log</a>
+        <a href="about.html">About Page</a>
+        <a href="build.html">Build Your Product</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAGE Studio Inc. All rights reserved.</span>
+        <span>Built by Page Studio.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

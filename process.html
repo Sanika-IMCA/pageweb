@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE — Our Process</title>
+  <meta name="description" content="Understand the PAGE product engineering methodology. Explore the 7 development phases: Discovery, Research, Architecture, UI, Dev, Launch, and Growth.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+
+  <div id="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="process.html" class="active">Process</a></li>
+          <li><a href="log.html">Log</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Build Your Product</a>
+    </div>
+  </header>
+
+  <!-- Page Intro Header -->
+  <section class="page-intro-header">
+    <div class="container reveal-on-scroll">
+      <span class="badge">Methodology</span>
+      <h1>How We Build.</h1>
+      <p>We work in accelerated visual cycles, eliminating administrative overhead to transform concepts into shipping software. Here is the step-by-step engineering roadmap.</p>
+    </div>
+  </section>
+
+  <!-- Interactive SVG Flowchart Diagram Section -->
+  <section class="section-padding" style="background: var(--bg-deep); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header reveal-on-scroll" style="text-align: center; margin: 0 auto 3rem auto;">
+        <span class="badge">Interactive Flowchart</span>
+        <h2>Engineering Roadmap</h2>
+        <p style="margin-top: 1rem;">Hover or click on each node to audit active logs and explore execution deliverables.</p>
+      </div>
+
+      <div class="process-svg-diagram-wrapper reveal-on-scroll">
+        <svg viewBox="0 0 900 120" width="100%" height="auto">
+          <!-- Connectors -->
+          <path class="diagram-arrow" d="M 110,60 L 140,60" />
+          <path class="diagram-arrow" d="M 240,60 L 270,60" />
+          <path class="diagram-arrow" d="M 370,60 L 400,60" />
+          <path class="diagram-arrow" d="M 500,60 L 530,60" />
+          <path class="diagram-arrow" d="M 630,60 L 660,60" />
+          <path class="diagram-arrow" d="M 760,60 L 790,60" />
+
+          <!-- Node 1: Discovery Workshop -->
+          <rect class="diagram-node active" data-index="0" x="10" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="60" y="52" text-anchor="middle">01 / WORKSHOP</text>
+          <text class="diagram-text-title" x="60" y="68" text-anchor="middle">Discovery</text>
+
+          <!-- Node 2: Research -->
+          <rect class="diagram-node" data-index="1" x="140" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="190" y="52" text-anchor="middle">02 / AUDIT</text>
+          <text class="diagram-text-title" x="190" y="68" text-anchor="middle">Research</text>
+
+          <!-- Node 3: Architecture -->
+          <rect class="diagram-node" data-index="2" x="270" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="320" y="52" text-anchor="middle">03 / STRUCT</text>
+          <text class="diagram-text-title" x="320" y="68" text-anchor="middle">Architecture</text>
+
+          <!-- Node 4: UI Design -->
+          <rect class="diagram-node" data-index="3" x="400" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="450" y="52" text-anchor="middle">04 / DESIGN</text>
+          <text class="diagram-text-title" x="450" y="68" text-anchor="middle">UI / UX</text>
+
+          <!-- Node 5: Development -->
+          <rect class="diagram-node" data-index="4" x="530" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="580" y="52" text-anchor="middle">05 / DEV</text>
+          <text class="diagram-text-title" x="580" y="68" text-anchor="middle">Code</text>
+
+          <!-- Node 6: Deployment -->
+          <rect class="diagram-node" data-index="5" x="660" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="710" y="52" text-anchor="middle">06 / EDGE</text>
+          <text class="diagram-text-title" x="710" y="68" text-anchor="middle">Launch</text>
+
+          <!-- Node 7: Growth -->
+          <rect class="diagram-node" data-index="6" x="790" y="35" width="100" height="50" rx="8" />
+          <text class="diagram-text-step" x="840" y="52" text-anchor="middle">07 / ITERATE</text>
+          <text class="diagram-text-title" x="840" y="68" text-anchor="middle">Growth</text>
+        </svg>
+
+        <!-- Detail display panel -->
+        <div class="diagram-detail-panel" id="diagram-log-panel">
+          <!-- Loaded by JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container reveal-on-scroll">
+      <h2>Let's build together.</h2>
+      <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem auto;">Ready to deploy our methodology on your startup idea? Contact our founding team.</p>
+      <a href="build.html" class="btn btn-primary btn-lg">Start a Conversation</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-motto">
+        <h3>Every company starts with an idea.<br>Every idea starts on a page.<br>We turn pages into products.</h3>
+        <p class="footer-mantra">Write. Build. Launch. Repeat.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Selected Work</a>
+        <a href="process.html">Our Process</a>
+        <a href="log.html">Build Log</a>
+        <a href="about.html">About Page</a>
+        <a href="build.html">Build Your Product</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAGE Studio Inc. All rights reserved.</span>
+        <span>Built by Page Studio.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
