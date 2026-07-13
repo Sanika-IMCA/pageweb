@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE STUDIOS — Start a Conversation</title>
+  <meta name="description" content="Submit your operational challenges, scope, and objectives to begin a product partnership.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <!-- Preloader: The System Boots -->
+  <div id="preloader">
+    <div class="preloader-boot-container">
+      <div class="preloader-boot-status" id="boot-status">&nbsp;</div>
+      <div class="preloader-boot-line-wrapper">
+        <div class="preloader-boot-line" id="boot-line"></div>
+        <div id="boot-nodes-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Top Scroll Indicator -->
+  <div class="mobile-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE STUDIOS
+      </a>
+      <nav>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta active">Start a Conversation</a>
+    </div>
+  </header>
+
+  <!-- Dossier Frame with Left Spine -->
+  <div class="dossier-layout">
+    
+    <div class="spine-nav-container">
+      <div class="spine-nav">
+        <a href="index.html" class="spine-item active">
+          <span class="spine-num">&larr;</span>
+          <span class="spine-label">Home</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content Stream -->
+    <div class="main-content">
+
+      <!-- Page Intro Header -->
+      <section class="page-intro-header">
+        <div class="container reveal-text">
+          <span class="eyebrow">Onboarding</span>
+          <h1>Start a Conversation.</h1>
+          <p>
+            Tell us about your systems, bottlenecks, and desired outcomes below. We review every inquiry personally to prepare a custom scoping roadmap.
+          </p>
+        </div>
+      </section>
+
+      <!-- Funnel Split Section -->
+      <section class="section-dossier" style="min-height: auto; padding: 4rem 0;">
+        <div class="container">
+          <div class="build-split-layout">
+            
+            <!-- Left: Form Container -->
+            <div class="funnel-container reveal-text">
+              
+              <div class="funnel-nav-steps" id="funnel-indicators">
+                <div class="funnel-step-indicator active" data-ind="1">1</div>
+                <div class="funnel-step-indicator" data-ind="2">2</div>
+                <div class="funnel-step-indicator" data-ind="3">3</div>
+                <div class="funnel-step-indicator" data-ind="4">4</div>
+                <div class="funnel-step-indicator" data-ind="5">5</div>
+                <div class="funnel-step-indicator" data-ind="6">6</div>
+              </div>
+
+              <form id="funnel-form" onsubmit="return false;">
+                
+                <!-- Step 1: Idea details -->
+                <div class="form-step active" data-step="1">
+                  <h3>Tell us about your system needs.</h3>
+                  <p>Describe the software or operational system you want to build.</p>
+                  
+                  <div class="form-group">
+                    <label for="funnel-build-q">What are you trying to build?</label>
+                    <textarea id="funnel-build-q" placeholder="e.g., A custom CRM database bridge, automated logistics tracking system..."></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="funnel-problem-q">What primary bottleneck does this solve?</label>
+                    <textarea id="funnel-problem-q" placeholder="e.g., Sales operators spend 15 hours a week manually inputting lead spreadsheets..."></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="funnel-audience-q">Who is the target operator or user?</label>
+                    <input type="text" id="funnel-audience-q" placeholder="e.g., Internal ops coordinators, sales agents, field managers...">
+                  </div>
+                </div>
+
+                <!-- Step 2: Current Stage -->
+                <div class="form-step" data-step="2">
+                  <h3>What is your current business stage?</h3>
+                  <p>Select the option that best maps to your organization.</p>
+                  
+                  <div class="option-select-grid">
+                    <button type="button" class="option-select-btn" data-stage="Pre-Seed / Startup">Startup MVP</button>
+                    <button type="button" class="option-select-btn" data-stage="Growth Stage">Growth Stage Company</button>
+                    <button type="button" class="option-select-btn" data-stage="Established SMB">Established SMB</button>
+                    <button type="button" class="option-select-btn" data-stage="Enterprise Division">Enterprise Division</button>
+                  </div>
+                  <input type="hidden" id="funnel-stage-input">
+                </div>
+
+                <!-- Step 3: Current Challenge -->
+                <div class="form-step" data-step="3">
+                  <h3>What is your primary operational challenge?</h3>
+                  <p>Select the biggest bottleneck holding your team back.</p>
+                  
+                  <div class="option-select-grid">
+                    <button type="button" class="option-select-btn" data-challenge="Manual Coordination">Manual Handoffs &amp; Admin</button>
+                    <button type="button" class="option-select-btn" data-challenge="Disconnected Data">Disconnected Database Silos</button>
+                    <button type="button" class="option-select-btn" data-challenge="Slow Client Onboarding">Slow Client Onboarding Loops</button>
+                    <button type="button" class="option-select-btn" data-challenge="Lack of Reporting">Inaccurate Live Reporting</button>
+                  </div>
+                  <input type="hidden" id="funnel-challenge-input">
+                </div>
+
+                <!-- Step 4: Desired Outcome -->
+                <div class="form-step" data-step="4">
+                  <h3>What is your target outcome?</h3>
+                  <p>Select the metric that represents success for this system.</p>
+                  
+                  <div class="option-select-grid">
+                    <button type="button" class="option-select-btn" data-outcome="Reduce Hours spent">Reduce Manual Work Hours</button>
+                    <button type="button" class="option-select-btn" data-outcome="Increase Conversion Rates">Boost Funnel Conversion</button>
+                    <button type="button" class="option-select-btn" data-outcome="Accelerate Lead Speeds">Accelerate Turnaround Speed</button>
+                    <button type="button" class="option-select-btn" data-outcome="Improve Security/Compliance">Compliance &amp; Spacing Rigor</button>
+                  </div>
+                  <input type="hidden" id="funnel-outcome-input">
+                </div>
+
+                <!-- Step 5: Timeline -->
+                <div class="form-step" data-step="5">
+                  <h3>What is your target timeline?</h3>
+                  <p>Choose your expected start date schedule.</p>
+                  
+                  <div class="option-select-grid">
+                    <button type="button" class="option-select-btn" data-time="Immediate">Within 2 Weeks</button>
+                    <button type="button" class="option-select-btn" data-time="1-2 Months">1 to 2 Months</button>
+                    <button type="button" class="option-select-btn" data-time="Quarterly">This Quarter</button>
+                    <button type="button" class="option-select-btn" data-time="Flexible / Scoping only">Scoping &amp; Architecture Only</button>
+                  </div>
+                  <input type="hidden" id="funnel-timeline-input">
+                </div>
+
+                <!-- Step 6: Contact Info -->
+                <div class="form-step" data-step="6">
+                  <h3>Confirm details.</h3>
+                  <p>Share your email contact so we can send the compiled scoping plan.</p>
+                  
+                  <div class="form-group">
+                    <label for="funnel-details">Any other system constraints to note?</label>
+                    <textarea id="funnel-details" placeholder="e.g., Relational Postgres DB required, must sync with Salesforce APIs..."></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="funnel-name">Name</label>
+                    <input type="text" id="funnel-name" placeholder="John Doe">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="funnel-email">Corporate Email</label>
+                    <input type="email" id="funnel-email" placeholder="john@company.com">
+                  </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="form-navigation">
+                  <button type="button" class="btn btn-secondary" id="btn-back" style="visibility: hidden;">Back</button>
+                  <button type="button" class="btn btn-primary" id="btn-next">Next Step</button>
+                </div>
+
+              </form>
+
+              <!-- Success Overlay (Step 7) -->
+              <div id="funnel-success" style="display: none; text-align: center; padding: 2rem 0;">
+                <span class="eyebrow">Scoping Request Received</span>
+                <h3 style="font-size: 2rem; margin-top: 1rem; margin-bottom: 1rem; font-family: var(--font-heading);">
+                  Submission Mapped.
+                </h3>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2.5rem auto;">
+                  We are indexing your answers and bottlenecks. We will reach out personally via email within 24 hours to schedule a custom systems review session.
+                </p>
+                <a href="dashboard.html" class="btn btn-primary">Preview Workspace Portal &rarr;</a>
+              </div>
+
+            </div>
+
+            <!-- Right: Onboarding Deliverables info -->
+            <div class="onboarding-deliverables reveal-text">
+              <h3>What happens next?</h3>
+              <div class="deliverable-list">
+                <div class="deliverable-item">
+                  <div class="deliverable-icon">01</div>
+                  <div>
+                    <h4>Bottleneck Evaluation</h4>
+                    <p>We audit the manual steps and data silos listed in your inquiry files.</p>
+                  </div>
+                </div>
+                
+                <div class="deliverable-item">
+                  <div class="deliverable-icon">02</div>
+                  <div>
+                    <h4>Scoping Call</h4>
+                    <p>We host a 30-minute review session to map your target operational database flow.</p>
+                  </div>
+                </div>
+
+                <div class="deliverable-item">
+                  <div class="deliverable-icon">03</div>
+                  <div>
+                    <h4>Relational Blueprint</h4>
+                    <p>We compile and deliver a custom architecture schematic mapping database relationships and API nodes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer id="footer">
+        <div class="container">
+          <div class="footer-statement reveal-text">
+            Let's build the system that <span class="bold-serif">runs your business</span> &mdash; before your competitors do.
+          </div>
+          
+          <div class="letterhead-container reveal-text">
+            <div class="letterhead-details" style="grid-template-columns: repeat(4, 1fr);">
+              <div class="letterhead-item">
+                <span>Inquiries</span>
+                <p><a href="mailto:hello@page.studio">hello@page.studio</a></p>
+                <p><a href="tel:+13025550190">+1 (302) 555-0190</a></p>
+              </div>
+              <div class="letterhead-item">
+                <span>Offices</span>
+                <p>Page Studios Inc.</p>
+                <p>1209 Delaware Ave</p>
+                <p>Wilmington, DE 19806</p>
+              </div>
+              <div class="letterhead-item">
+                <span>HQ Time</span>
+                <p id="hq-time-clock" style="font-family: var(--font-mono); font-weight: 500;">ET 12:00:00 AM</p>
+              </div>
+              <div class="letterhead-item">
+                <span>Network</span>
+                <p><a href="https://github.com/page-studios" target="_blank">GitHub</a></p>
+                <p><a href="https://linkedin.com/company/page-studios" target="_blank">LinkedIn</a></p>
+                <p><a href="https://twitter.com/page_studios" target="_blank">Twitter / X</a></p>
+              </div>
+            </div>
+            
+            <div class="footer-sitemap">
+              <a href="index.html">Home</a>
+              <a href="work.html">Selected Work</a>
+              <a href="process.html">Our Process</a>
+              <a href="log.html">Build Log</a>
+              <a href="about.html">About Page</a>
+              <a href="build.html">Start Scoping</a>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2.5rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+              Page Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
+            </p>
+          </div>
+
+          <div class="footer-bottom">
+            <span>&copy; 2026 PAGE STUDIOS INC. ALL RIGHTS RESERVED.</span>
+            <span>BUILT WITH OPERATIONAL RIGOR.</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE STUDIOS — Our Process</title>
+  <meta name="description" content="Understand our systems engineering methodology: Discovery, Mapping, Analysis, Design, Build, and Deploy.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <!-- Preloader: The System Boots -->
+  <div id="preloader">
+    <div class="preloader-boot-container">
+      <div class="preloader-boot-status" id="boot-status">&nbsp;</div>
+      <div class="preloader-boot-line-wrapper">
+        <div class="preloader-boot-line" id="boot-line"></div>
+        <div id="boot-nodes-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Top Scroll Indicator -->
+  <div class="mobile-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE STUDIOS
+      </a>
+      <nav>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Start a Conversation</a>
+    </div>
+  </header>
+
+  <!-- Dossier Frame with Left Spine -->
+  <div class="dossier-layout">
+    
+    <div class="spine-nav-container">
+      <div class="spine-nav">
+        <a href="index.html" class="spine-item active">
+          <span class="spine-num">&larr;</span>
+          <span class="spine-label">Home</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content Stream -->
+    <div class="main-content">
+
+      <!-- Page Intro Header -->
+      <section class="page-intro-header">
+        <div class="container reveal-text">
+          <span class="eyebrow">Methodology</span>
+          <h1>How We Build.</h1>
+          <p>
+            We work in accelerated visual cycles, eliminating administrative overhead to transform concepts into shipping software. Here is the step-by-step engineering roadmap.
+          </p>
+        </div>
+      </section>
+
+      <!-- SVG Flowchart Interactive Panel -->
+      <section class="section-dossier" style="min-height: auto; padding: 6rem 0;">
+        <div class="container">
+          <div class="section-header reveal-text" style="text-align: center; margin: 0 auto 3rem auto;">
+            <span class="eyebrow">Interactive Systems Map</span>
+            <h2>Engineering Roadmap</h2>
+            <p style="margin-top: 1rem;">Hover or click on each node to audit active logs and explore execution deliverables.</p>
+          </div>
+
+          <!-- Flowchart wrapper -->
+          <div class="interactive-workflow-wrapper reveal-text">
+            <div class="svg-flow-container" id="sec-03">
+              <svg viewBox="0 0 900 100" width="100%" height="auto">
+                <!-- Connectors -->
+                <path class="flow-link-path active-path" d="M 60 50 H 160" />
+                <path class="flow-link-path active-path" d="M 180 50 H 280" />
+                <path class="flow-link-path active-path" d="M 300 50 H 400" />
+                <path class="flow-link-path active-path" d="M 420 50 H 520" />
+                <path class="flow-link-path active-path" d="M 540 50 H 640" />
+                <path class="flow-link-path active-path" d="M 660 50 H 760" />
+                
+                <!-- Node 1: Discovery -->
+                <g class="flow-node active" data-step="0">
+                  <circle class="flow-node-pulse" cx="50" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="50" cy="50" r="10" />
+                  <text class="flow-text" x="50" y="80">Discovery</text>
+                </g>
+
+                <!-- Node 2: Mapping -->
+                <g class="flow-node" data-step="1">
+                  <circle class="flow-node-pulse" cx="170" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="170" cy="50" r="10" />
+                  <text class="flow-text" x="170" y="80">Mapping</text>
+                </g>
+
+                <!-- Node 3: Analysis -->
+                <g class="flow-node" data-step="2">
+                  <circle class="flow-node-pulse" cx="290" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="290" cy="50" r="10" />
+                  <text class="flow-text" x="290" y="80">Analysis</text>
+                </g>
+
+                <!-- Node 4: Design -->
+                <g class="flow-node" data-step="3">
+                  <circle class="flow-node-pulse" cx="410" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="410" cy="50" r="10" />
+                  <text class="flow-text" x="410" y="80">Design</text>
+                </g>
+
+                <!-- Node 5: Code -->
+                <g class="flow-node" data-step="4">
+                  <circle class="flow-node-pulse" cx="530" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="530" cy="50" r="10" />
+                  <text class="flow-text" x="530" y="80">Code</text>
+                </g>
+
+                <!-- Node 6: Deploy -->
+                <g class="flow-node" data-step="5">
+                  <circle class="flow-node-pulse" cx="650" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="650" cy="50" r="10" />
+                  <text class="flow-text" x="650" y="80">Deploy</text>
+                </g>
+
+                <!-- Node 7: Optimizations -->
+                <g class="flow-node" data-step="6">
+                  <circle class="flow-node-pulse" cx="770" cy="50" r="10" />
+                  <circle class="flow-node-circle" cx="770" cy="50" r="10" />
+                  <text class="flow-text" x="770" y="80">Optimization</text>
+                </g>
+              </svg>
+            </div>
+            
+            <div class="workflow-log-detail" id="workflow-detail-panel">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer id="footer">
+        <div class="container">
+          <div class="footer-statement reveal-text">
+            Let's build the system that <span class="bold-serif">runs your business</span> &mdash; before your competitors do.
+          </div>
+          
+          <div class="letterhead-container reveal-text">
+            <div class="letterhead-details" style="grid-template-columns: repeat(4, 1fr);">
+              <div class="letterhead-item">
+                <span>Inquiries</span>
+                <p><a href="mailto:hello@page.studio">hello@page.studio</a></p>
+                <p><a href="tel:+13025550190">+1 (302) 555-0190</a></p>
+              </div>
+              <div class="letterhead-item">
+                <span>Offices</span>
+                <p>Page Studios Inc.</p>
+                <p>1209 Delaware Ave</p>
+                <p>Wilmington, DE 19806</p>
+              </div>
+              <div class="letterhead-item">
+                <span>HQ Time</span>
+                <p id="hq-time-clock" style="font-family: var(--font-mono); font-weight: 500;">ET 12:00:00 AM</p>
+              </div>
+              <div class="letterhead-item">
+                <span>Network</span>
+                <p><a href="https://github.com/page-studios" target="_blank">GitHub</a></p>
+                <p><a href="https://linkedin.com/company/page-studios" target="_blank">LinkedIn</a></p>
+                <p><a href="https://twitter.com/page_studios" target="_blank">Twitter / X</a></p>
+              </div>
+            </div>
+            
+            <div class="footer-sitemap">
+              <a href="index.html">Home</a>
+              <a href="work.html">Selected Work</a>
+              <a href="process.html">Our Process</a>
+              <a href="log.html">Build Log</a>
+              <a href="about.html">About Page</a>
+              <a href="build.html">Start Scoping</a>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2.5rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+              Page Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
+            </p>
+          </div>
+
+          <div class="footer-bottom">
+            <span>&copy; 2026 PAGE STUDIOS INC. ALL RIGHTS RESERVED.</span>
+            <span>BUILT WITH OPERATIONAL RIGOR.</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

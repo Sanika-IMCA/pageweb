@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-body), Inter, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  /* Colors */
+  --color-charcoal-base: #020617;
+  --color-secondary-surface: rgba(255, 255, 255, 0.08);
+  --color-primary-text: #FFFFFF;
+  --color-muted-text: #94A3B8;
+  --color-brass-accent: #6366F1;
+  --color-hairline: rgba(255, 255, 255, 0.12);
+
+  /* Spacing Scale (8px base) */
+  --spacing-space-xxs: 4px;
+  --spacing-space-xs: 8px;
+  --spacing-space-sm: 16px;
+  --spacing-space-md: 24px;
+  --spacing-space-lg: 48px;
+  --spacing-space-xl: 96px;
+  --spacing-space-xxl: 144px;
+
+  /* Custom Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1440px;
+}
+
+/* Custom Typography Utility Classes matching §10 */
+@utility text-display-xl {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  @media (min-width: 1024px) {
+    font-size: 5.5rem;
+  }
+}
+
+@utility text-display-l {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  @media (min-width: 1024px) {
+    font-size: 4.25rem;
+  }
+}
+
+@utility text-display-m {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  @media (min-width: 1024px) {
+    font-size: 3.25rem;
+  }
+}
+
+@utility text-heading {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 500;
+  @media (min-width: 1024px) {
+    font-size: 1.75rem;
+  }
+}
+
+@utility text-body-l {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 300;
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+  }
+}
+
+@utility text-body-base {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+  @media (min-width: 1024px) {
+    font-size: 1.0rem;
+  }
+}
+
+@utility text-caption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  @media (min-width: 1024px) {
+    font-size: 0.8rem;
+  }
+}
+
+@utility text-micro {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--color-charcoal-base);
+  color: var(--color-primary-text);
+  overflow-x: hidden;
+}
+
+/* Global background textures overrides */
+.bg-charcoal-base {
+  background-color: var(--color-charcoal-base) !important;
+  background-image: linear-gradient(rgba(2, 6, 23, 0.80), rgba(2, 6, 23, 0.80)), url('/assets/curves-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+.bg-secondary-surface {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+}

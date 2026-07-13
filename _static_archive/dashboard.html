@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE STUDIOS — Client Workspace Portal</title>
+  <meta name="description" content="Workspace portal preview for tracking live builds, roadmaps, invoices, and scheduling.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <!-- Preloader: The System Boots -->
+  <div id="preloader">
+    <div class="preloader-boot-container">
+      <div class="preloader-boot-status" id="boot-status">&nbsp;</div>
+      <div class="preloader-boot-line-wrapper">
+        <div class="preloader-boot-line" id="boot-line"></div>
+        <div id="boot-nodes-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Top Scroll Indicator -->
+  <div class="mobile-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE STUDIOS
+        <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-color); border: 1px solid var(--border-subtle); padding: 0.15rem 0.5rem; border-radius: 2px; margin-left: 0.8rem; text-transform: uppercase;">PREVIEW</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+        <a href="build.html" class="btn btn-secondary btn-sm">Exit Workspace</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dossier Frame with Left Spine -->
+  <div class="dossier-layout">
+    
+    <div class="spine-nav-container">
+      <div class="spine-nav">
+        <a href="index.html" class="spine-item active">
+          <span class="spine-num">&larr;</span>
+          <span class="spine-label">Home</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content Stream -->
+    <div class="main-content">
+      
+      <section class="db-main-section">
+        <div class="container">
+          
+          <!-- Welcome Panel -->
+          <div class="db-welcome-panel reveal-text">
+            <div>
+              <h2>Welcome back, Operator.</h2>
+              <p style="color: var(--text-secondary); margin-top: 0.4rem; font-size: 0.9rem;">
+                Project Sandbox: <strong style="color: var(--text-primary);">Page Pipeline MVP</strong>
+              </p>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span style="border: 1px solid rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05); color: #10B981; font-family: var(--font-mono); font-size: 0.7rem; font-weight: bold; padding: 0.4rem 0.8rem; border-radius: 2px; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                Staging Server Active
+              </span>
+              <span style="border: 1px solid var(--border-subtle); background: var(--bg-deep); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 2px;">
+                Lead Engineer: Page Studios
+              </span>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Layout Grid -->
+          <div class="db-grid-three-col">
+            
+            <!-- Left Side: Progress & Roadmap Kanban -->
+            <div style="display: flex; flex-direction: column; gap: 3rem;">
+              
+              <!-- Project Milestones stepper -->
+              <div class="db-panel-card reveal-text">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                  Project Phase Progress
+                </h3>
+                
+                <div class="db-milestones-stepper">
+                  <div class="db-step-node completed">
+                    <div class="db-step-dot">✓</div>
+                    <span class="db-step-label">Discovery</span>
+                  </div>
+                  
+                  <div class="db-step-node completed">
+                    <div class="db-step-dot">✓</div>
+                    <span class="db-step-label">Architecture</span>
+                  </div>
+
+                  <div class="db-step-node active">
+                    <div class="db-step-dot">03</div>
+                    <span class="db-step-label">UI/UX Design</span>
+                  </div>
+
+                  <div class="db-step-node">
+                    <div class="db-step-dot">04</div>
+                    <span class="db-step-label">Development</span>
+                  </div>
+
+                  <div class="db-step-node">
+                    <div class="db-step-dot">05</div>
+                    <span class="db-step-label">Launch MVP</span>
+                  </div>
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-mono); display: block;">Active Scopes</span>
+                    <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-top: 0.2rem;">Finalizing Figma wireframes and API Webhook schemas</p>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);">Sprint 2 of 6</span>
+                </div>
+              </div>
+
+              <!-- Roadmap Kanban board -->
+              <div class="db-panel-card reveal-text">
+                <h3>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="3" rx="2"/>
+                    <path d="M7 7h10M7 12h10M7 17h10"/>
+                  </svg>
+                  Interactive Product Roadmap
+                </h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Review active backlog priorities, features, and engineering logs.</p>
+                
+                <div class="db-kanban-board">
+                  
+                  <!-- Backlog -->
+                  <div class="kanban-col">
+                    <h4>Backlog <span style="font-family: var(--font-mono); font-size: 0.7rem;">(2)</span></h4>
+                    <div class="kanban-card">
+                      <strong>Stripe Subscriptions Integration</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Configure billing webhooks & checkout models.</p>
+                      <span class="tag">Payments</span>
+                    </div>
+                    <div class="kanban-card">
+                      <strong>Mobile Safari Polishing</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Polishing layout containers and grid widths.</p>
+                      <span class="tag">UI/UX</span>
+                    </div>
+                  </div>
+
+                  <!-- In Progress -->
+                  <div class="kanban-col" style="border-color: rgba(var(--accent-rgb), 0.25);">
+                    <h4>In Progress <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-color);">(2)</span></h4>
+                    <div class="kanban-card" style="border-color: var(--accent-color);">
+                      <strong>OpenAI Triage Pipeline</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Write classification logic to sort leads in background queue.</p>
+                      <span class="tag">AI Middleware</span>
+                    </div>
+                    <div class="kanban-card">
+                      <strong>Figma Wireframe Templates</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Draft dashboard layout wireframes and user settings controls.</p>
+                      <span class="tag">Design Tokens</span>
+                    </div>
+                  </div>
+
+                  <!-- Complete -->
+                  <div class="kanban-col">
+                    <h4>Complete <span style="font-family: var(--font-mono); font-size: 0.7rem;">(3)</span></h4>
+                    <div class="kanban-card">
+                      <strong>Database Schema Setup</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Initialized PostgreSQL database tables on AWS RDS.</p>
+                      <span class="tag">Database</span>
+                    </div>
+                    <div class="kanban-card">
+                      <strong>Auth &amp; Session Middleware</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.4rem;">Coded JWT authentication checks and session routers.</p>
+                      <span class="tag">Security</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side: Sidebar metrics (Chat, invoicing, calls) -->
+            <div style="display: flex; flex-direction: column; gap: 3rem;">
+              
+              <!-- Assistant Chatbox simulator -->
+              <div class="db-panel-card reveal-text" style="padding: 2rem;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 500; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-color); display: inline-block;"></span>
+                  Page Build Assistant
+                </h4>
+                
+                <div style="height: 180px; overflow-y: auto; border: 1px solid var(--border-subtle); background: var(--bg-deep); border-radius: 2px; padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.75rem;" id="chat-messages-container">
+                  <div style="color: var(--text-secondary); text-align: center; font-family: var(--font-mono); font-size: 0.65rem;">SESSION WORKSPACE CONNECTED</div>
+                  <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.6rem 0.8rem; border-radius: 2px; color: var(--text-primary); max-width: 85%;">
+                    Hello. I am connected to your active repository. Ask me any status details below.
+                  </div>
+                </div>
+                
+                <!-- Chips queries -->
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem;">
+                  <button class="chat-chip option-select-btn" style="padding: 0.4rem 0.6rem; font-size: 0.65rem; border-radius: 20px;" data-query="timeline">Timeline?</button>
+                  <button class="chat-chip option-select-btn" style="padding: 0.4rem 0.6rem; font-size: 0.65rem; border-radius: 20px;" data-query="design">Figma Link?</button>
+                  <button class="chat-chip option-select-btn" style="padding: 0.4rem 0.6rem; font-size: 0.65rem; border-radius: 20px;" data-query="features">MVP Features?</button>
+                  <button class="chat-chip option-select-btn" style="padding: 0.4rem 0.6rem; font-size: 0.65rem; border-radius: 20px;" data-query="launch">Sandbox Launch?</button>
+                </div>
+              </div>
+
+              <!-- Meetings & Invoices lists -->
+              <div class="db-panel-card reveal-text" style="padding: 2rem;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 500; margin-bottom: 1.5rem;">Meetings &amp; Schedulers</h4>
+                <div class="db-sidebar-list">
+                  <div class="db-sidebar-item">
+                    <div>
+                      <h5>Architecture Scoping</h5>
+                      <p>Wed, 10:00 AM &bull; Google Meet</p>
+                    </div>
+                    <span class="db-badge-status paid" style="background: rgba(var(--accent-rgb), 0.05); color: var(--accent-color); font-weight: bold; border: 1px solid var(--border-subtle);">Sync</span>
+                  </div>
+                  <div class="db-sidebar-item">
+                    <div>
+                      <h5>Sprint 2 Review</h5>
+                      <p>Friday, 2:00 PM &bull; Slack</p>
+                    </div>
+                    <span class="db-badge-status paid" style="background: rgba(var(--accent-rgb), 0.05); color: var(--accent-color); font-weight: bold; border: 1px solid var(--border-subtle);">Review</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="db-panel-card reveal-text" style="padding: 2rem;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 500; margin-bottom: 1.5rem;">Billing &amp; Invoices</h4>
+                <div class="db-sidebar-list">
+                  <div class="db-sidebar-item">
+                    <div>
+                      <h5>Invoice #002 — Phase 2</h5>
+                      <p>Amount: $4,500.00 &bull; Net 15</p>
+                    </div>
+                    <span class="db-badge-status unpaid">Unpaid</span>
+                  </div>
+                  <div class="db-sidebar-item">
+                    <div>
+                      <h5>Invoice #001 — Retainer</h5>
+                      <p>Amount: $6,000.00 &bull; Completed</p>
+                    </div>
+                    <span class="db-badge-status paid">Paid</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer id="footer">
+        <div class="container">
+          <div class="letterhead-container reveal-text" style="border-top: none; padding-top: 0;">
+            <div class="letterhead-details" style="grid-template-columns: repeat(4, 1fr); width: 100%;">
+              <div class="letterhead-item">
+                <span>Inquiries</span>
+                <p><a href="mailto:hello@page.studio">hello@page.studio</a></p>
+              </div>
+              <div class="letterhead-item">
+                <span>Offices</span>
+                <p>Page Studios Inc.</p>
+                <p>Wilmington, DE</p>
+              </div>
+              <div class="letterhead-item">
+                <span>HQ Time</span>
+                <p id="hq-time-clock" style="font-family: var(--font-mono); font-weight: 500;">ET 12:00:00 AM</p>
+              </div>
+              <div class="letterhead-item">
+                <span>Repository</span>
+                <p><a href="https://github.com/page-studios" target="_blank">Workspace GitHub</a></p>
+              </div>
+            </div>
+            
+            <div class="footer-sitemap">
+              <a href="index.html">Home</a>
+              <a href="work.html">Work</a>
+              <a href="process.html">Process</a>
+              <a href="log.html">Log</a>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2.5rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+              Page Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
+            </p>
+          </div>
+
+          <div class="footer-bottom">
+            <span>&copy; 2026 PAGE STUDIOS INC. ALL RIGHTS RESERVED.</span>
+            <span>SECURE FOUNDER WORKSPACE.</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE STUDIOS — Case Study: AI Brand Auditor</title>
+  <meta name="description" content="Read the AI Brand Auditor case study. Automated design asset audit checks built by PAGE product studio.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+
+  <!-- Preloader: The System Boots -->
+  <div id="preloader">
+    <div class="preloader-boot-container">
+      <div class="preloader-boot-status" id="boot-status">&nbsp;</div>
+      <div class="preloader-boot-line-wrapper">
+        <div class="preloader-boot-line" id="boot-line"></div>
+        <div id="boot-nodes-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Top Scroll Indicator -->
+  <div class="mobile-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 6v20" />
+          <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
+          <path d="M14 13h4" />
+        </svg>
+        PAGE STUDIOS
+      </a>
+      <nav>
+        <ul>
+          <li><a href="work.html" class="active">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li>
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <a href="build.html" class="nav-cta">Start a Conversation</a>
+    </div>
+  </header>
+
+  <!-- Dossier Frame with Left Spine -->
+  <div class="dossier-layout">
+    
+    <div class="spine-nav-container">
+      <div class="spine-nav">
+        <a href="work.html" class="spine-item active">
+          <span class="spine-num">&larr;</span>
+          <span class="spine-label">Work</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content Stream -->
+    <div class="main-content">
+
+      <!-- Case Study Hero -->
+      <section class="page-intro-header">
+        <div class="container reveal-text">
+          <span class="eyebrow">AI Product</span>
+          <h1>AI Brand Auditor.</h1>
+          <p>
+            Autonomous design auditing powered by computer vision. Verifying visual compliance and alignment constraints in under 12 seconds.
+          </p>
+        </div>
+      </section>
+
+      <!-- Case Study Content -->
+      <section class="section-dossier" style="min-height: auto; padding: 6rem 0;">
+        <div class="container">
+          
+          <!-- Meta & Overview Header Bar -->
+          <div class="case-study-header-bar reveal-text">
+            <div>
+              <h3>Overview</h3>
+              <p style="margin-top: 1.5rem;">
+                Maintaining brand integrity is a persistent bottleneck as startups scale. When marketing, sales, and product teams spin up landing pages, graphics, and email campaigns in parallel, visual consistency degrades. We built AI Brand Auditor to turn manual design reviews into an automated, visual compiler check.
+              </p>
+            </div>
+            
+            <div class="case-study-meta-box">
+              <div class="meta-field">
+                <span>Project Type</span>
+                <p>AI Utility</p>
+              </div>
+              <div class="meta-field">
+                <span>Timeline</span>
+                <p>3 Weeks</p>
+              </div>
+              <div class="meta-field">
+                <span>Core Outcome</span>
+                <p>12-sec audit speeds</p>
+              </div>
+              <div class="meta-field">
+                <span>Client State</span>
+                <p>Scaling SaaS</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem & Solution Section -->
+          <div class="case-study-narrative reveal-text" style="margin-top: 4rem; border-top: 1px solid var(--border-subtle); padding-top: 4rem;">
+            <h2>The Problem</h2>
+            <p>
+              Startups shipping updates daily experience visual debt. Colors slip out of approved palettes, margins shrink, and text sizes break the standard typographic scale rules. Designers spent up to 10 hours a week manually checking screenshots and staging endpoints for compliance before release.
+            </p>
+
+            <h2>The Solution &amp; Engineering Process</h2>
+            <p>
+              We engineered a system that captures live screenshots using headless Chromium containers, processing images with OpenCV color extraction models. We cross-reference the extracted palettes against client Figma tokens stored in a relational PostgreSQL database. Below is the active data pipeline:
+            </p>
+
+            <!-- SVG Diagram -->
+            <div style="margin: 3rem 0;">
+              <svg viewBox="0 0 600 120" width="100%" height="auto" style="border: 1px solid var(--border-subtle); border-radius: 4px; background: rgba(0,0,0,0.15); padding: 1.5rem;">
+                <rect x="10" y="35" width="100" height="50" rx="2" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <text x="60" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="monospace">Playwright</text>
+                <path d="M 110 60 L 160 60" stroke="var(--border-strong)" stroke-width="1.5" fill="none"/>
+                
+                <rect x="160" y="35" width="100" height="50" rx="2" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <text x="210" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="monospace">OpenCV Engine</text>
+                <path d="M 260 60 L 310 60" stroke="var(--border-strong)" stroke-width="1.5" fill="none"/>
+                
+                <rect x="310" y="35" width="100" height="50" rx="2" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <text x="360" y="65" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="monospace">Token Matcher</text>
+                <path d="M 410 60 L 460 60" stroke="var(--border-strong)" stroke-width="1.5" fill="none"/>
+
+                <rect x="460" y="15" width="120" height="90" rx="2" fill="var(--bg-card)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <text x="520" y="45" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="monospace">Figma API</text>
+                <text x="520" y="65" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-family="monospace">&amp;</text>
+                <text x="520" y="85" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-family="monospace">PostgreSQL</text>
+              </svg>
+            </div>
+
+            <h3>Tech Stack</h3>
+            <div style="margin-bottom: 3rem;">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Playwright</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Figma API</span>
+              <span class="tech-tag">Vite Core</span>
+            </div>
+
+            <h2>Key Features</h2>
+            <ul>
+              <li><strong>Hex Palette Scanner:</strong> Automated check flagging unapproved color values.</li>
+              <li><strong>CSS Margin Audits:</strong> Pixel-perfect bounding box alignment checker.</li>
+              <li><strong>Typography Ratios:</strong> Verifies responsive text sizes match scale rules.</li>
+            </ul>
+
+            <h2>Engineering Challenges</h2>
+            <p>
+              Handling dynamic DOM content and animations during screenshot capture proved challenging. Headless browsers often captured blank loaders or partially styled states. We solved this by configuring strict hydration triggers, delaying CV analysis until all network calls remain idle for at least 800ms.
+            </p>
+
+            <h2>Outcome</h2>
+            <p>
+              By moving to autonomous audits, compliance check times decreased from 4 days to less than 12 seconds. Design reviewer backlogs fell by 92%, letting teams ship design-approved updates daily with absolute security.
+            </p>
+          </div>
+
+          <!-- Simulator Console Box -->
+          <div class="simulator-box reveal-text">
+            <h3>Interactive Audit Simulator</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Run a mock visual audit script against a simulated staging client endpoint.</p>
+            <button class="btn btn-primary" id="btn-run-audit">Run Scan</button>
+            <div class="sim-console-output" id="sim-audit-logs">
+              <div class="visual-line" style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.75rem;">CONSOLE READY. PRESS RUN SCAN TO INITIATE.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer id="footer">
+        <div class="container">
+          <div class="footer-statement reveal-text">
+            Let's build the system that <span class="bold-serif">runs your business</span> &mdash; before your competitors do.
+          </div>
+          
+          <div class="letterhead-container reveal-text">
+            <div class="letterhead-details" style="grid-template-columns: repeat(4, 1fr);">
+              <div class="letterhead-item">
+                <span>Inquiries</span>
+                <p><a href="mailto:hello@page.studio">hello@page.studio</a></p>
+                <p><a href="tel:+13025550190">+1 (302) 555-0190</a></p>
+              </div>
+              <div class="letterhead-item">
+                <span>Offices</span>
+                <p>Page Studios Inc.</p>
+                <p>1209 Delaware Ave</p>
+                <p>Wilmington, DE 19806</p>
+              </div>
+              <div class="letterhead-item">
+                <span>HQ Time</span>
+                <p id="hq-time-clock" style="font-family: var(--font-mono); font-weight: 500;">ET 12:00:00 AM</p>
+              </div>
+              <div class="letterhead-item">
+                <span>Network</span>
+                <p><a href="https://github.com/page-studios" target="_blank">GitHub</a></p>
+                <p><a href="https://linkedin.com/company/page-studios" target="_blank">LinkedIn</a></p>
+                <p><a href="https://twitter.com/page_studios" target="_blank">Twitter / X</a></p>
+              </div>
+            </div>
+            
+            <div class="footer-sitemap">
+              <a href="index.html">Home</a>
+              <a href="work.html">Selected Work</a>
+              <a href="process.html">Our Process</a>
+              <a href="log.html">Build Log</a>
+              <a href="about.html">About Page</a>
+              <a href="build.html">Start Scoping</a>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2.5rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+            <p style="font-size: 0.8rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6;">
+              Page Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
+            </p>
+          </div>
+
+          <div class="footer-bottom">
+            <span>&copy; 2026 PAGE STUDIOS INC. ALL RIGHTS RESERVED.</span>
+            <span>BUILT WITH OPERATIONAL RIGOR.</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
