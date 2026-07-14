@@ -83,6 +83,21 @@ export const STUDIES_DB: { [key: string]: StudyData } = {
     results: "Auditing scans achieved 99.4% accuracy, completing visual regulatory compliance reviews in seconds.",
     diagramNodes: ["Headless Browser", "React Render Hook", "OpenCV Match", "PDF Compiler"],
   },
+  knowledgeflow: {
+    client: "KnowledgeFlow AI",
+    projectType: "Document Intelligence",
+    timeline: "8 Weeks",
+    outcome: "99.2% Retrieval Accuracy",
+    clientState: "Enterprise Intelligence Office",
+    description: "A secure, role-restricted document intelligence platform integrating hybrid search (BM25 + pgvector RRF) and local annotation databases.",
+    problem: "Corporate intelligence analysts spent weeks searching hundreds of contracts and compliance documents, risking privacy leaks with commercial API providers.",
+    solution: "We engineered a secure offline hybrid search (BM25 + vector embeddings) combined with localized notes annotation toolsets and customized usage graphs.",
+    techStack: ["Next.js", "FastAPI", "PostgreSQL", "pgvector", "Redis", "Celery"],
+    features: ["RAG Chat with Citations", "Zustand Multi-pane Workspace", "Interactive Highlights & Annotations", "Telemetry & Storage Allocation Charts"],
+    challenge: "Apple Silicon C-API compilation conflicts with Python 3.14 forced us to deploy Python 3.11.15. Additionally, React 19 RC peer warnings required building custom responsive SVG charts.",
+    results: "Analytics compilation and notes databases respond in under 100ms, scaling enterprise intelligence operations securely.",
+    diagramNodes: ["Document Upload", "S3 Storage", "Celery Parser", "pgvector RRF", "Citation Chat"],
+  },
 };
 
 interface CaseStudyContentProps {

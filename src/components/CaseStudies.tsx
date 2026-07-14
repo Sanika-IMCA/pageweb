@@ -58,6 +58,16 @@ const caseStudies: CaseStudy[] = [
     image: "/assets/brand-auditor.png",
     altText: "Brand Auditor visual scanner displaying browser capture outputs, OpenCV differential checks, and compliance reports.",
   },
+  {
+    id: "knowledgeflow",
+    index: "25",
+    client: "KnowledgeFlow AI",
+    industry: "Enterprise Ops",
+    systemBuilt: "Document Intelligence & Hybrid RAG",
+    outcome: "99.2% Retrieval Accuracy",
+    image: "/assets/knowledgeflow.png",
+    altText: "KnowledgeFlow AI split-screen document intelligence dashboard displaying highlighted PDF text citations, inline notes annotations, responsive SVG charts, and interactive AI chat agent panel.",
+  },
 ];
 
 export default function CaseStudies() {
@@ -65,7 +75,7 @@ export default function CaseStudies() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-  
+
   // Accessibility check for OS animation preferences
   const shouldReduceMotion = useReducedMotion();
   const [hasMounted, setHasMounted] = useState(false);
@@ -113,7 +123,7 @@ export default function CaseStudies() {
       className="py-space-xxl px-6 bg-charcoal-base border-t border-hairline overflow-hidden relative"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
-        
+
         {/* Section Header with Layout Toggle */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-space-md">
           <div className="flex flex-col gap-space-xxs">
@@ -125,21 +135,19 @@ export default function CaseStudies() {
           <div className="flex items-center gap-2 p-1 border border-hairline rounded bg-secondary-surface self-end sm:self-auto">
             <button
               onClick={() => setViewMode("grid")}
-              className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${
-                viewMode === "grid"
+              className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${viewMode === "grid"
                   ? "bg-brass-accent text-charcoal-base font-medium"
                   : "text-muted-text hover:text-primary-text"
-              }`}
+                }`}
             >
               GRID
             </button>
             <button
               onClick={() => setViewMode("list")}
-              className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${
-                viewMode === "list"
+              className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${viewMode === "list"
                   ? "bg-brass-accent text-charcoal-base font-medium"
                   : "text-muted-text hover:text-primary-text"
-              }`}
+                }`}
             >
               LIST
             </button>
@@ -159,106 +167,64 @@ export default function CaseStudies() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-space-xl"
               >
-                {/* Column 1 (Outreach Engine & Page Pipeline) */}
+                {/* Column 1 (Odd-indexed studies in 0-indexed code, i.e. 0, 2, 4) */}
                 <motion.div style={{ y: col1Y }} className="flex flex-col gap-space-xl">
-                  {/* Item 1 */}
-                  <Link href={`/work/${caseStudies[0].id}`}>
-                    <div className="group relative w-full aspect-[4/3] rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer">
-                      <Image
-                        src={caseStudies[0].image}
-                        alt={caseStudies[0].altText}
-                        fill
-                        sizes="(max-w-768px) 100vw, 50vw"
-                        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
-                      />
-                      {/* Hover Overlay info */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
-                        <div className="flex justify-between items-start">
-                          <span className="text-micro font-mono text-brass-accent">{caseStudies[0].index}</span>
+                  {caseStudies
+                    .filter((_, idx) => idx % 2 === 0)
+                    .map((project, idx) => (
+                      <Link href={`/work/${project.id}`} key={project.id}>
+                        <div className={`group relative w-full ${idx % 2 === 0 ? "aspect-[4/3]" : "aspect-square"} rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer`}>
+                          <Image
+                            src={project.image}
+                            alt={project.altText}
+                            fill
+                            sizes="(max-w-768px) 100vw, 50vw"
+                            className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
+                          />
+                          {/* Hover Overlay info */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
+                            <div className="flex justify-between items-start">
+                              <span className="text-micro font-mono text-brass-accent">{project.index}</span>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                              <span className="text-caption text-brass-accent">{project.industry}</span>
+                              <h3 className="text-heading text-primary-text leading-tight">{project.client}</h3>
+                              <p className="text-micro text-muted-text font-mono mt-1">{project.systemBuilt}</p>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex flex-col gap-1">
-                          <span className="text-caption text-brass-accent">{caseStudies[0].industry}</span>
-                          <h3 className="text-heading text-primary-text leading-tight">{caseStudies[0].client}</h3>
-                          <p className="text-micro text-muted-text font-mono mt-1">{caseStudies[0].systemBuilt}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  {/* Item 2 */}
-                  <Link href={`/work/${caseStudies[2].id}`}>
-                    <div className="group relative w-full aspect-square rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer">
-                      <Image
-                        src={caseStudies[2].image}
-                        alt={caseStudies[2].altText}
-                        fill
-                        sizes="(max-w-768px) 100vw, 50vw"
-                        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
-                      />
-                      {/* Hover Overlay info */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
-                        <div className="flex justify-between items-start">
-                          <span className="text-micro font-mono text-brass-accent">{caseStudies[2].index}</span>
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          <span className="text-caption text-brass-accent">{caseStudies[2].industry}</span>
-                          <h3 className="text-heading text-primary-text leading-tight">{caseStudies[2].client}</h3>
-                          <p className="text-micro text-muted-text font-mono mt-1">{caseStudies[2].systemBuilt}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
+                      </Link>
+                    ))}
                 </motion.div>
 
-                {/* Column 2 (Founder Inbox & Brand Auditor) */}
+                {/* Column 2 (Even-indexed studies in 0-indexed code, i.e. 1, 3) */}
                 <motion.div style={{ y: col2Y }} className="flex flex-col gap-space-xl pt-space-xl">
-                  {/* Item 3 */}
-                  <Link href={`/work/${caseStudies[1].id}`}>
-                    <div className="group relative w-full aspect-square rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer">
-                      <Image
-                        src={caseStudies[1].image}
-                        alt={caseStudies[1].altText}
-                        fill
-                        sizes="(max-w-768px) 100vw, 50vw"
-                        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
-                      />
-                      {/* Hover Overlay info */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
-                        <div className="flex justify-between items-start">
-                          <span className="text-micro font-mono text-brass-accent">{caseStudies[1].index}</span>
+                  {caseStudies
+                    .filter((_, idx) => idx % 2 === 1)
+                    .map((project, idx) => (
+                      <Link href={`/work/${project.id}`} key={project.id}>
+                        <div className={`group relative w-full ${idx % 2 === 0 ? "aspect-square" : "aspect-[4/3]"} rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer`}>
+                          <Image
+                            src={project.image}
+                            alt={project.altText}
+                            fill
+                            sizes="(max-w-768px) 100vw, 50vw"
+                            className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
+                          />
+                          {/* Hover Overlay info */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
+                            <div className="flex justify-between items-start">
+                              <span className="text-micro font-mono text-brass-accent">{project.index}</span>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                              <span className="text-caption text-brass-accent">{project.industry}</span>
+                              <h3 className="text-heading text-primary-text leading-tight">{project.client}</h3>
+                              <p className="text-micro text-muted-text font-mono mt-1">{project.systemBuilt}</p>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex flex-col gap-1">
-                          <span className="text-caption text-brass-accent">{caseStudies[1].industry}</span>
-                          <h3 className="text-heading text-primary-text leading-tight">{caseStudies[1].client}</h3>
-                          <p className="text-micro text-muted-text font-mono mt-1">{caseStudies[1].systemBuilt}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  {/* Item 4 */}
-                  <Link href={`/work/${caseStudies[3].id}`}>
-                    <div className="group relative w-full aspect-[4/3] rounded border border-hairline overflow-hidden bg-secondary-surface cursor-pointer">
-                      <Image
-                        src={caseStudies[3].image}
-                        alt={caseStudies[3].altText}
-                        fill
-                        sizes="(max-w-768px) 100vw, 50vw"
-                        className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700 ease-out filter grayscale group-hover:grayscale-0"
-                      />
-                      {/* Hover Overlay info */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-space-md">
-                        <div className="flex justify-between items-start">
-                          <span className="text-micro font-mono text-brass-accent">{caseStudies[3].index}</span>
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          <span className="text-caption text-brass-accent">{caseStudies[3].industry}</span>
-                          <h3 className="text-heading text-primary-text leading-tight">{caseStudies[3].client}</h3>
-                          <p className="text-micro text-muted-text font-mono mt-1">{caseStudies[3].systemBuilt}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
+                      </Link>
+                    ))}
                 </motion.div>
               </motion.div>
             ) : (
