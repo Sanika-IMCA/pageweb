@@ -93,7 +93,7 @@ export default function Navigation() {
               <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
               <path d="M14 13h4" />
             </svg>
-            <span>PAGE STUDIOS</span>
+            <span>SAYAGA STUDIOS</span>
           </Link>
 
           {/* Links & actions */}
@@ -215,7 +215,7 @@ export default function Navigation() {
           >
             {/* Header controls inside menu overlay */}
             <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
-              <span className="text-micro font-mono text-brass-accent tracking-widest">[ Page.Takeover_Active ]</span>
+              <span className="text-micro font-mono text-brass-accent tracking-widest">[ Sayaga.Takeover_Active ]</span>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 border border-hairline rounded hover:border-brass-accent text-primary-text transition-colors cursor-pointer"
@@ -291,7 +291,7 @@ export default function Navigation() {
 
             {/* Bottom details inside menu overlay */}
             <div className="w-full max-w-7xl mx-auto border-t border-hairline/30 pt-6 flex flex-col md:flex-row justify-between text-micro text-muted-text font-mono gap-4">
-              <span>PAGE STUDIOS INC &copy; {new Date().getFullYear()}</span>
+              <span>SAYAGA STUDIOS INC &copy; {new Date().getFullYear()}</span>
               <span>OPERATIONAL SYSTEM COMPILING</span>
             </div>
 

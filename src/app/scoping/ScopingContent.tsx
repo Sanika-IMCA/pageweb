@@ -141,7 +141,7 @@ export default function ScopingContent() {
                     className={`bg-charcoal-base border p-3 rounded text-primary-text focus:outline-none focus:border-brass-accent transition-colors ${
                       errors.company ? "border-red-500/50" : "border-hairline"
                 }`}
-                    placeholder="Page Studios Inc."
+                    placeholder="Sayaga Studios Inc."
                   />
                   {errors.company && <span className="text-micro text-red-500 font-mono">{errors.company}</span>}
                 </div>

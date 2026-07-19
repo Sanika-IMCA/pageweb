@@ -4,7 +4,7 @@ import Preloader from "@/components/Preloader";
 import Hero from "@/components/Hero";
 import Philosophy from "@/components/Philosophy";
 import ProcessSpine from "@/components/ProcessSpine";
-import PageSpine from "@/components/PageSpine";
+import SayagaSpine from "@/components/SayagaSpine";
 import Capabilities from "@/components/Capabilities";
 import CaseStudies from "@/components/CaseStudies";
 import Industries from "@/components/Industries";
@@ -20,7 +20,7 @@ export default function Home() {
       <Preloader />
 
       {/* 00 — Layout Spine Left Navigation */}
-      <PageSpine />
+      <SayagaSpine />
 
       {/* 01 — Header Nav */}
       <Navigation />

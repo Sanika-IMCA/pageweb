@@ -11,12 +11,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!study) {
     return {
-      title: "Case Study Not Found | Page Studios",
+      title: "Case Study Not Found | Sayaga Studios",
     };
   }
 
   return {
-    title: `${study.client} Case Study | Page Studios`,
+    title: `${study.client} Case Study | Sayaga Studios`,
     description: `Read the ${study.client} case study details: ${study.description} Coded for operational rigor.`,
   };
 }

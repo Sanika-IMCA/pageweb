@@ -62,8 +62,8 @@ export default function Footer() {
             <span className="text-caption text-muted-text">Inquiries</span>
             <div className="text-body-base flex flex-col gap-1 items-start">
               <MagneticButton>
-                <a href="mailto:hello@page.studio" className="hover:text-brass-accent transition-colors block py-1">
-                  hello@page.studio
+                <a href="mailto:hello@sayaga.studio" className="hover:text-brass-accent transition-colors block py-1">
+                  hello@sayaga.studio
                 </a>
               </MagneticButton>
               <MagneticButton>
@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="flex flex-col gap-space-xs">
             <span className="text-caption text-muted-text">Offices</span>
             <div className="text-body-base text-primary-text leading-relaxed">
-              <p>Page Studios Inc.</p>
+              <p>Sayaga Studios Inc.</p>
               <p>1209 Delaware Ave</p>
               <p>Wilmington, DE 19806</p>
             </div>
@@ -94,17 +94,17 @@ export default function Footer() {
             <span className="text-caption text-muted-text">Network</span>
             <div className="text-body-base flex flex-col gap-1 items-start">
               <MagneticButton>
-                <a href="https://github.com/page-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
+                <a href="https://github.com/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
                   GitHub
                 </a>
               </MagneticButton>
               <MagneticButton>
-                <a href="https://linkedin.com/company/page-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
+                <a href="https://linkedin.com/company/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
                   LinkedIn
                 </a>
               </MagneticButton>
               <MagneticButton>
-                <a href="https://twitter.com/page_studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
+                <a href="https://twitter.com/sayaga_studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
                   Twitter / X
                 </a>
               </MagneticButton>
@@ -115,11 +115,11 @@ export default function Footer() {
         {/* Plain-spoken dry closing paragraph */}
         <div className="border-t border-hairline pt-space-md mt-space-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md">
           <p className="text-body-base text-muted-text max-w-xl">
-            Page Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
+            Sayaga Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
           </p>
           <div className="flex flex-wrap gap-x-space-md gap-y-2 text-caption text-muted-text">
             <Link href="/work" className="hover:text-primary-text transition-colors">Selected Work</Link>
-            <Link href="/about" className="hover:text-primary-text transition-colors">About Page</Link>
+            <Link href="/about" className="hover:text-primary-text transition-colors">About Sayaga</Link>
             <Link href="/approach" className="hover:text-primary-text transition-colors">Our Process</Link>
             <Link href="/log" className="hover:text-primary-text transition-colors">Build Log</Link>
           </div>
@@ -127,7 +127,7 @@ export default function Footer() {
 
         {/* Small copyright at bottom */}
         <div className="flex flex-col sm:flex-row justify-between text-micro text-muted-text pt-space-xs border-t border-hairline/40">
-          <span>&copy; {new Date().getFullYear()} PAGE STUDIOS INC. ALL RIGHTS RESERVED.</span>
+          <span>&copy; {new Date().getFullYear()} SAYAGA STUDIOS INC. ALL RIGHTS RESERVED.</span>
           <span>BUILT WITH OPERATIONAL RIGOR.</span>
         </div>
 

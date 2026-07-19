@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import RevealSquircle from "@/components/RevealSquircle";
 
 export const metadata: Metadata = {
-  title: "Build Log | Page Studios — Business Systems & AI Engineering",
+  title: "Build Log | Sayaga Studios — Business Systems & AI Engineering",
   description: "A public timeline documenting daily iterations, features shipped, technical challenges, and engineering lessons.",
 };
 
@@ -19,7 +19,7 @@ interface LogItem {
 const logItems: LogItem[] = [
   {
     day: "Day 24",
-    title: "Page Pipeline Campaign Sequencing",
+    title: "Sayaga Pipeline Campaign Sequencing",
     desc: "Configured randomized jitter delays between multi-channel triggers (LinkedIn requests and follow-up cold emails) to protect domain deliverability metrics.",
     features: ["Drag-and-drop Visual sequence editor", "Cron-based automation triggers", "Live conversion dashboard (open & reply logs)"],
     lessons: "Multi-channel campaigns achieve 3.5x higher conversion rates compared to standard email-only sequences.",

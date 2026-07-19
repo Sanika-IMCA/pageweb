@@ -41,12 +41,12 @@ const caseStudies: CaseStudy[] = [
   {
     id: "pipeline",
     index: "23",
-    client: "Page Pipeline",
+    client: "Sayaga Pipeline",
     industry: "SaaS Ops",
     systemBuilt: "High-Volume Lead Pipeline Scraper",
     outcome: "3.5x Volume Scale",
     image: "/assets/content-engine.png",
-    altText: "Page Pipeline data compiler analytics displaying route scraping structures, RabbitMQ queues, and dispatcher load metrics.",
+    altText: "Sayaga Pipeline data compiler analytics displaying route scraping structures, RabbitMQ queues, and dispatcher load metrics.",
   },
   {
     id: "auditor",
@@ -136,8 +136,8 @@ export default function CaseStudies() {
             <button
               onClick={() => setViewMode("grid")}
               className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${viewMode === "grid"
-                  ? "bg-brass-accent text-charcoal-base font-medium"
-                  : "text-muted-text hover:text-primary-text"
+                ? "bg-brass-accent text-charcoal-base font-medium"
+                : "text-muted-text hover:text-primary-text"
                 }`}
             >
               GRID
@@ -145,8 +145,8 @@ export default function CaseStudies() {
             <button
               onClick={() => setViewMode("list")}
               className={`px-3 py-1.5 text-micro font-mono tracking-wider rounded transition-colors duration-300 cursor-pointer ${viewMode === "list"
-                  ? "bg-brass-accent text-charcoal-base font-medium"
-                  : "text-muted-text hover:text-primary-text"
+                ? "bg-brass-accent text-charcoal-base font-medium"
+                : "text-muted-text hover:text-primary-text"
                 }`}
             >
               LIST

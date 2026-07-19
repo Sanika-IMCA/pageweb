@@ -1,8 +1,8 @@
-# PAGE STUDIOS — Website Design Prompt
+# SAYAGA STUDIOS — Website Design Prompt
 
 ## 1. The One-Line Direction
 
-> Design and build the website for **Page Studios**, a business systems and AI engineering company — not a software agency, not an "AI startup." The site should feel like it belongs to a company that studies businesses before it touches a keyboard: **quiet confidence, editorial restraint, and precision**. Visually, it should sit closer to **fromanother.love, Palantir, Linear, and Stripe** than to a typical dev-shop template — cinematic scroll, oversized type, numbered sections, generous negative space — but coded for a company that runs on rigor, not mood.
+> Design and build the website for **Sayaga Studios**, a business systems and AI engineering company — not a software agency, not an "AI startup." The site should feel like it belongs to a company that studies businesses before it touches a keyboard: **quiet confidence, editorial restraint, and precision**. Visually, it should sit closer to **fromanother.love, Palantir, Linear, and Stripe** than to a typical dev-shop template — cinematic scroll, oversized type, numbered sections, generous negative space — but coded for a company that runs on rigor, not mood.
 
 The feeling in the first 10 seconds should be:
 **"These people understand businesses deeply, and they engineer the systems that make them run better."**
@@ -18,27 +18,27 @@ Two references, two different jobs. **fromanother.love** shapes the narrative se
 
 Study `fromanother.love` for **structure and motion**, not literal content. Specifically borrow:
 
-- **A brief intro sequence on first visit** before the hero reveals itself — see §7a "The System Boots" for Page Studios' own take on this (not a plain percentage counter).
+- **A brief intro sequence on first visit** before the hero reveals itself — see §7a "The System Boots" for Sayaga Studios' own take on this (not a plain percentage counter).
 - **Numbered section labels** running down the page like a table of contents made visible — `01 / About`, `02 / What We Do`, `03 / Work`, etc. — small, letter-spaced, positioned in the margin, so the page reads like a dossier, not a landing page.
 - **One oversized editorial headline** in the hero that mixes weights/sizes on the same line (e.g. large light serif or condensed sans for most of the sentence, one word bolded or in a contrasting style) rather than a generic "Hero title + subtitle + CTA button" block.
 - **Full-bleed horizontal image/logo strips** that marquee slowly on scroll — used here for client/partner logos and case-study thumbnails.
 - **Section transitions that feel cinematic**: content doesn't just appear, it enters — mask reveals, slight vertical drift, staggered word-by-word or line-by-line reveal on headlines, smooth easing (nothing bouncy).
 - **A footer that behaves like a closing statement**, not a sitemap dump — a large closing line ("Let's build something that runs itself." or similar), then contact details laid out like a letterhead.
 
-What **not** to borrow: fromanother's moodiness/party energy, saturated color grading, and "creative collective" looseness. Page Studios is **operational, not artistic** — the motion language should feel engineered and deliberate, like a systems diagram animating into place, not a film reel.
+What **not** to borrow: fromanother's moodiness/party energy, saturated color grading, and "creative collective" looseness. Sayaga Studios is **operational, not artistic** — the motion language should feel engineered and deliberate, like a systems diagram animating into place, not a film reel.
 
 ### From obys.agency
 
 Study `obys.agency` for **how to present proof of work with zero fluff**. Specifically borrow:
 
-- **No hero copy gate before the work** — Obys essentially opens straight into its portfolio grid, scattered across the viewport at different depths, moving at different speeds as you scroll (a true parallax masonry, not a static CSS grid). It reads as "we have nothing to prove with words — look at what we've shipped." Page Studios should use this exact confidence for its **case-study grid**: tiles of different sizes, offset vertically, drifting at slightly different scroll speeds, so the grid feels alive rather than gridded.
-- **Category tags that appear only on hover/focus** — each project tile is clean (image + name only) until interaction reveals metadata (Obys shows industry + service, e.g. "Architecture, Furniture / Creative Direction, Web Design"). For Page Studios, hover reveals: *industry + system type* (e.g. "Logistics / Workflow Automation + Internal Dashboard").
+- **No hero copy gate before the work** — Obys essentially opens straight into its portfolio grid, scattered across the viewport at different depths, moving at different speeds as you scroll (a true parallax masonry, not a static CSS grid). It reads as "we have nothing to prove with words — look at what we've shipped." Sayaga Studios should use this exact confidence for its **case-study grid**: tiles of different sizes, offset vertically, drifting at slightly different scroll speeds, so the grid feels alive rather than gridded.
+- **Category tags that appear only on hover/focus** — each project tile is clean (image + name only) until interaction reveals metadata (Obys shows industry + service, e.g. "Architecture, Furniture / Creative Direction, Web Design"). For Sayaga Studios, hover reveals: *industry + system type* (e.g. "Logistics / Workflow Automation + Internal Dashboard").
 - **A live, running index number per tile** (`02`, `04`, `07`...) that isn't sequential-looking but numbered like a catalog — reinforces "this is a body of engineered work," not a blog feed.
-- **A view-mode toggle** — Obys lets you switch the grid between "Vertical / Horizontal / Grid." Page Studios can offer a lighter version of this on the case-study index: toggle between *Grid* and *List* (list view shows one case study per row with client, industry, system built, and result metric — good for executives scanning fast).
-- **A minimal, almost invisible nav** — Obys' nav is just `Work / About / Contact` plus a live local-time clock ticking in the corner (`CET 00:00 AM`). Steal the **live clock** detail specifically: a small ticking timestamp in the footer or nav (e.g. client's local time zone, or Page Studios' HQ time) — it's a tiny detail that reads as "a company that operates in real time," which is exactly on-brand for an operations company.
-- **The closing statement in the footer is plain-spoken, almost dry** ("The studio is shaped by people who care deeply about design and the process behind...") — no hype. Page Studios' footer copy should match that restraint rather than escalate into a sales pitch.
+- **A view-mode toggle** — Obys lets you switch the grid between "Vertical / Horizontal / Grid." Sayaga Studios can offer a lighter version of this on the case-study index: toggle between *Grid* and *List* (list view shows one case study per row with client, industry, system built, and result metric — good for executives scanning fast).
+- **A minimal, almost invisible nav** — Obys' nav is just `Work / About / Contact` plus a live local-time clock ticking in the corner (`CET 00:00 AM`). Steal the **live clock** detail specifically: a small ticking timestamp in the footer or nav (e.g. client's local time zone, or Sayaga Studios' HQ time) — it's a tiny detail that reads as "a company that operates in real time," which is exactly on-brand for an operations company.
+- **The closing statement in the footer is plain-spoken, almost dry** ("The studio is shaped by people who care deeply about design and the process behind...") — no hype. Sayaga Studios' footer copy should match that restraint rather than escalate into a sales pitch.
 
-What **not** to borrow: Obys has literally no explanatory text on the homepage — that works for a portfolio-first design studio but would undersell Page Studios' actual differentiator (the *discovery-before-build* methodology). Keep fromanother's narrative sections intact; just inject Obys' grid confidence into the proof section.
+What **not** to borrow: Obys has literally no explanatory text on the homepage — that works for a portfolio-first design studio but would undersell Sayaga Studios' actual differentiator (the *discovery-before-build* methodology). Keep fromanother's narrative sections intact; just inject Obys' grid confidence into the proof section.
 
 ---
 
@@ -50,7 +50,7 @@ Keep it almost invisible, Obys-style: wordmark left, three links right — `Work
 
 ## 4. Brand Identity
 
-**Name:** Page Studios
+**Name:** Sayaga Studios
 **Category:** Business Systems & AI Engineering
 **Positioning line:** *"We study businesses before we build software."*
 **Tagline options** (pick one for hero, use others as section pull-quotes):
@@ -104,7 +104,7 @@ Rule: **one accent color, used like punctuation** — never more than one accent
 
 ## 6. Site Structure & Section-by-Section Content
 
-Use the numbered-spine pattern throughout. Content below is drawn directly from Page Studios' positioning — adapt copy length to fit the editorial layout (short lines, lots of whitespace) rather than pasting paragraphs verbatim.
+Use the numbered-spine pattern throughout. Content below is drawn directly from Sayaga Studios' positioning — adapt copy length to fit the editorial layout (short lines, lots of whitespace) rather than pasting paragraphs verbatim.
 
 ### `00` — Preloader
 Percentage count-up, wordmark centered, brass hairline progress bar.
@@ -179,7 +179,7 @@ Beneath: contact email treated typographically large, office/location details la
 
 ## 7a. Intro Animation — "The System Boots" (unique preloader concept)
 
-fromanother.love's loader is a simple percentage count-up. Steal the *feeling* — a brief, controlled moment before the site reveals itself — but give Page Studios its own mechanic, one that dramatizes the brand idea ("we study businesses, then we build the system") instead of just showing a number.
+fromanother.love's loader is a simple percentage count-up. Steal the *feeling* — a brief, controlled moment before the site reveals itself — but give Sayaga Studios its own mechanic, one that dramatizes the brand idea ("we study businesses, then we build the system") instead of just showing a number.
 
 **Concept: the page assembles like a system coming online, not like a page loading.**
 
@@ -188,10 +188,10 @@ Sequence (aim for 2.2–3.0s total, skippable after 1.5s or on any keypress/clic
 1. **0.0s** — Screen is the base charcoal (`#0B0C0E`), completely empty except a single thin brass hairline positioned dead-center, 1px tall, 0% width.
 2. **0.0–0.6s** — The hairline extends left-to-right to about 40% width, silently — no numbers yet. This reads as "a line being drawn," not a progress bar.
 3. **0.6–1.2s** — Small nodes (2–3px brass dots) appear at intervals along the line, one at a time, each with a soft pop-in (scale 0→1, 120ms). As each node appears, a thin vertical tick drops from it and a tiny monospace label fades in above — cycle through real fragments of the methodology, fast, almost subliminal: `DISCOVER` → `MAP` → `BUILD` → `DEPLOY`. Each word holds ~150ms then is replaced by the next (not stacked — this is a single label position cycling, like a status readout).
-4. **1.2–1.6s** — The line completes to 100% width and the final label locks on **`PAGE STUDIOS`** in the display typeface, brass, centered on the line, slightly larger than the status words were.
+4. **1.2–1.6s** — The line completes to 100% width and the final label locks on **`SAYAGA STUDIOS`** in the display typeface, brass, centered on the line, slightly larger than the status words were.
 5. **1.6–2.2s** — The entire line + wordmark scales down slightly and drifts to where the nav logo will sit (or simply fades if a repositioning animation is too complex to ship well), while the background begins a soft radial fade from charcoal to the hero section underneath. The hero headline begins its word-stagger reveal *before* the loader has fully finished fading — the two motions should overlap by ~300ms so the transition feels continuous, not like two separate events stitched together.
 
-**Why this is different from fromanother's:** theirs communicates "content is loading" (a percentage). This one communicates "a system is assembling itself, step by step" — which is the actual product Page Studios sells. It's a 3-second demonstration of the brand thesis before a single word of copy is read.
+**Why this is different from fromanother's:** theirs communicates "content is loading" (a percentage). This one communicates "a system is assembling itself, step by step" — which is the actual product Sayaga Studios sells. It's a 3-second demonstration of the brand thesis before a single word of copy is read.
 
 **Variant if you want it even more minimal:** drop the word-cycling entirely and keep only the line-drawing + node-pop + wordmark-lock. Still distinct from a percentage counter, much cheaper to build, and arguably more "classy" — fewer moving parts reads as more confident.
 
@@ -207,7 +207,7 @@ Sequence (aim for 2.2–3.0s total, skippable after 1.5s or on any keypress/clic
 
 offmenu.design opens with content that arrives as tight, small rounded-corner shapes — pills/squircles — which then expand and relax their corner radius as they grow into full panels/cards, so the whole page feels like it's unfolding out of soft geometric seeds rather than sliding or fading in. Borrow that **corner-radius morph** as the mechanic that carries you *out* of the "System Boots" line sequence and *into* the hero and section content — a second, distinct layer on top of what you already have, not a replacement.
 
-**How it works, adapted for Page Studios:**
+**How it works, adapted for Sayaga Studios:**
 
 1. Right as the brass line/wordmark from §7a locks and begins fading (~1.6s mark), the hero content — headline block, hero visual, nav items — is *already present* in the DOM but clipped inside small rounded shapes: tight squircles (border-radius ~40–50% of their own size), scaled down to ~20–30% of final size, centered roughly where each element will land.
 2. Each shape **expands to its true size while its border-radius eases down** from squircle (soft, almost circular) to the site's standard card radius (a crisp 6–10px) — corner-radius and scale animate on the *same* timeline so the shape visibly "relaxes" from round to rectangular as it grows, not two separate steps.
@@ -241,7 +241,7 @@ The site's imagery needs to carry as much brand weight as the typography — fla
 - Stock photography of people in blazers shaking hands.
 - Gradient-mesh hero backgrounds, glassmorphism cards, neon glow buttons — the current "AI startup" visual cliché.
 - Testimonial carousels with 5-star icons.
-- Dense feature-grid sections with 12+ icon cards — Page Studios earns trust through clarity and restraint, not volume of claims.
+- Dense feature-grid sections with 12+ icon cards — Sayaga Studios earns trust through clarity and restraint, not volume of claims.
 - Anything that reads as "we build chatbots." The site should never use the word "chatbot."
 - Don't let the Obys-style case-study grid sprawl across the whole homepage the way it does on obys.agency — there, it *is* the homepage; here, it's one act in a four-act structure (hero → philosophy → process → proof → close). Keep it to one full-bleed section, not the entire page.
 
@@ -306,5 +306,5 @@ Based on an 8px base unit grid.
 
 ### SEO
 
-- Homepage Title: `Page Studios — We study businesses before we build software.`
+- Homepage Title: `Sayaga Studios — We study businesses before we build software.`
 - Case study metadata, structured schema.

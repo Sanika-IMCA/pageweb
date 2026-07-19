@@ -23,17 +23,17 @@ export default function Preloader() {
     
     // Set final states
     setIsLocked(true);
-    setStatusText("PAGE STUDIOS");
+    setStatusText("SAYAGA STUDIOS");
     setLineWidth("100%");
     setNodes([15, 25, 35, 40]);
     
     // Close overlay
     setIsVisible(false);
-    sessionStorage.setItem("page-preloaded", "true");
+    sessionStorage.setItem("sayaga-preloaded", "true");
   };
 
   useEffect(() => {
-    const hasPreloaded = sessionStorage.getItem("page-preloaded");
+    const hasPreloaded = sessionStorage.getItem("sayaga-preloaded");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (hasPreloaded || prefersReducedMotion) {
@@ -86,10 +86,10 @@ export default function Preloader() {
       }, 1200)
     );
 
-    // 1.35s: Display final logo "PAGE STUDIOS" in locked styling
+    // 1.35s: Display final logo "SAYAGA STUDIOS" in locked styling
     timeoutsRef.current.push(
       setTimeout(() => {
-        setStatusText("PAGE STUDIOS");
+        setStatusText("SAYAGA STUDIOS");
         setIsLocked(true);
       }, 1350)
     );
@@ -98,7 +98,7 @@ export default function Preloader() {
     timeoutsRef.current.push(
       setTimeout(() => {
         setIsVisible(false);
-        sessionStorage.setItem("page-preloaded", "true");
+        sessionStorage.setItem("sayaga-preloaded", "true");
       }, 1800)
     );
 
@@ -136,7 +136,7 @@ export default function Preloader() {
             </motion.div>
 
             {/* Hairline progress layout */}
-            <div className="w-full h-[1px] bg-white/5 relative">
+            <div className="w-full h-[1px] bg-hairline relative">
               {/* Animated brass hairline */}
               <motion.div
                 animate={{ width: lineWidth }}

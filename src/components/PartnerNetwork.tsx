@@ -10,7 +10,7 @@ interface PartnerStep {
 
 const partnerSteps: PartnerStep[] = [
   { step: "01", title: "Identify Friction", description: "Spot bottlenecks in a portfolio company or agency client's workflow." },
-  { step: "02", title: "Discovery Handoff", description: "Introduce Page Studios to perform deep discovery and workflow audits." },
+  { step: "02", title: "Discovery Handoff", description: "Introduce Sayaga Studios to perform deep discovery and workflow audits." },
   { step: "03", title: "Production Build", description: "We design, code, and securely deploy custom systems assets." },
   { step: "04", title: "Ecosystem Win", description: "Unlock scaling throughput, share project revenues, or white-label outputs." },
 ];

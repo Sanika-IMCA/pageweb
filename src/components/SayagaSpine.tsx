@@ -21,7 +21,7 @@ const spineItems: SpineItem[] = [
   { id: "footer", label: "10" },
 ];
 
-export default function PageSpine() {
+export default function SayagaSpine() {
   const [activeSection, setActiveSection] = useState("hero");
   const { scrollYProgress } = useScroll();
 

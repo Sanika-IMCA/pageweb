@@ -25,7 +25,7 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Page Studios — We study businesses before we build software.",
+  title: "Sayaga Studios — We study businesses before we build software.",
   description: "We study businesses before we build software. Coded for operational rigor and precision.",
 };
 

@@ -1,15 +1,15 @@
-# Page Studios: Business Systems & AI Engineering
+# Sayaga Studios: Business Systems & AI Engineering
 > We study businesses before we build software.
 
-![Page Studios Hero Screenshot](docs/screenshots/hero.png)
+![Sayaga Studios Hero Screenshot](docs/screenshots/hero.png)
 
-**Live Demo → [https://page-bay-five.vercel.app](https://page-bay-five.vercel.app)**
+**Live Demo → [https://sayaga-bay-five.vercel.app](https://sayaga-bay-five.vercel.app)**
 
 ---
 
 ## ⚡ Introduction
 
-Page Studios is a business systems and AI engineering company. We design and build secure, custom operational software, AI agents, and custom visual dashboards. This repository contains the source code for the Page Studios portfolio-grade agency website, migrated to Next.js App Router with smooth inertial scrolling and high-fidelity motion transitions.
+Sayaga Studios is a business systems and AI engineering company. We design and build secure, custom operational software, AI agents, and custom visual dashboards. This repository contains the source code for the Sayaga Studios portfolio-grade agency website, migrated to Next.js App Router with smooth inertial scrolling and high-fidelity motion transitions.
 
 ---
 
@@ -26,12 +26,12 @@ Page Studios is a business systems and AI engineering company. We design and bui
 ## 📂 Repository Directory Layout
 
 ```
-page/
+sayaga/
  ├── public/                    # Static asset files
  │    ├── assets/               # Gradients and mockups (e.g. outreach, knowledgeflow)
  ├── src/
  │    ├── app/                  # Pages and dynamic work routes
- │    ├── components/           # Custom animations and spine components (Preloader, PageSpine, CaseStudies)
+ │    ├── components/           # Custom animations and spine components (Preloader, SayagaSpine, CaseStudies)
  ├── tsconfig.json              # TypeScript strict options configuration
  └── README.md                  # Landing documentation
 ```
@@ -42,7 +42,7 @@ page/
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/sanikasadre/page.git && cd page
+git clone https://github.com/sanikasadre/sayaga.git && cd sayaga
 npm install
 ```
 

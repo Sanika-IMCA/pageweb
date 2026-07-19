@@ -6,13 +6,13 @@
   --font-sans: var(--font-body), Inter, sans-serif;
   --font-mono: var(--font-mono), monospace;
 
-  /* Colors */
-  --color-charcoal-base: #020617;
-  --color-secondary-surface: rgba(255, 255, 255, 0.08);
-  --color-primary-text: #FFFFFF;
-  --color-muted-text: #94A3B8;
-  --color-brass-accent: #6366F1;
-  --color-hairline: rgba(255, 255, 255, 0.12);
+  /* Colors (Light theme: Lightest shades of red, blue, and white) */
+  --color-charcoal-base: #EFF6FF; /* Lightest Blue */
+  --color-secondary-surface: rgba(255, 255, 255, 0.7); /* White glassmorphism */
+  --color-primary-text: #0F172A; /* Contrast dark blue-gray text */
+  --color-muted-text: #475569; /* Slate muted text */
+  --color-brass-accent: #EF4444; /* Lightest functional red accent */
+  --color-hairline: rgba(239, 68, 68, 0.15); /* Lightest red hairline */
 
   /* Spacing Scale (8px base) */
   --spacing-space-xxs: 4px;
@@ -119,16 +119,16 @@ body {
 /* Global background textures overrides */
 .bg-charcoal-base {
   background-color: var(--color-charcoal-base) !important;
-  background-image: linear-gradient(rgba(2, 6, 23, 0.80), rgba(2, 6, 23, 0.80)), url('/assets/curves-bg.png') !important;
+  background-image: linear-gradient(rgba(239, 246, 255, 0.92), rgba(239, 246, 255, 0.92)), url('/assets/curves-bg.png') !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
 }
 
 .bg-secondary-surface {
-  background-color: rgba(255, 255, 255, 0.04) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(239, 68, 68, 0.15) !important;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.06) !important;
 }
