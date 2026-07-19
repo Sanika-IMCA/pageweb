@@ -6,13 +6,13 @@
   --font-sans: var(--font-body), Inter, sans-serif;
   --font-mono: var(--font-mono), monospace;
 
-  /* Colors (Light theme: Lightest shades of red, blue, and white) */
-  --color-charcoal-base: #EFF6FF; /* Lightest Blue */
-  --color-secondary-surface: rgba(255, 255, 255, 0.7); /* White glassmorphism */
-  --color-primary-text: #0F172A; /* Contrast dark blue-gray text */
-  --color-muted-text: #475569; /* Slate muted text */
-  --color-brass-accent: #EF4444; /* Lightest functional red accent */
-  --color-hairline: rgba(239, 68, 68, 0.15); /* Lightest red hairline */
+  /* Colors (Premium minimal light theme: Soft blue, blush red, and white) */
+  --color-charcoal-base: #FFFFFF; /* Pure white background base */
+  --color-secondary-surface: rgba(255, 255, 255, 0.45); /* High-end frosted white glassmorphism */
+  --color-primary-text: #0F172A; /* High contrast slate-navy display text */
+  --color-muted-text: #475569; /* Elegant slate-gray for description texts */
+  --color-brass-accent: #3B82F6; /* Calm futuristic soft blue accent */
+  --color-hairline: rgba(15, 23, 42, 0.06); /* Very subtle dark slate hairline border */
 
   /* Spacing Scale (8px base) */
   --spacing-space-xxs: 4px;
@@ -118,17 +118,20 @@ body {
 
 /* Global background textures overrides */
 .bg-charcoal-base {
-  background-color: var(--color-charcoal-base) !important;
-  background-image: linear-gradient(rgba(239, 246, 255, 0.92), rgba(239, 246, 255, 0.92)), url('/assets/curves-bg.png') !important;
+  background-color: #FFFFFF !important;
+  background-image: 
+    radial-gradient(at 0% 0%, #EAF6FF 0px, transparent 55%), 
+    radial-gradient(at 100% 100%, #FFE8E8 0px, transparent 55%), 
+    radial-gradient(at 50% 50%, #F5F3FF 0px, transparent 55%) !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
 }
 
 .bg-secondary-surface {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(239, 68, 68, 0.15) !important;
-  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.03) !important;
 }

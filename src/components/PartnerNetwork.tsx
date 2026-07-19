@@ -2,64 +2,90 @@
 
 import { motion } from "framer-motion";
 
-interface PartnerStep {
-  step: string;
-  title: string;
+interface MetricItem {
+  number: string;
+  label: string;
   description: string;
+  gradient: string;
 }
 
-const partnerSteps: PartnerStep[] = [
-  { step: "01", title: "Identify Friction", description: "Spot bottlenecks in a portfolio company or agency client's workflow." },
-  { step: "02", title: "Discovery Handoff", description: "Introduce Sayaga Studios to perform deep discovery and workflow audits." },
-  { step: "03", title: "Production Build", description: "We design, code, and securely deploy custom systems assets." },
-  { step: "04", title: "Ecosystem Win", description: "Unlock scaling throughput, share project revenues, or white-label outputs." },
+const metrics: MetricItem[] = [
+  {
+    number: "120+",
+    label: "Clients Served",
+    description: "Ambitious startups, high-growth scale-ups, and global enterprise operations.",
+    gradient: "from-blue-600 to-indigo-500",
+  },
+  {
+    number: "$320M+",
+    label: "Revenue / Funding",
+    description: "Measurable commercial value unlocked through custom automation and database software.",
+    gradient: "from-indigo-600 to-purple-500",
+  },
+  {
+    number: "280+",
+    label: "Projects Completed",
+    description: "Production-grade digital systems, web assets, and custom full-stack solutions.",
+    gradient: "from-purple-600 to-red-500",
+  },
+  {
+    number: "99.99%",
+    label: "System Uptime",
+    description: "Fault-tolerant cron pipelines and API database runners designed for absolute reliability.",
+    gradient: "from-blue-600 via-indigo-500 to-red-400",
+  },
 ];
 
 export default function PartnerNetwork() {
   return (
-    <section id="partners" className="py-space-xxl px-6 bg-charcoal-base border-t border-hairline">
-      <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
+    <section className="py-32 px-6 md:px-12 bg-charcoal-base border-t border-hairline relative overflow-hidden">
+      
+      {/* Light soft lavender background orb */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-purple-50/20 rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col gap-space-xxs max-w-xl">
-          <span className="text-caption text-brass-accent">08 / Partners</span>
-          <h2 className="text-display-l">Partner Network</h2>
-          <p className="text-body-base text-muted-text mt-space-sm">
-            For fractionals, VC portfolio leads, design studios, and agencies. We operate in parallel to construct high-leverage workflows.
+        <div className="flex flex-col gap-4 max-w-xl">
+          <span className="text-caption text-brass-accent font-mono tracking-widest font-semibold">
+            05 / IMPACT
+          </span>
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-primary-text leading-none">
+            Company Numbers
+          </h2>
+          <p className="text-body-base text-muted-text mt-2">
+            The quantitative proof of our engineering expertise, operational rigor, and dedication to real business outcomes.
           </p>
         </div>
 
-        {/* 4-Step Horizontal Pipeline */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md border-t border-hairline/20 pt-space-lg">
-          {partnerSteps.map((item) => (
-            <div key={item.step} className="flex flex-col gap-space-xxs p-space-sm bg-secondary-surface border border-hairline rounded">
-              <span className="text-micro font-mono text-brass-accent font-semibold">{item.step}</span>
-              <h3 className="text-heading text-primary-text font-medium mt-1">{item.title}</h3>
-              <p className="text-body-base text-muted-text leading-relaxed mt-1">{item.description}</p>
-            </div>
-          ))}
-        </div>
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          {metrics.map((item, idx) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-secondary-surface border border-white/60 p-8 rounded-[2rem] flex flex-col gap-4 hover:border-primary-text/20 transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-md"
+            >
+              {/* Massive Number Typography with light pastel gradients */}
+              <span className={`text-[3.5rem] lg:text-[4.25rem] font-bold font-display leading-none tracking-tight block bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                {item.number}
+              </span>
 
-        {/* Benefits lists */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md border-t border-hairline/20 pt-space-lg mt-space-sm">
-          <div className="flex flex-col gap-1">
-            <span className="text-caption text-brass-accent font-mono">01 · Revenue Sharing</span>
-            <p className="text-body-base text-muted-text">
-              We credit recurring margins or refer-back allocations on all scoping designs mapped.
-            </p>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-caption text-brass-accent font-mono">02 · White-Label Deliverables</span>
-            <p className="text-body-base text-muted-text">
-              Embed our discovery, workflow auditing, and systems architecture under your own agency banner.
-            </p>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-caption text-brass-accent font-mono">03 · Long-Term Support</span>
-            <p className="text-body-base text-muted-text">
-              Continuous diagnostic checks, API integrations monitoring, and routine bottleneck upgrades.
-            </p>
-          </div>
+              {/* Label */}
+              <div className="flex flex-col gap-2 mt-2">
+                <span className="text-[0.75rem] font-mono text-muted-text uppercase tracking-wider font-bold">
+                  {item.label}
+                </span>
+                <p className="text-[0.9rem] text-muted-text leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+            </motion.div>
+          ))}
         </div>
 
       </div>

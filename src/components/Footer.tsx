@@ -22,7 +22,6 @@ export default function Footer() {
         const formatted = formatter.format(date);
         setTimeStr(`ET ${formatted}`);
       } catch (err) {
-        // Fallback if timezone not supported
         const fallback = new Date().toLocaleTimeString();
         setTimeStr(`ET ${fallback}`);
       }
@@ -34,101 +33,88 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="footer" className="bg-charcoal-base border-t border-hairline py-space-xl px-6">
-      <div className="max-w-7xl mx-auto flex flex-col gap-space-xl">
+    <footer id="contact" className="bg-charcoal-base border-t border-hairline py-32 px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-24">
         
-        {/* Closing Editorial Headline */}
-        <div className="flex flex-col gap-space-md max-w-3xl">
-          <span className="text-caption text-brass-accent">Let's Connect</span>
-          <h2 className="text-display-l">
-            Let's build the system that <span className="font-semibold italic text-brass-accent">runs your business</span> &mdash; before your competitors do.
-          </h2>
+        {/* Strong Final CTA Section inside Footer */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-8 flex flex-col gap-6">
+            <span className="text-caption text-primary-text font-mono tracking-widest opacity-60">
+              07 / INITIATE
+            </span>
+            <h2 className="text-[2.75rem] sm:text-[4rem] lg:text-[5.5rem] font-bold tracking-tight text-primary-text leading-[1.05]">
+              Let&apos;s build something <br />
+              <span className="underline decoration-1 underline-offset-8 decoration-blue-200">category-defining.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:pt-12 flex justify-start lg:justify-end">
+            <MagneticButton>
+              <Link
+                href="/scoping"
+                className="inline-flex items-center justify-center text-[1rem] font-bold text-charcoal-base bg-primary-text hover:bg-transparent hover:text-primary-text hover:border-primary-text transition-all duration-300 py-5 px-10 border border-transparent rounded-full"
+              >
+                Start a Project &rarr;
+              </Link>
+            </MagneticButton>
+          </div>
         </div>
 
-        {/* signature 3D render placeholder */}
-        <div className="w-full aspect-[21/9] bg-secondary-surface border border-hairline rounded relative overflow-hidden">
-          <Image
-            src="/assets/wave-bg.png"
-            alt="Sleek layered waves graphic representing corporate business systems coming online."
-            fill
-            sizes="100vw"
-            className="object-cover opacity-50 hover:opacity-75 transition-opacity duration-700 ease-out"
-          />
-        </div>
-
-        {/* Letterhead-style column layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg border-t border-hairline pt-space-lg">
-          <div className="flex flex-col gap-space-xs">
-            <span className="text-caption text-muted-text">Inquiries</span>
-            <div className="text-body-base flex flex-col gap-1 items-start">
-              <MagneticButton>
-                <a href="mailto:hello@sayaga.studio" className="hover:text-brass-accent transition-colors block py-1">
-                  hello@sayaga.studio
-                </a>
-              </MagneticButton>
-              <MagneticButton>
-                <a href="tel:+13025550190" className="hover:text-brass-accent transition-colors block py-1">
-                  +1 (302) 555-0190
-                </a>
-              </MagneticButton>
+        {/* Letterhead columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-hairline pt-16 mt-8">
+          
+          {/* Inquiry */}
+          <div className="flex flex-col gap-4">
+            <span className="text-caption text-muted-text font-mono">Inquiries</span>
+            <div className="text-body-base flex flex-col gap-2 items-start font-medium">
+              <a href="mailto:hello@sayaga.studio" className="hover:text-muted-text transition-colors">
+                hello@sayaga.studio
+              </a>
+              <a href="tel:+13025550190" className="hover:text-muted-text transition-colors">
+                +1 (302) 555-0190
+              </a>
             </div>
           </div>
 
-          <div className="flex flex-col gap-space-xs">
-            <span className="text-caption text-muted-text">Offices</span>
-            <div className="text-body-base text-primary-text leading-relaxed">
+          {/* Offices */}
+          <div className="flex flex-col gap-4">
+            <span className="text-caption text-muted-text font-mono">Offices</span>
+            <div className="text-body-base text-primary-text leading-relaxed font-medium">
               <p>Sayaga Studios Inc.</p>
               <p>1209 Delaware Ave</p>
               <p>Wilmington, DE 19806</p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-space-xs">
-            <span className="text-caption text-muted-text">HQ Time</span>
-            <div className="text-micro text-primary-text font-medium" aria-live="off">
+          {/* HQ Local Time */}
+          <div className="flex flex-col gap-4">
+            <span className="text-caption text-muted-text font-mono">HQ Time</span>
+            <div className="text-[1.1rem] text-primary-text font-bold font-mono" aria-live="off">
               {timeStr}
             </div>
           </div>
 
-          <div className="flex flex-col gap-space-xs">
-            <span className="text-caption text-muted-text">Network</span>
-            <div className="text-body-base flex flex-col gap-1 items-start">
-              <MagneticButton>
-                <a href="https://github.com/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
-                  GitHub
-                </a>
-              </MagneticButton>
-              <MagneticButton>
-                <a href="https://linkedin.com/company/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
-                  LinkedIn
-                </a>
-              </MagneticButton>
-              <MagneticButton>
-                <a href="https://twitter.com/sayaga_studios" target="_blank" rel="noopener noreferrer" className="hover:text-brass-accent transition-colors block py-1">
-                  Twitter / X
-                </a>
-              </MagneticButton>
+          {/* Social Network */}
+          <div className="flex flex-col gap-4">
+            <span className="text-caption text-muted-text font-mono">Network</span>
+            <div className="text-body-base flex flex-col gap-2 items-start font-medium">
+              <a href="https://github.com/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-muted-text transition-colors">
+                GitHub
+              </a>
+              <a href="https://linkedin.com/company/sayaga-studios" target="_blank" rel="noopener noreferrer" className="hover:text-muted-text transition-colors">
+                LinkedIn
+              </a>
+              <a href="https://twitter.com/sayaga_studios" target="_blank" rel="noopener noreferrer" className="hover:text-muted-text transition-colors">
+                Twitter / X
+              </a>
             </div>
           </div>
+
         </div>
 
-        {/* Plain-spoken dry closing paragraph */}
-        <div className="border-t border-hairline pt-space-md mt-space-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md">
-          <p className="text-body-base text-muted-text max-w-xl">
-            Sayaga Studios is shaped by systems engineers who care deeply about operational systems and the rigor behind them. We operate in real time.
-          </p>
-          <div className="flex flex-wrap gap-x-space-md gap-y-2 text-caption text-muted-text">
-            <Link href="/work" className="hover:text-primary-text transition-colors">Selected Work</Link>
-            <Link href="/about" className="hover:text-primary-text transition-colors">About Sayaga</Link>
-            <Link href="/approach" className="hover:text-primary-text transition-colors">Our Process</Link>
-            <Link href="/log" className="hover:text-primary-text transition-colors">Build Log</Link>
-          </div>
-        </div>
-
-        {/* Small copyright at bottom */}
-        <div className="flex flex-col sm:flex-row justify-between text-micro text-muted-text pt-space-xs border-t border-hairline/40">
+        {/* Lower footer copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-micro text-muted-text pt-8 border-t border-hairline/30 gap-4 mt-8 font-mono">
           <span>&copy; {new Date().getFullYear()} SAYAGA STUDIOS INC. ALL RIGHTS RESERVED.</span>
-          <span>BUILT WITH OPERATIONAL RIGOR.</span>
+          <span>BUILT FOR DIGITAL CRAFTSMANSHIP.</span>
         </div>
 
       </div>

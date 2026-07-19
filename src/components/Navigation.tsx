@@ -5,38 +5,23 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    if (nextTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  };
-
   // Keyboard Event Handlers (Escape to close and Focus Trapping)
   useEffect(() => {
     if (!isMenuOpen) {
-      // Restore focus to menu button when closed
       triggerRef.current?.focus();
       return;
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Escape closes menu
       if (e.key === "Escape") {
         setIsMenuOpen(false);
         return;
       }
 
-      // Tab Trapping
       if (e.key === "Tab") {
         if (!menuRef.current) return;
         const focusableElements = menuRef.current.querySelectorAll<HTMLElement>(
@@ -48,13 +33,11 @@ export default function Navigation() {
         const last = focusableElements[focusableElements.length - 1];
 
         if (e.shiftKey) {
-          // Shift + Tab: Wrap from first to last
           if (document.activeElement === first) {
             last.focus();
             e.preventDefault();
           }
         } else {
-          // Tab: Wrap from last to first
           if (document.activeElement === last) {
             first.focus();
             e.preventDefault();
@@ -64,28 +47,43 @@ export default function Navigation() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    
-    // Auto focus first link inside menu when opened
     const firstLink = menuRef.current?.querySelector("a") as HTMLElement;
     firstLink?.focus();
 
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
 
+  // Smooth scroll handler for anchor links
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    
+    // Check if we are on home page, otherwise navigate
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${targetId}`;
+      return;
+    }
+
+    const element = document.getElementById(targetId.replace("#", ""));
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-charcoal-base/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-charcoal-base/60 backdrop-blur-md transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
           
-          {/* Wordmark logo */}
+          {/* Logo on Left */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-primary-text font-sans font-semibold tracking-wide text-[0.95rem] hover:text-brass-accent transition-colors"
+            className="flex items-center gap-2 text-primary-text font-sans font-bold tracking-tight text-[1.1rem] hover:opacity-80 transition-opacity"
           >
             <svg
               viewBox="0 0 32 32"
-              className="w-5.5 h-5.5 stroke-current fill-none"
-              strokeWidth="2.5"
+              className="w-5 h-5 stroke-current fill-none"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -93,92 +91,75 @@ export default function Navigation() {
               <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
               <path d="M14 13h4" />
             </svg>
-            <span>SAYAGA STUDIOS</span>
+            <span className="font-display tracking-normal">SAYAGA</span>
           </Link>
 
           {/* Links & actions */}
-          <div className="flex items-center gap-space-md">
-            {/* Desktop links - hidden below 1024px */}
+          <div className="flex items-center gap-8">
+            {/* Desktop links */}
             <nav className="hidden md:block">
-              <ul className="flex items-center gap-space-sm text-caption">
+              <ul className="flex items-center gap-8 text-[0.85rem] font-medium tracking-wide">
                 <li>
-                  <Link
-                    href="/work"
-                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-brass-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  <a
+                    href="#services"
+                    onClick={(e) => handleAnchorClick(e, "#services")}
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#work"
+                    onClick={(e) => handleAnchorClick(e, "#work")}
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
                     Work
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/about"
-                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-brass-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  <a
+                    href="#about"
+                    onClick={(e) => handleAnchorClick(e, "#about")}
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
                     About
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/log"
-                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-brass-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  <a
+                    href="#journal"
+                    onClick={(e) => handleAnchorClick(e, "#journal")}
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
-                    Build Log
-                  </Link>
+                    Journal
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/scoping"
-                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-brass-accent after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  <a
+                    href="#contact"
+                    onClick={(e) => handleAnchorClick(e, "#contact")}
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
-                    Get Scoped
-                  </Link>
+                    Contact
+                  </a>
                 </li>
               </ul>
             </nav>
 
-            {/* Theme Toggler */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 border border-hairline rounded hover:border-brass-accent text-primary-text transition-colors cursor-pointer"
-              aria-label="Toggle theme"
+            {/* Desktop CTA Button */}
+            <Link
+              href="/scoping"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary-text text-[0.8rem] font-semibold text-charcoal-base bg-primary-text hover:bg-transparent hover:text-primary-text transition-all duration-300"
             >
-              {theme === "dark" ? (
-                // Sun
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-4 h-4"
-                >
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-                </svg>
-              ) : (
-                // Moon
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-4 h-4"
-                >
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-                </svg>
-              )}
-            </button>
+              Start a Project
+            </Link>
 
-            {/* Menu Trigger Trigger (Aria linked) */}
+            {/* Menu Hamburger Trigger */}
             <button
               ref={triggerRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 border border-hairline rounded hover:border-brass-accent text-primary-text transition-colors cursor-pointer"
+              className="p-2 border border-hairline rounded-full hover:border-primary-text text-primary-text transition-colors cursor-pointer"
               aria-expanded={isMenuOpen}
               aria-label="Toggle navigation takeover"
             >
@@ -211,17 +192,16 @@ export default function Navigation() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             ref={menuRef}
             aria-hidden={!isMenuOpen}
-            className="fixed inset-0 bg-charcoal-base/95 backdrop-blur-lg z-[99] flex flex-col justify-between p-6 md:p-12"
+            className="fixed inset-0 bg-charcoal-base/98 backdrop-blur-xl z-[99] flex flex-col justify-between p-8 md:p-16"
           >
             {/* Header controls inside menu overlay */}
             <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
-              <span className="text-micro font-mono text-brass-accent tracking-widest">[ Sayaga.Takeover_Active ]</span>
+              <span className="text-micro font-mono text-muted-text tracking-widest">[ Sayaga.Navigation ]</span>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 border border-hairline rounded hover:border-brass-accent text-primary-text transition-colors cursor-pointer"
+                className="p-2.5 border border-hairline rounded-full hover:border-primary-text text-primary-text transition-colors cursor-pointer"
                 aria-label="Close navigation takeover"
               >
-                {/* Close X */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -239,60 +219,60 @@ export default function Navigation() {
             </div>
 
             {/* Central Navigation Links */}
-            <nav className="w-full max-w-4xl mx-auto flex flex-col justify-center flex-1 my-space-lg">
-              <ul className="flex flex-col gap-space-sm text-[2.5rem] md:text-[3.75rem] font-display leading-tight tracking-tight">
+            <nav className="w-full max-w-4xl mx-auto flex flex-col justify-center flex-1 my-8">
+              <ul className="flex flex-col gap-6 text-[2.25rem] md:text-[3.5rem] font-bold leading-none tracking-tight">
                 <li>
-                  <Link
-                    href="/"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-muted-text hover:text-brass-accent transition-colors block py-1"
+                  <a
+                    href="#services"
+                    onClick={(e) => handleAnchorClick(e, "#services")}
+                    className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    01 <span className="text-primary-text hover:text-brass-accent transition-colors ml-4">Home</span>
-                  </Link>
+                    01 <span className="text-primary-text ml-4 font-display">Services</span>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/work"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-muted-text hover:text-brass-accent transition-colors block py-1"
+                  <a
+                    href="#work"
+                    onClick={(e) => handleAnchorClick(e, "#work")}
+                    className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    02 <span className="text-primary-text hover:text-brass-accent transition-colors ml-4">Selected Work</span>
-                  </Link>
+                    02 <span className="text-primary-text ml-4 font-display">Work</span>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/about"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-muted-text hover:text-brass-accent transition-colors block py-1"
+                  <a
+                    href="#about"
+                    onClick={(e) => handleAnchorClick(e, "#about")}
+                    className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    03 <span className="text-primary-text hover:text-brass-accent transition-colors ml-4">Corporate Identity</span>
-                  </Link>
+                    03 <span className="text-primary-text ml-4 font-display">About</span>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/log"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-muted-text hover:text-brass-accent transition-colors block py-1"
+                  <a
+                    href="#journal"
+                    onClick={(e) => handleAnchorClick(e, "#journal")}
+                    className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    04 <span className="text-primary-text hover:text-brass-accent transition-colors ml-4">Systems Build Log</span>
-                  </Link>
+                    04 <span className="text-primary-text ml-4 font-display">Journal</span>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    href="/scoping"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-muted-text hover:text-brass-accent transition-colors block py-1"
+                  <a
+                    href="#contact"
+                    onClick={(e) => handleAnchorClick(e, "#contact")}
+                    className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    05 <span className="text-primary-text hover:text-brass-accent transition-colors ml-4">Scoping Form</span>
-                  </Link>
+                    05 <span className="text-primary-text ml-4 font-display">Contact</span>
+                  </a>
                 </li>
               </ul>
             </nav>
 
             {/* Bottom details inside menu overlay */}
-            <div className="w-full max-w-7xl mx-auto border-t border-hairline/30 pt-6 flex flex-col md:flex-row justify-between text-micro text-muted-text font-mono gap-4">
+            <div className="w-full max-w-7xl mx-auto border-t border-hairline pt-6 flex flex-col md:flex-row justify-between text-micro text-muted-text font-mono gap-4">
               <span>SAYAGA STUDIOS INC &copy; {new Date().getFullYear()}</span>
-              <span>OPERATIONAL SYSTEM COMPILING</span>
+              <span>CRAFTING DIGITAL LANDSCAPES</span>
             </div>
 
           </motion.div>
