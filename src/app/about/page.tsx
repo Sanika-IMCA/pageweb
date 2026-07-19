@@ -4,107 +4,170 @@ import Footer from "@/components/Footer";
 import RevealSquircle from "@/components/RevealSquircle";
 
 export const metadata: Metadata = {
-  title: "About | Sayaga Studios — Business Systems & AI Engineering",
-  description: "A letter explaining our methodology, values, team background, and operational focus.",
+  title: "About | Sayaga Studios — Operations Research & Systems Engineering",
+  description: "About Sanika and our operational research philosophy.",
 };
 
-const trajectoryPhases = [
+const philosophyPoints = [
   {
-    phase: "Phase 01",
-    title: "Product Studio",
-    desc: "We partner with founders and business operators to transform concepts into working production software in weeks.",
+    title: "We don't start with software, we start with your bottlenecks.",
+    desc: "A custom dashboard or automation is useless if it automates a broken process. We audit the manual friction first.",
   },
   {
-    phase: "Phase 02",
-    title: "Internal Products",
-    desc: "We build, test, and co-found our own software tools and automated platforms, spinning out independent teams.",
+    title: "We believe every build must trace back to a clear operational pain.",
+    desc: "Every database relation and automated run we deploy is designed to directly resolve a quantified time leak or revenue drain.",
   },
   {
-    phase: "Phase 03",
-    title: "Open Source",
-    desc: "We compile and release core scraper libraries, classification utilities, and layout frameworks to the developer ecosystem.",
+    title: "We design solutions that your team can actually use, not just admire.",
+    desc: "Technology is only valuable if operators adopt it. We prioritize ease-of-use and clear user training over overly complex tech stacks.",
   },
   {
-    phase: "Phase 04",
-    title: "Community",
-    desc: "We Build in Public, hosting workshops, publishing engineering lessons learned, and sharing technical essays.",
+    title: "We keep implementations lean and measurable.",
+    desc: "We prioritize high-impact, low-complexity wins first. We target a 30-50% manual operations time reduction from the first release.",
+  },
+];
+
+const industriesKnown = [
+  {
+    area: "HR Ops & Onboarding",
+    detail: "Standardizing candidate flows, automating screening dispatch systems, and structuring contractor onboarding logs.",
+  },
+  {
+    area: "Retail & Inventory Ops",
+    detail: "Integrating supplier purchase order flows, inventory audits, and automatic reorder alerts to reduce manual stock tracing.",
+  },
+  {
+    area: "Service & Consulting Ops",
+    detail: "Automating lead scoping pipelines, client intake data flows, scheduling triggers, and payment milestone handovers.",
+  },
+  {
+    area: "Admin-Heavy Workflows",
+    detail: "Transitioning operations teams away from chaotic spreadsheets, WhatsApp tracking, and manual email copy-pasting.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-charcoal-base text-primary-text font-sans">
+      
+      {/* Sticky Navigation */}
       <Navigation />
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-6 pt-28 pb-space-xxl flex flex-col gap-space-xl">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-6 pt-40 pb-24 flex flex-col gap-16 relative z-10">
         
-        {/* Intro */}
-        <div className="flex flex-col gap-space-sm border-b border-hairline pb-space-lg">
-          <span className="text-caption text-brass-accent">03 / Corporate Identity</span>
-          <h1 className="text-display-m lg:text-display-l">Our Story.</h1>
-          <p className="text-body-l text-muted-text max-w-2xl">
-            Ideas are cheap. Engineering reliable business software is hard. A letter explaining our values, who we partner with, and where we are heading.
+        {/* Intro Section */}
+        <div className="flex flex-col gap-4 border-b border-hairline/60 pb-10">
+          <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">03 / WHO WE ARE</span>
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-primary-text leading-none font-display">
+            About Sanika & the company.
+          </h1>
+          <p className="text-body-l text-muted-text mt-2 leading-relaxed">
+            We combine operational research, systems thinking, and partner integration tools to produce high‑ROI improvements for clients globally.
           </p>
         </div>
 
-        {/* Founder Letter Container */}
+        {/* Founder Letter/Overview */}
         <RevealSquircle delay={0.15}>
-          <div className="bg-secondary-surface border border-hairline p-8 md:p-12 rounded flex flex-col gap-space-sm max-w-3xl">
-            <p className="text-body-base text-primary-text font-semibold">Dear Operator,</p>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              Every company starts with an idea. Every idea starts on a page. But most ideas never get beyond that page.
+          <div className="bg-secondary-surface border border-brass-accent/15 p-8 md:p-12 rounded-[2.5rem] flex flex-col gap-6 shadow-sm backdrop-blur-md relative overflow-hidden">
+            {/* Subtle blue gradient halo background */}
+            <div className="absolute -top-12 -right-12 w-28 h-28 bg-accent-blue-light/30 border border-brass-accent/20 rounded-full blur-xl pointer-events-none" />
+
+            <h2 className="text-[1.5rem] font-bold text-brass-accent font-display">
+              Research-First Digital Systems
+            </h2>
+            <p className="text-body-base text-muted-text leading-relaxed font-semibold">
+              Most digital agencies want to sell you a complex custom app or a bloated retainer package immediately. At **Sayaga Studios**, led by **Sanika**, we believe that is a receipt for waste. Before we write code or config, we study the truth of your operations.
             </p>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              We founded <strong>Sayaga Studios</strong> to change that. Having spent years in the tech ecosystem, we grew tired of seeing ambitious companies get bogged down in agency bureaucracy, over-engineered architectures, and standard outsourcing pitfalls. You don't need a presentation slide deck; you need working software in your users' hands.
-            </p>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              We are a business systems and AI engineering studio. We do not position ourselves as an automation agency, a web design shop, or an AI wrapper factory. We are builders who partner with ambition. We design premium interfaces, map structured database schemas, and write high-leverage code to solve actual operational challenges.
+            <p className="text-body-base text-muted-text leading-relaxed font-semibold">
+              We focus on mapping the absolute reality of how your team communicates, where data gets lost in spreadsheets, and where manual bottlenecks occur. We then deploy lightweight, robust pipelines that resolve these friction points.
             </p>
 
-            <h3 className="text-heading text-primary-text font-medium mt-space-sm">Who We Partner With</h3>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              We work with ambitious founders, startups, businesses, operators, and creators who understand that technology should build leverage, remove friction, and solve real bottlenecks. If you prioritize visual craft, absolute speed, and code cleanliness over corporate meetings, you are in the right place.
-            </p>
-
-            <h3 className="text-heading text-primary-text font-medium mt-space-sm">The Next Decade</h3>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              Our long-term roadmap is clear. We are starting as a product studio, helping ambition launch. In the next phase, we will co-found internal software products as a venture studio. Ultimately, we are building an integrated ecosystem of SaaS products and tools designed to create leverage for operators globally.
-            </p>
-            <p className="text-body-base text-muted-text leading-relaxed">
-              Every great product starts somewhere. Let's turn your page into a product.
-            </p>
-
-            <div className="mt-8 border-t border-hairline pt-6 flex flex-col gap-1">
-              <p className="text-body-base text-primary-text font-semibold">The Founding Team</p>
-              <p className="text-micro text-brass-accent font-semibold tracking-widest uppercase">SAYAGA STUDIOS</p>
-            </div>
+            <ul className="flex flex-col gap-4 mt-4 pt-6 border-t border-hairline/60">
+              <li className="flex gap-3 items-center text-primary-text font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-brass-accent shrink-0" />
+                Obsessed with understanding how businesses actually run.
+              </li>
+              <li className="flex gap-3 items-center text-primary-text font-bold">
+                {/* Soft Red Accent bullet for key values */}
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)] shrink-0" />
+                Focused on deep operational research before any build.
+              </li>
+              <li className="flex gap-3 items-center text-primary-text font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-brass-accent shrink-0" />
+                Working with clients across multiple regions and industries.
+              </li>
+            </ul>
           </div>
         </RevealSquircle>
 
-        {/* Trajectory Phases */}
-        <div className="flex flex-col gap-space-md border-t border-hairline pt-space-lg mt-space-md">
-          <div className="flex flex-col gap-space-xxs">
-            <span className="text-caption text-brass-accent">Ecosystem</span>
-            <h2 className="text-display-m">The SAYAGA Trajectory.</h2>
-            <p className="text-body-base text-muted-text max-w-2xl mt-1">
-              We are building something much larger than a typical services agency. The SAYAGA ecosystem is designed to systematically evolve from design execution to venture building.
-            </p>
+        {/* Our Philosophy */}
+        <div className="flex flex-col gap-8 border-t border-hairline/60 pt-12">
+          <div className="flex flex-col gap-1">
+            <span className="text-[0.75rem] font-mono text-accent-red uppercase tracking-wider font-bold">OPERATIONAL CORE</span>
+            <h2 className="text-[1.85rem] font-bold text-primary-text font-display">Our Philosophy</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md mt-space-sm">
-            {trajectoryPhases.map((item) => (
-              <div key={item.phase} className="p-space-sm bg-secondary-surface border border-hairline rounded flex flex-col gap-space-xxs">
-                <span className="text-micro font-mono text-brass-accent font-semibold">{item.phase}</span>
-                <h4 className="text-heading text-primary-text font-medium">{item.title}</h4>
-                <p className="text-body-base text-muted-text leading-relaxed mt-1">{item.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {philosophyPoints.map((item) => (
+              <div key={item.title} className="p-6 bg-secondary-surface border border-brass-accent/15 rounded-2xl flex flex-col gap-2 shadow-sm backdrop-blur-md relative overflow-hidden">
+                {/* Faint Red dot accent in the corner for visual consistency */}
+                <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-accent-red/80 shadow-[0_0_6px_rgba(229,147,147,0.85)]" />
+                <h4 className="text-body-base text-brass-accent font-bold leading-snug">{item.title}</h4>
+                <p className="text-[0.9rem] text-muted-text leading-relaxed mt-1 font-semibold">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Industries known */}
+        <div className="flex flex-col gap-8 border-t border-hairline/60 pt-12">
+          <div className="flex flex-col gap-1">
+            <span className="text-[0.75rem] font-mono text-brass-accent uppercase tracking-wider font-bold">DOMAINS</span>
+            <h2 className="text-[1.85rem] font-bold text-primary-text font-display">Industries & Patterns We Know</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {industriesKnown.map((item) => (
+              <div key={item.area} className="p-6 bg-secondary-surface border border-brass-accent/15 rounded-2xl flex flex-col gap-2 shadow-sm backdrop-blur-md relative overflow-hidden">
+                {/* Tiny blue spotlight dot accent */}
+                <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-brass-accent/80" />
+                <h4 className="text-body-base text-primary-text font-bold font-display">{item.area}</h4>
+                <p className="text-[0.9rem] text-muted-text leading-relaxed mt-1 font-semibold">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* How we work with you */}
+        <div className="flex flex-col gap-6 border-t border-hairline/60 pt-12 bg-accent-blue-light/20 border border-brass-accent/15 p-8 rounded-[2.5rem] relative overflow-hidden backdrop-blur-md">
+          <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-accent-blue-light/10 rounded-full blur-xl pointer-events-none" />
+
+          <div className="flex flex-col gap-1">
+            <span className="text-[0.7rem] font-mono text-brass-accent uppercase tracking-wider font-bold">COLLABORATION GUIDE</span>
+            <h2 className="text-[1.5rem] font-bold text-primary-text font-display leading-tight">How we work with you.</h2>
+          </div>
+          
+          <ul className="flex flex-col gap-4 text-[0.95rem] text-muted-text leading-relaxed font-semibold">
+            <li className="flex gap-3 items-start">
+              <span className="text-brass-accent font-bold mt-0.5">&bull;</span>
+              <span><strong>Remote-Friendly Engagement</strong>: We work across multiple regions using clear async documentation, dashboard scoping reports, and recorded video updates.</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <span className="text-accent-red font-bold mt-0.5">&bull;</span>
+              <span><strong>Clear Expectations</strong>: Strict milestone tracking. From intake form submission &rarr; Research Sprint &rarr; review video call &rarr; project roadmap &rarr; build release.</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <span className="text-brass-accent font-bold mt-0.5">&bull;</span>
+              <span><strong>Structured Communication</strong>: We communicate clearly about database boundaries, tool lock-ins, and cost budgets—never hiding implementation details behind jargon.</span>
+            </li>
+          </ul>
+        </div>
+
       </main>
 
+      {/* Footer */}
       <Footer />
+      
     </div>
   );
 }

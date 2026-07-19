@@ -2,13 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import Hero from "@/components/Hero";
+import WhoWeHelp from "@/components/WhoWeHelp";
 import Capabilities from "@/components/Capabilities";
-import CaseStudies from "@/components/CaseStudies";
-import Difference from "@/components/Difference";
-import PartnerNetwork from "@/components/PartnerNetwork";
-import ProcessSpine from "@/components/ProcessSpine";
 import TrustLogos from "@/components/TrustLogos";
-import JournalSection from "@/components/JournalSection";
+import CaseSnapshot from "@/components/CaseSnapshot";
 
 export default function Home() {
   return (
@@ -23,49 +20,26 @@ export default function Home() {
       {/* Main Body */}
       <main className="flex-1 w-full flex flex-col z-10">
         
-        {/* 01 — Hero Block */}
+        {/* Hero Block */}
         <div id="hero" className="w-full">
           <Hero />
         </div>
 
-        {/* 02 — Trusted by leading companies (logo strip) */}
-        <div id="trust">
-          <TrustLogos />
-        </div>
+        {/* Who We Help Strip */}
+        <WhoWeHelp />
 
-        {/* 03 — Featured case studies */}
-        <div id="work">
-          <CaseStudies />
-        </div>
+        {/* What We Do In One Look */}
+        <Capabilities />
 
-        {/* 04 — Services */}
-        <div id="services">
-          <Capabilities />
-        </div>
+        {/* Authority & Trust Band */}
+        <TrustLogos />
 
-        {/* 05 — Client Testimonials */}
-        <div id="difference">
-          <Difference />
-        </div>
-
-        {/* 06 — Impact Numbers */}
-        <div id="partners">
-          <PartnerNetwork />
-        </div>
-
-        {/* 07 — Process */}
-        <div id="process">
-          <ProcessSpine />
-        </div>
-
-        {/* 08 — Journal */}
-        <div id="journal">
-          <JournalSection />
-        </div>
+        {/* Featured Case Snapshot */}
+        <CaseSnapshot />
 
       </main>
 
-      {/* 10 — Footer */}
+      {/* Footer */}
       <Footer />
     </div>
   );

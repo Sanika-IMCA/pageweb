@@ -53,23 +53,6 @@ export default function Navigation() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMenuOpen]);
 
-  // Smooth scroll handler for anchor links
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-    
-    // Check if we are on home page, otherwise navigate
-    if (window.location.pathname !== "/") {
-      window.location.href = `/${targetId}`;
-      return;
-    }
-
-    const element = document.getElementById(targetId.replace("#", ""));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-charcoal-base/60 backdrop-blur-md transition-colors duration-300">
@@ -98,51 +81,46 @@ export default function Navigation() {
           <div className="flex items-center gap-8">
             {/* Desktop links */}
             <nav className="hidden md:block">
-              <ul className="flex items-center gap-8 text-[0.85rem] font-medium tracking-wide">
+              <ul className="flex items-center gap-8 text-[0.85rem] font-semibold tracking-wide">
                 <li>
-                  <a
-                    href="#services"
-                    onClick={(e) => handleAnchorClick(e, "#services")}
+                  <Link
+                    href="/approach"
+                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
+                  >
+                    How We Work
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
                     className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#work"
-                    onClick={(e) => handleAnchorClick(e, "#work")}
+                  <Link
+                    href="/work"
                     className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
-                    Work
-                  </a>
+                    Case Studies
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#about"
-                    onClick={(e) => handleAnchorClick(e, "#about")}
+                  <Link
+                    href="/about"
                     className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#journal"
-                    onClick={(e) => handleAnchorClick(e, "#journal")}
-                    className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
-                  >
-                    Journal
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleAnchorClick(e, "#contact")}
+                  <Link
+                    href="/scoping"
                     className="text-muted-text hover:text-primary-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary-text after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -150,9 +128,9 @@ export default function Navigation() {
             {/* Desktop CTA Button */}
             <Link
               href="/scoping"
-              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary-text text-[0.8rem] font-semibold text-charcoal-base bg-primary-text hover:bg-transparent hover:text-primary-text transition-all duration-300"
+              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-primary-text text-[0.8rem] font-bold text-white bg-primary-text hover:bg-white hover:text-primary-text hover:border-primary-text/45 transition-all duration-300 shadow-sm"
             >
-              Start a Project
+              Request a Strategy Audit
             </Link>
 
             {/* Menu Hamburger Trigger */}
@@ -192,11 +170,11 @@ export default function Navigation() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             ref={menuRef}
             aria-hidden={!isMenuOpen}
-            className="fixed inset-0 bg-charcoal-base/98 backdrop-blur-xl z-[99] flex flex-col justify-between p-8 md:p-16"
+            className="fixed inset-0 bg-white/95 backdrop-blur-xl z-[99] flex flex-col justify-between p-8 md:p-16 border-b border-hairline"
           >
             {/* Header controls inside menu overlay */}
             <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
-              <span className="text-micro font-mono text-muted-text tracking-widest">[ Sayaga.Navigation ]</span>
+              <span className="text-micro font-mono text-muted-text tracking-widest font-semibold">[ Sayaga.Navigation ]</span>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2.5 border border-hairline rounded-full hover:border-primary-text text-primary-text transition-colors cursor-pointer"
@@ -220,51 +198,51 @@ export default function Navigation() {
 
             {/* Central Navigation Links */}
             <nav className="w-full max-w-4xl mx-auto flex flex-col justify-center flex-1 my-8">
-              <ul className="flex flex-col gap-6 text-[2.25rem] md:text-[3.5rem] font-bold leading-none tracking-tight">
+              <ul className="flex flex-col gap-6 text-[2rem] md:text-[3rem] font-bold leading-none tracking-tight">
                 <li>
-                  <a
-                    href="#services"
-                    onClick={(e) => handleAnchorClick(e, "#services")}
+                  <Link
+                    href="/approach"
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    01 <span className="text-primary-text ml-4 font-display">Services</span>
-                  </a>
+                    01 <span className="text-primary-text ml-4 font-display">How We Work</span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#work"
-                    onClick={(e) => handleAnchorClick(e, "#work")}
+                  <Link
+                    href="/services"
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    02 <span className="text-primary-text ml-4 font-display">Work</span>
-                  </a>
+                    02 <span className="text-primary-text ml-4 font-display">Services</span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#about"
-                    onClick={(e) => handleAnchorClick(e, "#about")}
+                  <Link
+                    href="/work"
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    03 <span className="text-primary-text ml-4 font-display">About</span>
-                  </a>
+                    03 <span className="text-primary-text ml-4 font-display">Case Studies</span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#journal"
-                    onClick={(e) => handleAnchorClick(e, "#journal")}
+                  <Link
+                    href="/about"
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
-                    04 <span className="text-primary-text ml-4 font-display">Journal</span>
-                  </a>
+                    04 <span className="text-primary-text ml-4 font-display">About</span>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleAnchorClick(e, "#contact")}
+                  <Link
+                    href="/scoping"
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-muted-text hover:text-primary-text transition-colors block py-2"
                   >
                     05 <span className="text-primary-text ml-4 font-display">Contact</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
