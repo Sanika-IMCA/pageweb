@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CaseSnapshot() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-charcoal-base border-t border-hairline relative">
+    <section className="py-24 px-6 md:px-12 bg-transparent border-t border-hairline relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
         
         {/* Section Header */}

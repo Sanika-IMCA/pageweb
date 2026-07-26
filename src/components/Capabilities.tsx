@@ -48,7 +48,7 @@ const columns: Column[] = [
 
 export default function Capabilities() {
   return (
-    <section id="services" className="py-32 px-6 md:px-12 bg-charcoal-base border-t border-hairline relative">
+    <section id="services" className="py-32 px-6 md:px-12 bg-transparent border-t border-hairline relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-20">
         
         {/* Section Header */}

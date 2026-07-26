@@ -64,10 +64,10 @@ export default function CaseStudies() {
   const scaleParallax = useTransform(scrollY, [0, 800], [1.02, 1.08]);
 
   return (
-    <section id="work" className="relative w-full bg-charcoal-base overflow-hidden">
+    <section id="work" className="relative w-full bg-transparent overflow-hidden">
       
       {/* Hero Header with full-screen parallax background image */}
-      <div className="relative min-h-[65vh] flex items-center justify-center py-20 overflow-hidden bg-charcoal-base border-b border-hairline">
+      <div className="relative min-h-[65vh] flex items-center justify-center py-20 overflow-hidden bg-transparent border-b border-hairline">
         
         {/* Background Image with subtle scroll scale and parallax translate */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">

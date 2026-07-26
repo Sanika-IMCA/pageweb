@@ -87,7 +87,7 @@ export default function ApproachPage() {
   const scaleParallax = useTransform(scrollY, [0, 800], [1.02, 1.08]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-charcoal-base text-primary-text font-sans">
+    <div className="flex flex-col min-h-screen bg-transparent text-primary-text font-sans">
       
       {/* Navigation */}
       <Navigation />

@@ -38,7 +38,7 @@ const metrics: MetricItem[] = [
 
 export default function PartnerNetwork() {
   return (
-    <section className="py-32 px-6 md:px-12 bg-charcoal-base border-t border-hairline relative overflow-hidden">
+    <section className="py-32 px-6 md:px-12 bg-transparent border-t border-hairline relative overflow-hidden">
       
       {/* Light soft lavender background orb */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-purple-50/20 rounded-full blur-[80px] pointer-events-none" />

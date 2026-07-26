@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function WhoWeHelp() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-charcoal-base relative overflow-hidden">
+    <section className="py-24 px-6 md:px-12 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
         
         {/* Left column: Fits best */}

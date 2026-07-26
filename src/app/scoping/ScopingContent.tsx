@@ -91,7 +91,7 @@ export default function ScopingContent() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-charcoal-base text-primary-text font-sans">
+    <div className="flex flex-col min-h-screen bg-transparent text-primary-text font-sans">
       <Navigation />
 
       {/* Hero Header with full-screen parallax background image */}

@@ -33,7 +33,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="contact" className="bg-charcoal-base border-t border-hairline py-32 px-6 md:px-12 relative z-10">
+    <footer id="contact" className="bg-transparent border-t border-hairline py-32 px-6 md:px-12 relative z-10">
       <div className="max-w-7xl mx-auto flex flex-col gap-24">
         
         {/* Strong Final CTA Section inside Footer */}

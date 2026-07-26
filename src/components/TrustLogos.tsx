@@ -19,7 +19,7 @@ export default function TrustLogos() {
   const doubleList = [...trustLogos, ...trustLogos];
 
   return (
-    <section className="py-24 bg-charcoal-base border-t border-hairline relative">
+    <section className="py-24 bg-transparent border-t border-hairline relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         
         {/* Top: Authority & Region Metadata */}

@@ -12,7 +12,7 @@ export default function Hero() {
   const scaleParallax = useTransform(scrollY, [0, 1000], [1.02, 1.10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-32 overflow-hidden bg-charcoal-base">
+    <section className="relative min-h-screen flex items-center justify-center py-32 overflow-hidden bg-transparent">
       
       {/* Background Image with subtle scroll scale and parallax translate */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">

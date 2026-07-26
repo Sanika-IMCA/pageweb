@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-charcoal-base text-primary-text font-sans">
+    <div className="flex flex-col min-h-screen bg-transparent text-primary-text font-sans">
       <Navigation />
 
       <main className="flex-1 w-full pt-20">
