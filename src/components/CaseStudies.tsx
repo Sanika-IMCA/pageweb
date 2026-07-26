@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,7 +39,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "pipeline",
     index: "03",
-    client: "Sayaga Pipeline",
+    client: "Sayagaa Pipeline",
     industry: "SaaS Ops",
     systemBuilt: "High-Volume Lead Pipeline Scraper",
     outcome: "3.5x Volume Scale",
@@ -59,24 +59,66 @@ const caseStudies: CaseStudy[] = [
 ];
 
 export default function CaseStudies() {
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 800], [0, -60]);
+  const scaleParallax = useTransform(scrollY, [0, 800], [1.02, 1.08]);
+
   return (
-    <section id="work" className="py-32 px-6 md:px-12 bg-charcoal-base border-t border-hairline">
-      <div className="max-w-7xl mx-auto flex flex-col gap-24">
+    <section id="work" className="relative w-full bg-charcoal-base overflow-hidden">
+      
+      {/* Hero Header with full-screen parallax background image */}
+      <div className="relative min-h-[65vh] flex items-center justify-center py-20 overflow-hidden bg-charcoal-base border-b border-hairline">
         
-        {/* Section Header */}
-        <div className="flex flex-col gap-4 max-w-xl">
-          <span className="text-caption text-brass-accent font-mono tracking-widest font-semibold">
-            02 / SELECTED WORK
-          </span>
-          <h2 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-primary-text leading-none">
-            Featured Case Studies
-          </h2>
-          <p className="text-body-base text-muted-text mt-2">
-            A curated selection of digital platforms, AI automation systems, and high-performance tools engineered to solve operational friction.
-          </p>
+        {/* Background Image with subtle scroll scale and parallax translate */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
+          <motion.div 
+            style={{ scale: scaleParallax, y: yParallax }} 
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src="/assets/work-compass.png"
+              alt="Sayagaa work case studies explorer background"
+              fill
+              priority
+              className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
+            />
+          </motion.div>
+
+          {/* Warm Luxury Gradient Overlays for integration & contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal-base/40 via-transparent to-transparent z-10" />
+          
+          {/* Subtle grid overlay blended on top of background image */}
+          <div 
+            className="absolute inset-0 opacity-10 mix-blend-overlay z-10"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(46, 91, 148, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(46, 91, 148, 0.08) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 80px"
+            }}
+          />
         </div>
 
-        {/* Alternating Layout List */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 text-left relative z-10">
+          {/* Glassmorphic floating card for readability and premium contrast */}
+          <div className="flex flex-col gap-6 items-start max-w-2xl bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+            <span className="text-caption text-brass-accent font-mono tracking-widest font-semibold">
+              02 / SELECTED WORK
+            </span>
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-white leading-none font-display">
+              Featured Case Studies
+            </h1>
+            <p className="text-body-base text-primary-text leading-relaxed font-semibold">
+              A curated selection of digital platforms, AI automation systems, and high-performance tools engineered to solve operational friction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Case Studies Grid Content */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-24 flex flex-col gap-24 relative z-10">
         <div className="flex flex-col gap-24 lg:gap-32">
           {caseStudies.map((study, idx) => {
             const isEven = idx % 2 === 0;
@@ -89,12 +131,12 @@ export default function CaseStudies() {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
-                
+
                 {/* Image Wrapper (Frosted visual borders) */}
                 <div className={`lg:col-span-7 w-full ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                  <Link href={`/work/${study.id}`} className="block group overflow-hidden rounded-[2rem] border border-white/60 bg-white/20 relative aspect-[16/10] shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <Link href={`/work/${study.id}`} className="block group overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 relative aspect-[16/10] shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
                     <div className="absolute inset-0 bg-blue-100/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                    
+
                     <Image
                       src={study.image}
                       alt={study.altText}
@@ -106,8 +148,8 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Metadata & Description (Frosted card) */}
-                <div className={`lg:col-span-5 flex flex-col gap-6 ${isEven ? "lg:order-2" : "lg:order-1"} bg-secondary-surface border border-white/65 p-8 sm:p-12 rounded-[2rem] shadow-sm relative overflow-hidden backdrop-blur-md`}>
-                  
+                <div className={`lg:col-span-5 flex flex-col gap-6 ${isEven ? "lg:order-2" : "lg:order-1"} bg-secondary-surface p-8 sm:p-12 rounded-[2rem] relative overflow-hidden`}>
+
                   {/* Subtle Lavender orb inside card */}
                   <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/20 rounded-full blur-2xl pointer-events-none" />
 
@@ -145,7 +187,6 @@ export default function CaseStudies() {
             );
           })}
         </div>
-
       </div>
     </section>
   );

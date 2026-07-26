@@ -74,7 +74,7 @@ export default function Navigation() {
               <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
               <path d="M14 13h4" />
             </svg>
-            <span className="font-display tracking-normal">SAYAGA</span>
+            <span className="font-display tracking-normal">SAYAGAA</span>
           </Link>
 
           {/* Links & actions */}
@@ -174,7 +174,7 @@ export default function Navigation() {
           >
             {/* Header controls inside menu overlay */}
             <div className="flex justify-between items-center w-full max-w-7xl mx-auto">
-              <span className="text-micro font-mono text-muted-text tracking-widest font-semibold">[ Sayaga.Navigation ]</span>
+              <span className="text-micro font-mono text-muted-text tracking-widest font-semibold">[ Sayagaa.Navigation ]</span>
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2.5 border border-hairline rounded-full hover:border-primary-text text-primary-text transition-colors cursor-pointer"
@@ -249,7 +249,7 @@ export default function Navigation() {
 
             {/* Bottom details inside menu overlay */}
             <div className="w-full max-w-7xl mx-auto border-t border-hairline pt-6 flex flex-col md:flex-row justify-between text-micro text-muted-text font-mono gap-4">
-              <span>SAYAGA STUDIOS INC &copy; {new Date().getFullYear()}</span>
+              <span>SAYAGAA STUDIOS INC &copy; {new Date().getFullYear()}</span>
               <span>CRAFTING DIGITAL LANDSCAPES</span>
             </div>
 

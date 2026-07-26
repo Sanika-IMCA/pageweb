@@ -14,7 +14,7 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Sayaga Studios re-engineered our delivery dispatch pipeline. The technical implementation was clean, but their deep understanding of our business operations is what truly set them apart.",
+    quote: "Sayagaa Studios re-engineered our delivery dispatch pipeline. The technical implementation was clean, but their deep understanding of our business operations is what truly set them apart.",
     author: "Marcus Chen",
     role: "VP of Operations",
     company: "Outreach Engine",

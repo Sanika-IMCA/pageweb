@@ -33,7 +33,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
 
     gsap.ticker.add(tickerUpdate);
-    gsap.ticker.lagSmoothing(0);
 
     // Refresh ScrollTrigger settings once layout stabilizes
     ScrollTrigger.refresh();

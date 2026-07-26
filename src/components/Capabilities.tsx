@@ -20,8 +20,8 @@ const columns: Column[] = [
     subtitle: "Understanding Operations First",
     description: "We map your workflows end‑to‑end and identify where time and money are leaking before recommending any tool or database build.",
     bullets: ["Less manual chasing", "Cleaner core data", "Faster operations decisions"],
-    iconColor: "bg-accent-blue-light text-brass-accent border-brass-accent/15",
-    cardStyle: "bg-accent-blue-light/35 border-brass-accent/20",
+    iconColor: "bg-brass-accent/10 text-brass-accent border-brass-accent/20",
+    cardStyle: "bg-white/[0.03] border-white/10",
     bulletColor: "bg-brass-accent",
   },
   {
@@ -30,8 +30,8 @@ const columns: Column[] = [
     subtitle: "Tailoring System Blueprints",
     description: "We design process changes, automations, database integrations, and light custom builds centered entirely around your operating reality.",
     bullets: ["Clearer team handovers", "Standardized steps", "Optimized software stack"],
-    iconColor: "bg-accent-red-light/60 text-accent-red border-accent-red/20",
-    cardStyle: "bg-white/45 border-hairline/60",
+    iconColor: "bg-accent-red/10 text-accent-red border-accent-red/20",
+    cardStyle: "bg-white/[0.03] border-white/10",
     bulletColor: "bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)]",
   },
   {
@@ -40,8 +40,8 @@ const columns: Column[] = [
     subtitle: "Iterating High-Impact Wins",
     description: "We implement using trusted partner tools and custom TypeScript components, starting with the highest‑impact, lowest‑complexity operational wins.",
     bullets: ["Usable custom dashboards", "Zero operational friction", "Continuous support retainers"],
-    iconColor: "bg-accent-blue-light text-brass-accent border-brass-accent/15",
-    cardStyle: "bg-accent-blue-light/35 border-brass-accent/20",
+    iconColor: "bg-brass-accent/10 text-brass-accent border-brass-accent/20",
+    cardStyle: "bg-white/[0.03] border-white/10",
     bulletColor: "bg-brass-accent",
   },
 ];
@@ -73,7 +73,7 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className={`border p-8 rounded-[2rem] flex flex-col justify-between hover:border-brass-accent/25 transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-md relative overflow-hidden ${col.cardStyle}`}
+              className={`backdrop-blur-xl p-8 rounded-[2rem] flex flex-col justify-between border hover:border-brass-accent/40 transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden ${col.cardStyle}`}
             >
               <div className="flex flex-col gap-6">
                 

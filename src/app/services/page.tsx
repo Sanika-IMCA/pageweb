@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/image"; // Wait, Link is used as a link in Next.js, but let's check imports
+import NextLink from "next/link";
+import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -88,31 +90,66 @@ const services: ServiceItem[] = [
 ];
 
 export default function ServicesPage() {
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 800], [0, -60]);
+  const scaleParallax = useTransform(scrollY, [0, 800], [1.02, 1.08]);
+
   return (
     <div className="flex flex-col min-h-screen bg-charcoal-base text-primary-text font-sans">
       
       {/* Navigation */}
       <Navigation />
 
-      {/* Header section */}
-      <header className="pt-40 pb-20 px-6 md:px-12 relative overflow-hidden">
-        {/* Soft Background Orbs */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-20 right-10 w-[350px] h-[350px] bg-accent-red-light/35 rounded-full blur-[90px]" />
-          <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-accent-blue-light/35 rounded-full blur-[90px]" />
+      {/* Header section with full-screen parallax background image */}
+      <header className="relative min-h-[75vh] flex items-center justify-center py-24 overflow-hidden bg-charcoal-base">
+        
+        {/* Background Image with subtle scroll scale and parallax translate */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
+          <motion.div 
+            style={{ scale: scaleParallax, y: yParallax }} 
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src="/assets/services-planning.png"
+              alt="Sayagaa services planning and instruments"
+              fill
+              priority
+              className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
+            />
+          </motion.div>
+
+          {/* Warm Luxury Gradient Overlays for integration & contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal-base/40 via-transparent to-transparent z-10" />
+          
+          {/* Subtle grid overlay blended on top of background image */}
+          <div 
+            className="absolute inset-0 opacity-10 mix-blend-overlay z-10"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(46, 91, 148, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(46, 91, 148, 0.08) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 80px"
+            }}
+          />
         </div>
 
-        <div className="max-w-4xl mx-auto flex flex-col gap-6 text-center relative z-10">
-          <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
-            PRODUCTIZED SERVICES
-          </span>
-          <h1 className="text-[2.75rem] sm:text-[3.75rem] font-bold tracking-tight text-primary-text leading-tight font-display">
-            Services designed around research, <br />
-            not random implementation.
-          </h1>
-          <p className="text-body-l text-muted-text max-w-2xl mx-auto leading-relaxed mt-2">
-            Every engagement begins with our Research Sprint. From there, you can choose solution build phases and optimization support retainers based on your operational roadmap.
-          </p>
+        <div className="max-w-4xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 text-left relative z-10">
+          
+          {/* Glassmorphic floating card for readability and premium contrast */}
+          <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+            <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
+              PRODUCTIZED SERVICES
+            </span>
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-white leading-tight font-display">
+              Services designed around research, <br />
+              not random implementation.
+            </h1>
+            <p className="text-body-base text-primary-text leading-relaxed font-semibold">
+              Every engagement begins with our Research Sprint. From there, you can choose solution build phases and optimization support retainers based on your operational roadmap.
+            </p>
+          </div>
         </div>
       </header>
 
@@ -129,7 +166,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="bg-gradient-to-br from-accent-blue-light/30 to-white/45 border border-brass-accent/25 p-8 sm:p-12 rounded-[2.5rem] shadow-sm backdrop-blur-md relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-12 hover:shadow-md transition-shadow duration-300"
+                className="bg-secondary-surface p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-12 hover:border-brass-accent/40 transition-colors duration-300"
               >
                 {/* Glitter sparkles for sprint core card */}
                 {service.hasSparkles && (
@@ -158,12 +195,12 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="pt-6">
-                    <Link
+                    <NextLink
                       href="/scoping"
                       className="btn-premium-gradient inline-flex items-center gap-2 text-[0.85rem] font-bold py-3.5 px-8 rounded-full shadow-sm"
                     >
                       {service.ctaText} &rarr;
-                    </Link>
+                    </NextLink>
                   </div>
                 </div>
 
@@ -197,7 +234,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Outcome statement */}
-                  <div className="flex flex-col gap-2 border-t border-hairline/50 pt-4 bg-accent-blue-light/10 rounded-2xl p-4 border border-brass-accent/10">
+                  <div className="flex flex-col gap-2 border-t border-hairline/50 pt-4 bg-white/[0.03] rounded-2xl p-4 border border-white/5">
                     <span className="text-micro font-mono text-brass-accent uppercase tracking-wider font-bold">EXPECTED OUTCOME</span>
                     <p className="text-[0.9rem] text-primary-text font-bold leading-relaxed">
                       {service.outcome}
@@ -211,7 +248,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Not a fit section */}
-          <section className="bg-accent-red-light/20 border border-accent-red/45 p-8 sm:p-12 rounded-[2.5rem] flex flex-col gap-6 backdrop-blur-md mt-12 relative overflow-hidden">
+          <section className="bg-accent-red-light/10 border border-accent-red/20 p-8 sm:p-12 rounded-[2.5rem] flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] mt-12 relative overflow-hidden">
             <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent-red-light/10 rounded-full blur-2xl pointer-events-none" />
 
             <div className="flex flex-col gap-2 max-w-xl">

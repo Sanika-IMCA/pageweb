@@ -6,24 +6,24 @@ import Image from "next/image";
 import MagneticButton from "./MagneticButton";
 
 export default function Footer() {
-  const [timeStr, setTimeStr] = useState("ET 12:00:00 AM");
+  const [timeStr, setTimeStr] = useState("IST 12:00:00 AM");
 
   useEffect(() => {
     const updateTime = () => {
       try {
         const date = new Date();
         const formatter = new Intl.DateTimeFormat("en-US", {
-          timeZone: "America/New_York",
+          timeZone: "Asia/Kolkata",
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
           hour12: true,
         });
         const formatted = formatter.format(date);
-        setTimeStr(`ET ${formatted}`);
+        setTimeStr(`IST ${formatted}`);
       } catch (err) {
         const fallback = new Date().toLocaleTimeString();
-        setTimeStr(`ET ${fallback}`);
+        setTimeStr(`IST ${fallback}`);
       }
     };
 
@@ -66,11 +66,11 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <span className="text-caption text-muted-text font-mono">Inquiries</span>
             <div className="text-body-base flex flex-col gap-2 items-start font-medium">
-              <a href="mailto:hello@sayaga.studio" className="hover:text-muted-text transition-colors">
-                hello@sayaga.studio
+              <a href="mailto:workwithsayagaa@gmail.com" className="hover:text-muted-text transition-colors">
+                workwithsayagaa@gmail.com
               </a>
-              <a href="tel:+13025550190" className="hover:text-muted-text transition-colors">
-                +1 (302) 555-0190
+              <a href="tel:+918308914687" className="hover:text-muted-text transition-colors">
+                +91 8308914687
               </a>
             </div>
           </div>
@@ -79,9 +79,9 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <span className="text-caption text-muted-text font-mono">Offices</span>
             <div className="text-body-base text-primary-text leading-relaxed font-medium">
-              <p>Sayaga Studios Inc.</p>
-              <p>1209 Delaware Ave</p>
-              <p>Wilmington, DE 19806</p>
+              <p>Sayagaa Studios</p>
+              <p>Pune, Maharashtra</p>
+              <p>India</p>
             </div>
           </div>
 
@@ -113,7 +113,7 @@ export default function Footer() {
 
         {/* Lower footer copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-micro text-muted-text pt-8 border-t border-hairline/30 gap-4 mt-8 font-mono">
-          <span>&copy; {new Date().getFullYear()} SAYAGA STUDIOS INC. ALL RIGHTS RESERVED.</span>
+          <span>&copy; {new Date().getFullYear()} SAYAGAA STUDIOS INC. ALL RIGHTS RESERVED.</span>
           <span>BUILT FOR DIGITAL CRAFTSMANSHIP.</span>
         </div>
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import RouteTransition from "@/components/RouteTransition";
 import Image from "next/image";
 
@@ -25,7 +24,7 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sayaga Studios — We study businesses before we build software.",
+  title: "Sayagaa Studios — We study businesses before we build software.",
   description: "We study businesses before we build software. Coded for operational rigor and precision.",
 };
 
@@ -40,10 +39,6 @@ export default function RootLayout({
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full antialiased`}
     >
       <body className="bg-charcoal-base text-primary-text font-sans min-h-full flex flex-col relative">
-        {/* Custom cursor lagged follow ring dot */}
-        <CustomCursor />
-
-
         
         {/* Global smooth scrolling drives route transition wipe overlays */}
         <SmoothScroll>

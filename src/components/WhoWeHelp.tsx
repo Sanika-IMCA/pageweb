@@ -21,7 +21,7 @@ export default function WhoWeHelp() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             
             {/* Bullet 1 */}
-            <div className="bg-accent-blue-light/35 border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-sm backdrop-blur-md">
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>
@@ -31,7 +31,7 @@ export default function WhoWeHelp() {
             </div>
 
             {/* Bullet 2 */}
-            <div className="bg-accent-blue-light/35 border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-sm backdrop-blur-md">
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>
@@ -41,7 +41,7 @@ export default function WhoWeHelp() {
             </div>
 
             {/* Bullet 3 */}
-            <div className="bg-accent-blue-light/35 border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-sm backdrop-blur-md">
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>
@@ -54,9 +54,9 @@ export default function WhoWeHelp() {
         </div>
 
         {/* Right column: Not a fit (Soft red accent highlights) */}
-        <div className="lg:col-span-5 bg-accent-red-light/25 border border-accent-red/45 p-8 rounded-[2rem] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
+        <div className="lg:col-span-5 bg-accent-red-light/10 backdrop-blur-xl border border-accent-red/20 p-8 rounded-[2rem] flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden">
           {/* Subtle blush red orb indicator */}
-          <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-accent-red-light/10 rounded-full blur-xl pointer-events-none" />
+          <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-accent-red-light/5 rounded-full blur-xl pointer-events-none" />
 
           <div className="flex flex-col gap-2">
             <span className="text-[0.7rem] font-mono text-accent-red font-bold uppercase tracking-wider">

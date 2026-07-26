@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import CaseStudies from "@/components/CaseStudies";
 
 export const metadata: Metadata = {
-  title: "Work | Sayaga Studios — Business Systems & AI Engineering",
+  title: "Work | Sayagaa Studios — Business Systems & AI Engineering",
   description: "A scattered portfolio grid showcasing high-precision systems assets, dispatch sequencers, email triagers, and document compilers.",
 };
 

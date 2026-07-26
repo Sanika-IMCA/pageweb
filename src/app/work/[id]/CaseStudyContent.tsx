@@ -54,7 +54,7 @@ export const STUDIES_DB: { [key: string]: StudyData } = {
     diagramNodes: ["API Webhook", "Redis Buffer", "OpenAI Summary", "CRM Sync"],
   },
   pipeline: {
-    client: "Sayaga Pipeline",
+    client: "Sayagaa Pipeline",
     projectType: "Custom Software",
     timeline: "4 Weeks",
     outcome: "3.5x Volume Scale",

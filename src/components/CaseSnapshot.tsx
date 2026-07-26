@@ -22,13 +22,13 @@ export default function CaseSnapshot() {
         </div>
 
         {/* Featured Card */}
-        <div className="bg-secondary-surface border border-white/70 p-8 sm:p-12 rounded-[2.5rem] shadow-sm backdrop-blur-md relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl">
+        <div className="bg-secondary-surface p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl">
           {/* Decorative faint background blue orb */}
           <div className="absolute -top-12 -left-12 w-32 h-32 bg-blue-100/5 rounded-full blur-2xl pointer-events-none" />
 
           {/* Left panel: Info teaser */}
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <span className="text-micro font-mono text-accent-red uppercase tracking-widest font-bold bg-accent-red-light/60 border border-accent-red/20 rounded-full px-3 py-1 self-start">
+            <span className="text-micro font-mono text-accent-red uppercase tracking-widest font-bold bg-accent-red-light/10 border border-accent-red/15 rounded-full px-3 py-1 self-start backdrop-blur-md">
               FEATURED OUTCOME
             </span>
             <h3 className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-tight text-primary-text font-display leading-tight">
@@ -56,7 +56,7 @@ export default function CaseSnapshot() {
               </li>
               
               {/* Highlighted Outcome Bullet (Soft red outline and glow) */}
-              <li className="flex gap-3 items-start text-primary-text bg-accent-red-light/25 border border-accent-red/25 rounded-2xl px-4 py-3 shadow-[0_4px_12px_rgba(229,147,147,0.04)]">
+              <li className="flex gap-3 items-start text-primary-text bg-accent-red-light/10 border border-accent-red/15 rounded-2xl px-4 py-3 shadow-[0_10px_35px_rgba(229,147,147,0.04)] backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)] mt-2 shrink-0" />
                 <span className="text-[0.95rem] font-extrabold leading-relaxed text-primary-text">
                   Implemented 2 quick wins &rarr; reduced manual follow‑ups by 40%.

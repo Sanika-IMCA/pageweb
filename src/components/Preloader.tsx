@@ -23,7 +23,7 @@ export default function Preloader() {
     
     // Set final states
     setIsLocked(true);
-    setStatusText("SAYAGA STUDIOS");
+    setStatusText("SAYAGAA STUDIOS");
     setLineWidth("100%");
     setNodes([15, 25, 35, 40]);
     
@@ -89,7 +89,7 @@ export default function Preloader() {
     // 1.35s: Display final logo "SAYAGA STUDIOS" in locked styling
     timeoutsRef.current.push(
       setTimeout(() => {
-        setStatusText("SAYAGA STUDIOS");
+        setStatusText("SAYAGAA STUDIOS");
         setIsLocked(true);
       }, 1350)
     );

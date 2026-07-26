@@ -2,67 +2,58 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import RevealSquircle from "./RevealSquircle";
 import MagneticButton from "./MagneticButton";
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 800], [0, -120]);
+  const yParallax = useTransform(scrollY, [0, 1000], [0, -80]);
+  const scaleParallax = useTransform(scrollY, [0, 1000], [1.02, 1.10]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center py-32 overflow-hidden bg-charcoal-base">
       
-      {/* Animated Floating Gradient Orbs (Calm, Futuristic, desaturated) */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Soft Blue Orb */}
-        <motion.div
-          animate={{
-            x: [-100, 100, -100],
-            y: [-50, 80, -50],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-blue-100/10 rounded-full blur-[80px] sm:blur-[120px]"
-        />
+      {/* Background Image with subtle scroll scale and parallax translate */}
+      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
+        <motion.div 
+          style={{ scale: scaleParallax, y: yParallax }} 
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src="/assets/research-building.png"
+            alt="Sayagaa research and building workbench flatlay background"
+            fill
+            priority
+            className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
+          />
+        </motion.div>
 
-        {/* Blush Red Orb */}
-        <motion.div
-          animate={{
-            x: [100, -100, 100],
-            y: [80, -50, 80],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-red-100/10 rounded-full blur-[80px] sm:blur-[120px]"
-        />
-      </div>
-
-      {/* Grid Overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        {/* Warm Luxury Gradient Overlays for integration & contrast */}
+        {/* Bottom fade-out gradient to blend into bg-charcoal-base */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
+        {/* Top fade-out so navigation stands out */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-base/40 via-transparent to-transparent z-10" />
+        
+        {/* Subtle grid overlay blended on top of background image */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-10 mix-blend-overlay z-10"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(46, 91, 148, 0.05) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(46, 91, 148, 0.05) 1px, transparent 1px)
+              linear-gradient(to right, rgba(46, 91, 148, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(46, 91, 148, 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "80px 80px"
           }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 items-start relative z-10">
         
-        {/* Left Side: Content block */}
-        <div className="lg:col-span-8 flex flex-col gap-6 items-start">
+        {/* Glassmorphic floating panel for readability and premium contrast */}
+        <div className="flex flex-col gap-6 items-start max-w-3xl bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
           <RevealSquircle delay={0.2}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-hairline bg-accent-blue-light/30 text-micro font-mono text-brass-accent backdrop-blur-md shadow-sm font-bold">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-accent-blue-light/20 text-micro font-mono text-brass-accent shadow-sm font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-brass-accent animate-pulse" />
               Now Booking Strategy Audits for Q3/Q4
             </span>
@@ -75,7 +66,7 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                className="text-[2.5rem] sm:text-[3.75rem] lg:text-[4.5rem] font-bold tracking-tight text-primary-text leading-[1.1] font-display"
+                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-white leading-[1.1] font-display"
               >
                 Deep research + smart builds
               </motion.h1>
@@ -85,7 +76,7 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
-                className="text-[2.5rem] sm:text-[3.75rem] lg:text-[4.5rem] font-bold tracking-tight text-primary-text leading-[1.1] font-display"
+                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-white leading-[1.1] font-display"
               >
                 for <span className="text-brass-accent">ops-heavy businesses.</span>
               </motion.h1>
@@ -124,47 +115,6 @@ export default function Hero() {
               </Link>
             </MagneticButton>
           </RevealSquircle>
-        </div>
-
-        {/* Right Side: Graphic Visual (Frosted glass with desaturated accents) */}
-        <div className="lg:col-span-4 flex justify-center items-center relative h-[300px] lg:h-[450px]">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-            className="w-full h-full flex items-center justify-center"
-          >
-            <motion.div
-              style={{ y: yParallax }}
-              className="w-[260px] h-[260px] lg:w-[350px] lg:h-[350px] bg-secondary-surface border border-white/70 rounded-[2.5rem] flex items-center justify-center relative overflow-hidden shadow-sm"
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue-light/10 via-white/5 to-accent-red-light/10 z-0" />
-
-              {/* Minimal vector process circle mapping */}
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 120, ease: "linear", repeat: Infinity }}
-                className="absolute inset-8 border border-dashed border-brass-accent/25 rounded-full flex items-center justify-center z-10"
-              >
-                <div className="w-[100px] h-[100px] lg:w-[180px] lg:h-[180px] border border-brass-accent/15 rounded-full flex items-center justify-center relative">
-                  {/* Floating micro indicators (Soft red accent and main blue) */}
-                  <div className="absolute -top-3 w-6 h-6 rounded-full bg-white/80 border border-brass-accent/20 shadow-sm flex items-center justify-center">
-                    {/* Accent Red Glowing Node */}
-                    <div className="w-1.5 h-1.5 bg-accent-red rounded-full shadow-[0_0_8px_rgba(229,147,147,0.9)]" />
-                  </div>
-                  <div className="absolute -bottom-3 w-6 h-6 rounded-full bg-white/80 border border-brass-accent/20 shadow-sm flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 bg-brass-accent rounded-full" />
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="absolute bottom-6 left-6 right-6 text-center z-10 pointer-events-none">
-                <span className="text-micro text-muted-text tracking-widest font-mono font-bold">
-                  [ RESEARCH &bull; DIAGNOSIS &bull; BUILD ]
-                </span>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
 
       </div>
