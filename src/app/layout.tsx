@@ -43,25 +43,25 @@ export default function RootLayout({
         {/* Global Parallax Backdrop Container */}
         <div className="fixed inset-0 w-screen h-screen overflow-hidden pointer-events-none z-0">
           
-          {/* Background leaf vase image */}
-          <div className="absolute inset-0 w-full h-full opacity-10 mix-blend-lighten scale-[1.05]">
+          {/* Background leaf vase image (light theme) */}
+          <div className="absolute inset-0 w-full h-full opacity-20 scale-[1.05]">
             <Image
               src="/assets/global-backdrop.png"
               alt="Sayagaa studios global aesthetic background"
               fill
               priority
-              className="object-cover object-center filter grayscale brightness-[1.8] contrast-[0.95]"
+              className="object-cover object-center contrast-[1.02] brightness-[1.02]"
             />
           </div>
 
-          {/* Luxury metallic glassy overlay */}
-          <div className="absolute inset-0 bg-[#0f1115]/85 backdrop-blur-[6px] z-10" />
+          {/* Luxury metallic glassy overlay (white/light) */}
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-[6px] z-10" />
           <div 
-            className="absolute inset-0 opacity-[0.03] mix-blend-overlay z-20"
+            className="absolute inset-0 opacity-[0.06] mix-blend-overlay z-20"
             style={{
               backgroundImage: `
-                linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%, rgba(255, 255, 255, 0.4) 100%),
-                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 10px)
+                linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%, rgba(0, 0, 0, 0.05) 100%),
+                repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0px, rgba(0, 0, 0, 0.02) 2px, transparent 2px, transparent 10px)
               `
             }}
           />
@@ -69,7 +69,7 @@ export default function RootLayout({
           <div 
             className="absolute inset-0 opacity-[0.02] mix-blend-overlay z-20"
             style={{
-              backgroundImage: `radial-gradient(circle, #fff 10%, transparent 11%)`,
+              backgroundImage: `radial-gradient(circle, #000 10%, transparent 11%)`,
               backgroundSize: "4px 4px"
             }}
           />
