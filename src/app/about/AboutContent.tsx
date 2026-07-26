@@ -93,7 +93,7 @@ export default function AboutContent() {
         <div className="max-w-4xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 text-left relative z-10">
           
           {/* Glassmorphic floating card for readability and premium contrast */}
-          <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+          <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">03 / WHO WE ARE</span>
             <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-white leading-none font-display">
               About Sanika & the company.
@@ -180,7 +180,7 @@ export default function AboutContent() {
         </div>
 
         {/* How we work with you */}
-        <div className="flex flex-col gap-6 bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+        <div className="flex flex-col gap-6 bg-brass-accent/[0.03] backdrop-blur-xl border border-brass-accent/15 p-8 rounded-[2.5rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
           <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-accent-blue-light/10 rounded-full blur-xl pointer-events-none" />
 
           <div className="flex flex-col gap-1">

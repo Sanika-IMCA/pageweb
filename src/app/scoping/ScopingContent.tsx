@@ -132,7 +132,7 @@ export default function ScopingContent() {
         <div className="max-w-4xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 text-left relative z-10">
           
           {/* Glassmorphic floating card for readability and premium contrast */}
-          <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+          <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">05 / INTAKE FORM</span>
             <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-white leading-none font-display">
               Share a bit about your operations.
@@ -177,8 +177,8 @@ export default function ScopingContent() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.name ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.name ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Marcus Chen"
                   />
@@ -192,8 +192,8 @@ export default function ScopingContent() {
                     id="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.role ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.role ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="VP of Operations"
                   />
@@ -210,8 +210,8 @@ export default function ScopingContent() {
                     id="company"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.company ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.company ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Outreach Engine"
                   />
@@ -225,8 +225,8 @@ export default function ScopingContent() {
                     id="timezone"
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.timezone ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.timezone ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="USA / EST"
                   />
@@ -242,8 +242,8 @@ export default function ScopingContent() {
                     id="teamSize"
                     value={teamSize}
                     onChange={(e) => setTeamSize(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.teamSize ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.teamSize ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
                   >
@@ -262,8 +262,8 @@ export default function ScopingContent() {
                     id="nextStep"
                     value={nextStep}
                     onChange={(e) => setNextStep(e.target.value)}
-                    className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                      errors.nextStep ? "border-red-500/50" : "border-white/10"
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                      errors.nextStep ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
                   >
@@ -282,8 +282,8 @@ export default function ScopingContent() {
                   id="solvedBefore"
                   value={solvedBefore}
                   onChange={(e) => setSolvedBefore(e.target.value)}
-                  className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                    errors.solvedBefore ? "border-red-500/50" : "border-white/10"
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    errors.solvedBefore ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   style={{ colorScheme: "dark" }}
                 >
@@ -303,8 +303,8 @@ export default function ScopingContent() {
                   rows={4}
                   value={headache}
                   onChange={(e) => setHeadache(e.target.value)}
-                  className={`bg-white/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
-                    errors.headache ? "border-red-500/50" : "border-white/10"
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    errors.headache ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   placeholder="Describe your manual steps, communication drops, dispatcher friction, or data bottlenecks."
                 />
@@ -329,7 +329,7 @@ export default function ScopingContent() {
             </form>
 
             {/* Expectations Section */}
-            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+            <div className="bg-brass-accent/[0.03] backdrop-blur-xl border border-brass-accent/15 p-8 rounded-[2.5rem] flex flex-col gap-4 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
               <span className="text-[0.7rem] font-mono text-brass-accent uppercase tracking-wider font-bold">
                 EXPECTATIONS
               </span>

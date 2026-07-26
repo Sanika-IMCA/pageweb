@@ -21,7 +21,7 @@ const columns: Column[] = [
     description: "We map your workflows end‑to‑end and identify where time and money are leaking before recommending any tool or database build.",
     bullets: ["Less manual chasing", "Cleaner core data", "Faster operations decisions"],
     iconColor: "bg-brass-accent/10 text-brass-accent border-brass-accent/20",
-    cardStyle: "bg-white/[0.03] border-white/10",
+    cardStyle: "bg-brass-accent/[0.03] border-brass-accent/15",
     bulletColor: "bg-brass-accent",
   },
   {
@@ -31,7 +31,7 @@ const columns: Column[] = [
     description: "We design process changes, automations, database integrations, and light custom builds centered entirely around your operating reality.",
     bullets: ["Clearer team handovers", "Standardized steps", "Optimized software stack"],
     iconColor: "bg-accent-red/10 text-accent-red border-accent-red/20",
-    cardStyle: "bg-white/[0.03] border-white/10",
+    cardStyle: "bg-brass-accent/[0.03] border-brass-accent/15",
     bulletColor: "bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)]",
   },
   {
@@ -41,7 +41,7 @@ const columns: Column[] = [
     description: "We implement using trusted partner tools and custom TypeScript components, starting with the highest‑impact, lowest‑complexity operational wins.",
     bullets: ["Usable custom dashboards", "Zero operational friction", "Continuous support retainers"],
     iconColor: "bg-brass-accent/10 text-brass-accent border-brass-accent/20",
-    cardStyle: "bg-white/[0.03] border-white/10",
+    cardStyle: "bg-brass-accent/[0.03] border-brass-accent/15",
     bulletColor: "bg-brass-accent",
   },
 ];

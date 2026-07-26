@@ -21,7 +21,7 @@ export default function WhoWeHelp() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             
             {/* Bullet 1 */}
-            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
+            <div className="bg-brass-accent/[0.03] backdrop-blur-xl border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/40 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>
@@ -31,7 +31,7 @@ export default function WhoWeHelp() {
             </div>
 
             {/* Bullet 2 */}
-            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
+            <div className="bg-brass-accent/[0.03] backdrop-blur-xl border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/40 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>
@@ -41,7 +41,7 @@ export default function WhoWeHelp() {
             </div>
 
             {/* Bullet 3 */}
-            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/30 transition-all duration-300 relative overflow-hidden">
+            <div className="bg-brass-accent/[0.03] backdrop-blur-xl border border-brass-accent/15 p-6 rounded-2xl flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:border-brass-accent/40 transition-all duration-300 relative overflow-hidden">
               <span className="text-micro font-mono text-white font-bold bg-brass-accent rounded-full w-8 h-8 flex items-center justify-center">
                 ✓
               </span>

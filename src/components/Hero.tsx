@@ -51,9 +51,9 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 items-start relative z-10">
         
         {/* Glassmorphic floating panel for readability and premium contrast */}
-        <div className="flex flex-col gap-6 items-start max-w-3xl bg-charcoal-base/70 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+        <div className="flex flex-col gap-6 items-start max-w-3xl bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
           <RevealSquircle delay={0.2}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-accent-blue-light/20 text-micro font-mono text-brass-accent shadow-sm font-bold">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brass-accent/20 bg-accent-blue-light/20 text-micro font-mono text-brass-accent shadow-sm font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-brass-accent animate-pulse" />
               Now Booking Strategy Audits for Q3/Q4
             </span>
