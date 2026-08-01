@@ -3,7 +3,6 @@ import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import RouteTransition from "@/components/RouteTransition";
-import Image from "next/image";
 
 const displayFont = Playfair_Display({
   variable: "--font-display",
@@ -43,16 +42,6 @@ export default function RootLayout({
         {/* Global Parallax Backdrop Container */}
         <div className="fixed inset-0 w-screen h-screen overflow-hidden pointer-events-none z-0">
           
-          {/* Background leaf vase image (light theme) */}
-          <div className="absolute inset-0 w-full h-full opacity-20 scale-[1.05]">
-            <Image
-              src="/assets/global-backdrop.png"
-              alt="Sayagaa studios global aesthetic background"
-              fill
-              priority
-              className="object-cover object-center contrast-[1.02] brightness-[1.02]"
-            />
-          </div>
 
           {/* Luxury metallic glassy overlay (white/light) */}
           <div className="absolute inset-0 bg-white/70 backdrop-blur-[6px] z-10" />

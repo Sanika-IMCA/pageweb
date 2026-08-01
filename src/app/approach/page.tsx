@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
@@ -82,9 +83,17 @@ const steps: Step[] = [
 ];
 
 export default function ApproachPage() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 800], [0, -60]);
   const scaleParallax = useTransform(scrollY, [0, 800], [1.02, 1.08]);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent text-primary-text font-sans">
@@ -134,7 +143,7 @@ export default function ApproachPage() {
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
               OUR METHODOLOGY
             </span>
-            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-white leading-tight font-display">
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-tight font-display">
               We don&apos;t start with tools. <br />
               We start with the truth.
             </h1>
@@ -159,9 +168,15 @@ export default function ApproachPage() {
           </div>
 
           {/* Timeline Stack */}
-          <div className="flex flex-col gap-12 relative">
+          <div ref={containerRef} className="flex flex-col gap-12 relative">
             {/* Light blue vertical line connecting steps */}
             <div className="absolute top-12 bottom-12 left-6 sm:left-10 w-[1px] bg-brass-accent/15 z-0" />
+
+            {/* Animated filling timeline spine */}
+            <motion.div 
+              style={{ scaleY, originY: 0 }}
+              className="absolute top-12 bottom-12 left-6 sm:left-10 w-[2px] bg-gradient-to-b from-brass-accent/30 via-brass-accent to-brass-accent/60 z-10" 
+            />
 
             {steps.map((step, idx) => (
               <motion.div

@@ -7,7 +7,7 @@ export default function CaseSnapshot() {
   return (
     <section className="py-24 px-6 md:px-12 bg-transparent border-t border-hairline relative">
       <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col gap-3 max-w-xl">
           <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
@@ -54,7 +54,7 @@ export default function CaseSnapshot() {
                   Identified 4 high‑impact automation opportunities.
                 </span>
               </li>
-              
+
               {/* Highlighted Outcome Bullet (Soft red outline and glow) */}
               <li className="flex gap-3 items-start text-primary-text bg-accent-red-light/10 border border-accent-red/15 rounded-2xl px-4 py-3 shadow-[0_10px_35px_rgba(229,147,147,0.04)] backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)] mt-2 shrink-0" />

@@ -6,8 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Monitor scroll height
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Keyboard Event Handlers (Escape to close and Focus Trapping)
   useEffect(() => {
@@ -55,8 +65,12 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-hairline bg-charcoal-base/60 backdrop-blur-md transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+        hasScrolled 
+          ? "bg-white/80 backdrop-blur-xl border-brass-accent/15 shadow-[0_10px_30px_rgba(0,0,0,0.04)] h-16" 
+          : "bg-transparent border-transparent h-20"
+      }`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center justify-between">
           
           {/* Logo on Left */}
           <Link

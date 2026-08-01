@@ -134,7 +134,7 @@ export default function ScopingContent() {
           {/* Glassmorphic floating card for readability and premium contrast */}
           <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">05 / INTAKE FORM</span>
-            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-white leading-none font-display">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-none font-display">
               Share a bit about your operations.
             </h1>
             <p className="text-body-base text-primary-text leading-relaxed font-semibold">
@@ -177,7 +177,7 @@ export default function ScopingContent() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.name ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Marcus Chen"
@@ -192,7 +192,7 @@ export default function ScopingContent() {
                     id="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.role ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="VP of Operations"
@@ -210,7 +210,7 @@ export default function ScopingContent() {
                     id="company"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.company ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Outreach Engine"
@@ -225,7 +225,7 @@ export default function ScopingContent() {
                     id="timezone"
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.timezone ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="USA / EST"
@@ -242,7 +242,7 @@ export default function ScopingContent() {
                     id="teamSize"
                     value={teamSize}
                     onChange={(e) => setTeamSize(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.teamSize ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
@@ -262,7 +262,7 @@ export default function ScopingContent() {
                     id="nextStep"
                     value={nextStep}
                     onChange={(e) => setNextStep(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                       errors.nextStep ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
@@ -282,7 +282,7 @@ export default function ScopingContent() {
                   id="solvedBefore"
                   value={solvedBefore}
                   onChange={(e) => setSolvedBefore(e.target.value)}
-                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                     errors.solvedBefore ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   style={{ colorScheme: "dark" }}
@@ -303,7 +303,7 @@ export default function ScopingContent() {
                   rows={4}
                   value={headache}
                   onChange={(e) => setHeadache(e.target.value)}
-                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
                     errors.headache ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   placeholder="Describe your manual steps, communication drops, dispatcher friction, or data bottlenecks."

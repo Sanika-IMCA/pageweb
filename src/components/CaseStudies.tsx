@@ -107,7 +107,7 @@ export default function CaseStudies() {
             <span className="text-caption text-brass-accent font-mono tracking-widest font-semibold">
               02 / SELECTED WORK
             </span>
-            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-white leading-none font-display">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-none font-display">
               Featured Case Studies
             </h1>
             <p className="text-body-base text-primary-text leading-relaxed font-semibold">
@@ -148,7 +148,7 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Metadata & Description (Frosted card) */}
-                <div className={`lg:col-span-5 flex flex-col gap-6 ${isEven ? "lg:order-2" : "lg:order-1"} bg-secondary-surface p-8 sm:p-12 rounded-[2rem] relative overflow-hidden`}>
+                <div className={`lg:col-span-5 flex flex-col gap-6 ${isEven ? "lg:order-2" : "lg:order-1"} bg-secondary-surface p-8 sm:p-12 rounded-[2rem] relative overflow-hidden border border-brass-accent/10 hover:border-brass-accent/40 hover:shadow-[0_30px_60px_rgba(46,91,148,0.1)] transition-all duration-500`}>
 
                   {/* Subtle Lavender orb inside card */}
                   <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/20 rounded-full blur-2xl pointer-events-none" />
