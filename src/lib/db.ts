@@ -92,21 +92,5 @@ export const dbService = {
     `);
     
     return stmt.all() as Submission[];
-  },
-
-  /**
-   * Delete a submission by ID.
-   */
-  deleteSubmission(id: number): void {
-    const stmt = db.prepare("DELETE FROM submissions WHERE id = ?");
-    stmt.run(id);
-  },
-
-  /**
-   * Clear all submissions from the database.
-   */
-  clearAllSubmissions(): void {
-    const stmt = db.prepare("DELETE FROM submissions");
-    stmt.run();
   }
 };

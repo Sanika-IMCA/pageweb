@@ -16,18 +16,7 @@ export default function Hero() {
       
       {/* Background Image with subtle scroll scale and parallax translate */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div 
-          style={{ scale: scaleParallax, y: yParallax }} 
-          className="absolute inset-0 w-full h-full"
-        >
-          <Image
-            src="/assets/research-building.png"
-            alt="Sayagaa research and building workbench flatlay background"
-            fill
-            priority
-            className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
-          />
-        </motion.div>
+        {/* Background image removed to keep background plain */}
 
         {/* Warm Luxury Gradient Overlays for integration & contrast */}
         {/* Bottom fade-out gradient to blend into bg-charcoal-base */}

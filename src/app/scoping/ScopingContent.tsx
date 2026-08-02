@@ -99,18 +99,7 @@ export default function ScopingContent() {
         
         {/* Background Image with subtle scroll scale and parallax translate */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-          <motion.div 
-            style={{ scale: scaleParallax, y: yParallax }} 
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              src="/assets/scoping-intake.png"
-              alt="Sayagaa scoping form intake background"
-              fill
-              priority
-              className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
-            />
-          </motion.div>
+          {/* Background image removed to keep background plain */}
 
           {/* Warm Luxury Gradient Overlays for integration & contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
@@ -134,7 +123,7 @@ export default function ScopingContent() {
           {/* Glassmorphic floating card for readability and premium contrast */}
           <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">05 / INTAKE FORM</span>
-            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#115E59] leading-none font-display">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#1A365D] leading-none font-display">
               Share a bit about your operations.
             </h1>
             <p className="text-body-base text-primary-text leading-relaxed font-semibold">
@@ -177,7 +166,7 @@ export default function ScopingContent() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.name ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Marcus Chen"
@@ -192,7 +181,7 @@ export default function ScopingContent() {
                     id="role"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.role ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="VP of Operations"
@@ -210,7 +199,7 @@ export default function ScopingContent() {
                     id="company"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.company ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="Outreach Engine"
@@ -225,7 +214,7 @@ export default function ScopingContent() {
                     id="timezone"
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.timezone ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     placeholder="USA / EST"
@@ -242,7 +231,7 @@ export default function ScopingContent() {
                     id="teamSize"
                     value={teamSize}
                     onChange={(e) => setTeamSize(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.teamSize ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
@@ -262,7 +251,7 @@ export default function ScopingContent() {
                     id="nextStep"
                     value={nextStep}
                     onChange={(e) => setNextStep(e.target.value)}
-                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                    className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                       errors.nextStep ? "border-red-500/50" : "border-brass-accent/15"
                     }`}
                     style={{ colorScheme: "dark" }}
@@ -282,7 +271,7 @@ export default function ScopingContent() {
                   id="solvedBefore"
                   value={solvedBefore}
                   onChange={(e) => setSolvedBefore(e.target.value)}
-                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                     errors.solvedBefore ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   style={{ colorScheme: "dark" }}
@@ -303,7 +292,7 @@ export default function ScopingContent() {
                   rows={4}
                   value={headache}
                   onChange={(e) => setHeadache(e.target.value)}
-                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white focus:shadow-[0_0_20px_rgba(46,91,148,0.18)] focus:scale-[1.01] transition-all duration-300 ${
+                  className={`bg-brass-accent/[0.03] backdrop-blur-md border p-3.5 rounded-xl text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white/[0.08] transition-all ${
                     errors.headache ? "border-red-500/50" : "border-brass-accent/15"
                   }`}
                   placeholder="Describe your manual steps, communication drops, dispatcher friction, or data bottlenecks."

@@ -60,18 +60,7 @@ export default function AboutContent() {
         
         {/* Background Image with subtle scroll scale and parallax translate */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-          <motion.div 
-            style={{ scale: scaleParallax, y: yParallax }} 
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              src="/assets/about-research.png"
-              alt="Sayagaa research library background"
-              fill
-              priority
-              className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
-            />
-          </motion.div>
+          {/* Background image removed to keep background plain */}
 
           {/* Warm Luxury Gradient Overlays for integration & contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
@@ -95,7 +84,7 @@ export default function AboutContent() {
           {/* Glassmorphic floating card for readability and premium contrast */}
           <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">03 / WHO WE ARE</span>
-            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#334155] leading-none font-display">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#1A365D] leading-none font-display">
               About Sanika & the company.
             </h1>
             <p className="text-body-base text-primary-text leading-relaxed font-semibold">

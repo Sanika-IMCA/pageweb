@@ -105,18 +105,7 @@ export default function ServicesPage() {
         
         {/* Background Image with subtle scroll scale and parallax translate */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-          <motion.div 
-            style={{ scale: scaleParallax, y: yParallax }} 
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              src="/assets/services-planning.png"
-              alt="Sayagaa services planning and instruments"
-              fill
-              priority
-              className="object-cover object-center opacity-95 contrast-[1.02] brightness-100"
-            />
-          </motion.div>
+          {/* Background image removed to keep background plain */}
 
           {/* Warm Luxury Gradient Overlays for integration & contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
