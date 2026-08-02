@@ -42,6 +42,67 @@ export default function SubmissionsPage() {
     }
   };
 
+  const deleteSubmission = async (id: number) => {
+    if (!confirm(`Are you sure you want to delete submission #${id}?`)) return;
+    try {
+      const response = await fetch(`/api/contact?id=${id}`, {
+        method: "DELETE",
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setSelectedSubmission(null);
+        fetchSubmissions();
+      } else {
+        alert(result.error || "Failed to delete submission.");
+      }
+    } catch (err) {
+      alert("An error occurred while deleting.");
+    }
+  };
+
+  const clearAllSubmissions = async () => {
+    if (!confirm("Are you sure you want to delete ALL submissions from the database? This cannot be undone.")) return;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "DELETE",
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setSelectedSubmission(null);
+        fetchSubmissions();
+      } else {
+        alert(result.error || "Failed to clear database.");
+      }
+    } catch (err) {
+      alert("An error occurred while clearing database.");
+    }
+  };
+
+  const exportToCSV = () => {
+    const headers = ["ID", "Company", "Name", "Role", "Timezone", "Team Size", "Solved Before", "Headache", "Next Step", "Submitted At"];
+    const rows = submissions.map(sub => [
+      sub.id,
+      `"${sub.company.replace(/"/g, '""')}"`,
+      `"${sub.name.replace(/"/g, '""')}"`,
+      `"${sub.role.replace(/"/g, '""')}"`,
+      `"${sub.timezone.replace(/"/g, '""')}"`,
+      `"${sub.teamSize.replace(/"/g, '""')}"`,
+      `"${sub.solvedBefore.replace(/"/g, '""')}"`,
+      `"${sub.headache.replace(/"/g, '""')}"`,
+      `"${sub.nextStep.replace(/"/g, '""')}"`,
+      sub.created_at
+    ]);
+    const csvContent = "data:text/csv;charset=utf-8," 
+      + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "sayagaa_intake_submissions.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     fetchSubmissions();
   }, []);
@@ -106,15 +167,38 @@ export default function SubmissionsPage() {
           </div>
         </div>
 
-        {/* Control Row: Search */}
-        <div className="w-full flex items-center">
+        {/* Control Row: Search & Actions */}
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
           <input
             type="text"
             placeholder="Filter database rows by name, company, headache keyword..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full max-w-xl bg-white/40 border border-hairline/60 p-4 rounded-full text-[0.9rem] text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white transition-all shadow-sm"
+            className="w-full sm:max-w-xl bg-white/40 border border-hairline/60 p-4 rounded-full text-[0.9rem] text-primary-text focus:outline-none focus:border-brass-accent focus:bg-white transition-all shadow-sm"
           />
+          
+          <div className="flex gap-3 w-full sm:w-auto">
+            <button
+              onClick={exportToCSV}
+              disabled={submissions.length === 0}
+              className="flex-1 sm:flex-none justify-center bg-white/60 hover:bg-white text-primary-text font-mono text-[0.8rem] font-bold py-3 px-6 rounded-full border border-hairline transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              EXPORT CSV
+            </button>
+            <button
+              onClick={clearAllSubmissions}
+              disabled={submissions.length === 0}
+              className="flex-1 sm:flex-none justify-center bg-red-500/10 hover:bg-red-500 hover:text-white text-red-500 font-mono text-[0.8rem] font-bold py-3 px-6 rounded-full border border-red-500/20 transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/>
+              </svg>
+              CLEAR DATABASE
+            </button>
+          </div>
         </div>
 
         {/* Dashboard Columns */}
@@ -237,6 +321,16 @@ export default function SubmissionsPage() {
                     &ldquo;{selectedSubmission.headache}&rdquo;
                   </p>
                 </div>
+
+                <button
+                  onClick={() => deleteSubmission(selectedSubmission.id)}
+                  className="mt-4 w-full bg-red-500/10 hover:bg-red-500 hover:text-white text-red-500 font-mono text-[0.8rem] font-bold py-3 px-6 rounded-full border border-red-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/>
+                  </svg>
+                  DELETE ENTRY
+                </button>
               </div>
             ) : (
               <div className="text-center py-16 text-muted-text font-mono text-[0.85rem]">

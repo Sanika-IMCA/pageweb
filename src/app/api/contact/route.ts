@@ -144,3 +144,24 @@ export async function GET() {
     );
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
+    if (id) {
+      dbService.deleteSubmission(Number(id));
+      return NextResponse.json({ success: true, message: `Submission #${id} deleted.` });
+    } else {
+      dbService.clearAllSubmissions();
+      return NextResponse.json({ success: true, message: "All submissions cleared." });
+    }
+  } catch (error: any) {
+    console.error("Scoping delete error:", error);
+    return NextResponse.json(
+      { success: false, error: "Failed to delete entries." },
+      { status: 500 }
+    );
+  }
+}
