@@ -143,7 +143,7 @@ export default function ApproachPage() {
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
               OUR METHODOLOGY
             </span>
-            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-tight font-display">
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-[#4C1D95] leading-tight font-display">
               We don&apos;t start with tools. <br />
               We start with the truth.
             </h1>

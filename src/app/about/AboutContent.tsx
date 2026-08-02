@@ -95,7 +95,7 @@ export default function AboutContent() {
           {/* Glassmorphic floating card for readability and premium contrast */}
           <div className="flex flex-col gap-6 items-start bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">03 / WHO WE ARE</span>
-            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-none font-display">
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight text-[#334155] leading-none font-display">
               About Sanika & the company.
             </h1>
             <p className="text-body-base text-primary-text leading-relaxed font-semibold">

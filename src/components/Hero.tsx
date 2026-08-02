@@ -66,7 +66,7 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#262626] leading-[1.1] font-display"
+                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#1A365D] leading-[1.1] font-display"
               >
                 Deep research + smart builds
               </motion.h1>
@@ -76,7 +76,7 @@ export default function Hero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
-                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#262626] leading-[1.1] font-display"
+                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#1A365D] leading-[1.1] font-display"
               >
                 for <span className="text-brass-accent">ops-heavy businesses.</span>
               </motion.h1>

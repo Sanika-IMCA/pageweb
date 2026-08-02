@@ -142,7 +142,7 @@ export default function ServicesPage() {
             <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
               PRODUCTIZED SERVICES
             </span>
-            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-[#262626] leading-tight font-display">
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] font-bold tracking-tight text-[#334155] leading-tight font-display">
               Services designed around research, <br />
               not random implementation.
             </h1>
