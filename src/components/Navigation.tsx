@@ -66,13 +66,12 @@ export default function Navigation() {
             <svg
               viewBox="0 0 32 32"
               className="w-5 h-5 stroke-current fill-none"
-              strokeWidth="3"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M10 6v20" />
-              <path d="M10 6h8a7 7 0 0 1 0 14h-8" />
-              <path d="M14 13h4" />
+              <path d="M16 4 C21.5 11, 24 16, 24 20 A 8 8 0 0 1 8 20 C 8 16, 10.5 11, 16 4 Z" />
+              <circle cx="16" cy="20" r="3.5" />
             </svg>
             <span className="font-display tracking-normal">SAYAGAA</span>
           </Link>
