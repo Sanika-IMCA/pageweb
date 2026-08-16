@@ -70,16 +70,9 @@ export default function ScopingContent() {
 
     // Group 2 Validation
     if (!tools.trim()) tempErrors.tools = "Please tell us what tools you currently use.";
-    if (!workflow.trim()) tempErrors.workflow = "Please describe how the process currently works.";
-    if (!processPeople) tempErrors.processPeople = "Please select how many people are involved in the process.";
 
     // Group 3 Validation
     if (!biggestHeadache.trim()) tempErrors.biggestHeadache = "Please tell us what is currently slowing the operation down.";
-    if (selectedImpacts.length === 0) tempErrors.changeImpact = "Please select at least one outcome option.";
-    if (!frequency) tempErrors.frequency = "Please specify how often this problem occurs.";
-    if (!ifNotFixed.trim()) tempErrors.ifNotFixed = "Please tell us what happens if this problem is not fixed.";
-    if (!peopleAffected) tempErrors.peopleAffected = "Please select how many people are affected.";
-    if (!decidedBuild) tempErrors.decidedBuild = "Please select whether you have decided what should be built.";
 
     // Group 4 Validation
     if (!nextStepPreference) tempErrors.nextStepPreference = "Please select your preferred next step.";
@@ -102,11 +95,18 @@ export default function ScopingContent() {
     // Merging form fields for SQLite database schema compatibility
     const companyMerged = company.trim() + (website.trim() ? ` [Website: ${website.trim()}]` : "");
     
-    const solvedBeforeMerged = `Current Tools Used:\n${tools.trim()}\n\nWorkflow Steps:\n${workflow.trim()}\n\nPeople involved in process: ${processPeople}`;
+    const solvedBeforeMerged = `Current Tools Used:\n${tools.trim()}` +
+      (workflow.trim() ? `\n\nWorkflow Steps:\n${workflow.trim()}` : "") +
+      (processPeople ? `\n\nPeople involved in process: ${processPeople}` : "");
     
-    const changeImpactMerged = `Business Outcomes sought: ${selectedImpacts.join(", ")}\n\nFrequency of Problem: ${frequency}\n\nDecided what to build: ${decidedBuild}`;
+    const changeImpactMerged = (selectedImpacts.length > 0 ? `Business Outcomes sought: ${selectedImpacts.join(", ")}` : "") +
+      (frequency ? `\n\nFrequency of Problem: ${frequency}` : "") +
+      (decidedBuild ? `\n\nDecided what to build: ${decidedBuild}` : "");
     
-    const headacheMerged = `Biggest Operational Headache:\n${biggestHeadache.trim()}\n\nWhat happens if not fixed:\n${ifNotFixed.trim()}\n\nPeople affected by problem: ${peopleAffected}${extraNotes.trim() ? `\n\nAdditional Notes:\n${extraNotes.trim()}` : ""}`;
+    const headacheMerged = `Biggest Operational Headache:\n${biggestHeadache.trim()}` +
+      (ifNotFixed.trim() ? `\n\nWhat happens if not fixed:\n${ifNotFixed.trim()}` : "") +
+      (peopleAffected ? `\n\nPeople affected by problem: ${peopleAffected}` : "") +
+      (extraNotes.trim() ? `\n\nAdditional Notes:\n${extraNotes.trim()}` : "");
 
     // Map next step preferences to database keys
     let mappedNextStep = "call";
@@ -546,7 +546,7 @@ export default function ScopingContent() {
                   {/* Current Workflow */}
                   <div className="flex flex-col gap-2" id="workflow">
                     <label htmlFor="workflow-input" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      HOW DOES THIS PROCESS CURRENTLY WORK? *
+                      HOW DOES THIS PROCESS CURRENTLY WORK? (OPTIONAL)
                     </label>
                     <textarea
                       id="workflow-input"
@@ -564,7 +564,7 @@ export default function ScopingContent() {
                   {/* People involved in process */}
                   <div className="flex flex-col gap-2" id="processPeople">
                     <label htmlFor="process-people-select" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      HOW MANY PEOPLE ARE INVOLVED IN THIS PROCESS? *
+                      HOW MANY PEOPLE ARE INVOLVED IN THIS PROCESS? (OPTIONAL)
                     </label>
                     <select
                       id="process-people-select"
@@ -616,7 +616,7 @@ export default function ScopingContent() {
                   {/* What fixing this problem changes (Checkboxes) */}
                   <div className="flex flex-col gap-3" id="changeImpact">
                     <span className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      WHAT WOULD FIXING THIS PROBLEM CHANGE FOR THE BUSINESS? *
+                      WHAT WOULD FIXING THIS PROBLEM CHANGE FOR THE BUSINESS? (OPTIONAL)
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {[
@@ -630,7 +630,7 @@ export default function ScopingContent() {
                         "NOT SURE YET",
                       ].map((opt) => (
                         <label
-                          key={opt}
+                           key={opt}
                           className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
                             selectedImpacts.includes(opt)
                               ? "bg-brass-accent/[0.08] border-brass-accent/35 text-primary-text"
@@ -662,7 +662,7 @@ export default function ScopingContent() {
                   {/* How often does this occur */}
                   <div className="flex flex-col gap-2" id="frequency">
                     <label htmlFor="frequency-select" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      HOW OFTEN DOES THIS PROBLEM OCCUR? *
+                      HOW OFTEN DOES THIS PROBLEM OCCUR? (OPTIONAL)
                     </label>
                     <select
                       id="frequency-select"
@@ -686,7 +686,7 @@ export default function ScopingContent() {
                   {/* What happens if not fixed */}
                   <div className="flex flex-col gap-2" id="ifNotFixed">
                     <label htmlFor="if-not-fixed-input" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      WHAT HAPPENS IF THIS PROBLEM IS NOT FIXED? *
+                      WHAT HAPPENS IF THIS PROBLEM IS NOT FIXED? (OPTIONAL)
                     </label>
                     <textarea
                       id="if-not-fixed-input"
@@ -704,7 +704,7 @@ export default function ScopingContent() {
                   {/* How many people affected */}
                   <div className="flex flex-col gap-2" id="peopleAffected">
                     <label htmlFor="people-affected-select" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      HOW MANY PEOPLE ARE CURRENTLY AFFECTED? *
+                      HOW MANY PEOPLE ARE CURRENTLY AFFECTED? (OPTIONAL)
                     </label>
                     <select
                       id="people-affected-select"
@@ -727,7 +727,7 @@ export default function ScopingContent() {
                   {/* Have you already decided what to build */}
                   <div className="flex flex-col gap-2" id="decidedBuild">
                     <label htmlFor="decided-build-select" className="text-[0.72rem] font-mono text-primary-text font-bold uppercase tracking-wide">
-                      HAVE YOU ALREADY DECIDED WHAT SHOULD BE BUILT? *
+                      HAVE YOU ALREADY DECIDED WHAT SHOULD BE BUILT? (OPTIONAL)
                     </label>
                     <select
                       id="decided-build-select"
