@@ -347,8 +347,9 @@ export default function HeroVisualContent({
     const appRef = { current: null as PIXI.Application | null };
     
     const initPixi = async () => {
-      const app = new PIXI.Application();
-      await app.init({
+      try {
+        const app = new PIXI.Application();
+        await app.init({
         canvas: canvasRef.current!,
         width: dims.current.width,
         height: dims.current.height,
@@ -428,7 +429,7 @@ export default function HeroVisualContent({
         },
         resources: {
           customUniforms: {
-            uVelocity: { value: [0.0, 0.0], type: 'vec2<f32>' },
+            uVelocity: { value: new Float32Array([0.0, 0.0]), type: 'vec2<f32>' },
             uTime: { value: 0.0, type: 'f32' }
           }
         }
@@ -617,6 +618,9 @@ export default function HeroVisualContent({
       };
 
       app.ticker.add(tickerCallback);
+      } catch (err) {
+        console.error("PixiJS initialization failed:", err);
+      }
     };
 
     initPixi();
