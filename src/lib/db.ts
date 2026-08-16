@@ -45,6 +45,81 @@ try {
   // Column already exists, safe to ignore
 }
 
+// Create internal sales pipeline tables if they do not exist
+db.exec(`
+  CREATE TABLE IF NOT EXISTS prospects (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    company TEXT NOT NULL,
+    website TEXT,
+    domain TEXT,
+    industry TEXT,
+    location TEXT,
+    employee_range TEXT,
+    company_description TEXT,
+    problem_hypothesis TEXT,
+    operational_pattern TEXT,
+    decision_maker TEXT,
+    decision_maker_role TEXT,
+    decision_maker_link TEXT,
+    email TEXT,
+    linkedin TEXT,
+    source TEXT,
+    campaign TEXT,
+    pipeline_stage TEXT NOT NULL DEFAULT '01_RESEARCH',
+    owner TEXT,
+    priority TEXT,
+    next_follow_up DATETIME,
+    notes TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS sales_activities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    prospect_id INTEGER NOT NULL REFERENCES prospects(id) ON DELETE CASCADE,
+    event TEXT NOT NULL,
+    notes TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS sales_outreach (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    prospect_id INTEGER NOT NULL REFERENCES prospects(id) ON DELETE CASCADE,
+    channel TEXT NOT NULL,
+    message TEXT,
+    status TEXT NOT NULL DEFAULT 'DRAFT',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS sales_audits (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    prospect_id INTEGER NOT NULL REFERENCES prospects(id) ON DELETE CASCADE,
+    problem TEXT,
+    expected_output TEXT,
+    start_date DATETIME,
+    target_end_date DATETIME,
+    status TEXT NOT NULL DEFAULT 'PROPOSED',
+    fee REAL,
+    payment_status TEXT,
+    deliverables TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS sales_proposals (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    prospect_id INTEGER NOT NULL REFERENCES prospects(id) ON DELETE CASCADE,
+    project_name TEXT,
+    scope TEXT,
+    systems_to_build TEXT,
+    integrations TEXT,
+    milestones TEXT,
+    estimated_timeline TEXT,
+    project_value REAL,
+    status TEXT DEFAULT 'PROPOSED',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+`);
+
 export interface SubmissionInput {
   name: string;
   role: string;
@@ -125,3 +200,5 @@ export const dbService = {
     return stmt.all() as Submission[];
   }
 };
+
+export { db };
