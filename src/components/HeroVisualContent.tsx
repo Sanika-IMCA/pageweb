@@ -421,6 +421,12 @@ export default function HeroVisualContent({
         }
       `;
 
+      // Define custom uniform group explicitly
+      const customUniforms = new PIXI.UniformGroup({
+        uVelocity: { value: new Float32Array([0.0, 0.0]), type: 'vec2<f32>' },
+        uTime: { value: 0.0, type: 'f32' }
+      });
+
       // Define filter with custom uniforms
       const displacementFilter = PIXI.Filter.from({
         gl: {
@@ -428,10 +434,7 @@ export default function HeroVisualContent({
           fragment: fragmentShader
         },
         resources: {
-          customUniforms: {
-            uVelocity: { value: new Float32Array([0.0, 0.0]), type: 'vec2<f32>' },
-            uTime: { value: 0.0, type: 'f32' }
-          }
+          customUniforms
         }
       });
 
@@ -455,7 +458,7 @@ export default function HeroVisualContent({
         timeElapsed += 0.02 * ticker.deltaTime;
 
         // 1. Uniforms update (distort shader)
-        if (!reduceMotion && !isMobile && displacementFilter.resources?.customUniforms) {
+        if (!reduceMotion && !isMobile) {
           // Smooth the input velocity using linear interpolation (inertia)
           smoothedVelocity.current.x += (velocity.current.x - smoothedVelocity.current.x) * 0.1;
           smoothedVelocity.current.y += (velocity.current.y - smoothedVelocity.current.y) * 0.1;
@@ -464,10 +467,10 @@ export default function HeroVisualContent({
           velocity.current.x *= 0.92;
           velocity.current.y *= 0.92;
 
-          // Set shader uniforms
-          const uniforms = displacementFilter.resources.customUniforms.uniforms;
-          uniforms.uVelocity = [smoothedVelocity.current.x, smoothedVelocity.current.y];
-          uniforms.uTime = timeElapsed;
+          // Set shader uniforms directly on customUniforms
+          customUniforms.uniforms.uVelocity[0] = smoothedVelocity.current.x;
+          customUniforms.uniforms.uVelocity[1] = smoothedVelocity.current.y;
+          customUniforms.uniforms.uTime = timeElapsed;
         }
 
         // 2. Physics simulation for nodes
