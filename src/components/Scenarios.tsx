@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -16,6 +16,15 @@ interface ScenarioItem {
 
 export default function Scenarios() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [industry, setIndustry] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const ind = params.get("industry");
+      if (ind) setIndustry(ind.toLowerCase());
+    }
+  }, []);
 
   const scenarios: ScenarioItem[] = [
     {
@@ -55,6 +64,25 @@ export default function Scenarios() {
       components: ["AI agent", "Knowledge retrieval", "Ticket integration", "Escalation logic", "Conversation logging"]
     }
   ];
+
+  // Reorder index based on industry parameters
+  let orderedScenarios = [...scenarios];
+  if (industry === "recruitment") {
+    // 01 Recruitment (0), 02 Sales (1), 03 Operations (2), 04 Support (3)
+    orderedScenarios = [scenarios[0], scenarios[1], scenarios[2], scenarios[3]];
+  } else if (industry === "logistics") {
+    // 01 Operations (2), 02 Sales (1), 03 Recruitment (0), 04 Support (3)
+    orderedScenarios = [scenarios[2], scenarios[1], scenarios[0], scenarios[3]];
+  } else if (industry === "professional-services" || industry === "services" || industry === "professional") {
+    // 01 Sales (1), 02 Operations (2), 03 Support (3), 04 Recruitment (0)
+    orderedScenarios = [scenarios[1], scenarios[2], scenarios[3], scenarios[0]];
+  } else if (industry === "agencies") {
+    // 01 Sales (1), 02 Operations (2), 03 Support (3), 04 Recruitment (0)
+    orderedScenarios = [scenarios[1], scenarios[2], scenarios[3], scenarios[0]];
+  } else if (industry === "saas") {
+    // 01 Sales (1), 02 Support (3), 03 Operations (2), 04 Recruitment (0)
+    orderedScenarios = [scenarios[1], scenarios[3], scenarios[2], scenarios[0]];
+  }
 
   const renderDiagram = (id: number, isHovered: boolean) => {
     const strokeOpacity = isHovered ? "0.6" : "0.2";
@@ -271,7 +299,7 @@ export default function Scenarios() {
 
         {/* Scenarios Checklist (Casebook style) */}
         <div className="flex flex-col border-t border-hairline/65 max-w-5xl mb-24">
-          {scenarios.map((item) => (
+          {orderedScenarios.map((item, displayIdx) => (
             <div key={item.id} className="border-b border-hairline/65">
               
               {/* Desktop view: Asymmetric Grid with hover state */}
@@ -284,13 +312,13 @@ export default function Scenarios() {
                 {/* Number & Category */}
                 <div className="col-span-3 flex flex-col gap-2">
                   <span className="text-micro font-mono text-brass-accent font-bold">
-                    0{item.id + 1} &mdash;
+                    0{displayIdx + 1} &mdash;
                   </span>
                   <span className="text-micro font-mono text-muted-text/75 tracking-wider font-bold uppercase group-hover:translate-x-1 transition-transform duration-300">
                     {item.category}
                   </span>
                 </div>
-
+                
                 {/* Title & Core Problem */}
                 <div className="col-span-4 flex flex-col gap-4">
                   <h3 className="text-[1.25rem] font-bold text-primary-text font-display uppercase tracking-tight leading-tight">
@@ -337,7 +365,7 @@ export default function Scenarios() {
               {/* Mobile view: Stack layout */}
               <div className="lg:hidden p-6 flex flex-col gap-6 bg-slate-50/20">
                 <div className="flex items-center gap-2 border-b border-hairline/35 pb-3">
-                  <span className="text-micro font-mono text-brass-accent font-bold">0{item.id + 1}</span>
+                  <span className="text-micro font-mono text-brass-accent font-bold">0{displayIdx + 1}</span>
                   <span className="text-micro font-mono text-muted-text tracking-widest font-bold uppercase">&bull; {item.category}</span>
                 </div>
 

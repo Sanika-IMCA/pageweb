@@ -17,7 +17,21 @@ export default function SymptomSystem() {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const ind = params.get("industry");
+      const prob = params.get("problem");
+      
       if (ind) setIndustry(ind.toLowerCase());
+      if (prob) {
+        const probLower = prob.toLowerCase();
+        if (probLower === "manual-handoffs" || probLower === "lead-routing") {
+          setActiveTab(2); // LEAD HANDOFFS (index 2)
+        } else if (probLower === "disconnected-tools") {
+          setActiveTab(1); // DISCONNECTED TOOLS (index 1)
+        } else if (probLower === "spreadsheet-dependency") {
+          setActiveTab(3); // SPREADSHEET DEPENDENCY (index 3)
+        } else if (probLower === "operational-visibility") {
+          setActiveTab(4); // LOW OPERATIONAL VISIBILITY (index 4)
+        }
+      }
     }
   }, []);
 

@@ -8,14 +8,82 @@ import HeroVisual from "./HeroVisual";
 export default function Hero() {
   const [activeState, setActiveState] = useState(0);
   const [industry, setIndustry] = useState<string | null>(null);
+  const [problem, setProblem] = useState<string | null>(null);
+  const [company, setCompany] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const ind = params.get("industry");
+      const prob = params.get("problem");
+      const comp = params.get("company");
+      
       if (ind) setIndustry(ind.toLowerCase());
+      if (prob) setProblem(prob.toLowerCase());
+      if (comp) {
+        // Sanitize company name to allow only letters, numbers, spaces, dots, and hyphens (max 30 chars)
+        const sanitized = comp.replace(/[^\w\s\.\-]/gi, "").trim().substring(0, 30);
+        if (sanitized) setCompany(sanitized);
+      }
     }
   }, []);
+
+  // Industry translation dictionary
+  const industryMap: Record<string, { label: string; desc: string }> = {
+    recruitment: {
+      label: "RECRUITMENT OPERATIONS",
+      desc: "Candidate workflows, screening, qualification, scheduling, CRM updates, and onboarding often become fragmented as teams grow."
+    },
+    logistics: {
+      label: "LOGISTICS OPERATIONS",
+      desc: "Dispatch, scheduling, operator coordination, tracking, and handoffs can become difficult to manage across disconnected systems."
+    },
+    "professional-services": {
+      label: "PROFESSIONAL SERVICES",
+      desc: "Lead intake, scoping, client onboarding, delivery coordination, reporting, and billing often create manual operational handoffs as teams grow."
+    },
+    agencies: {
+      label: "AGENCY OPERATIONS",
+      desc: "Lead qualification, proposals, project handoffs, client communication, delivery tracking, and reporting can create significant operational overhead."
+    },
+    saas: {
+      label: "SAAS OPERATIONS",
+      desc: "Lead routing, enrichment, CRM updates, onboarding, support, and internal reporting can become fragmented across multiple systems."
+    }
+  };
+
+  // Problem translation dictionary
+  const problemMap: Record<string, { label: string; desc: string; direction: string }> = {
+    "manual-handoffs": {
+      label: "MANUAL HANDOFFS",
+      desc: "Information repeatedly moves between people, spreadsheets, email, messaging platforms, and internal tools.",
+      direction: "Capture → structure → route → automate."
+    },
+    "spreadsheet-dependency": {
+      label: "SPREADSHEET DEPENDENCY",
+      desc: "Critical operational information lives inside files that require constant manual maintenance and reconciliation.",
+      direction: "Centralize → structure → control → automate."
+    },
+    "lead-routing": {
+      label: "LEAD ROUTING",
+      desc: "New opportunities require repeated qualification, enrichment, assignment, follow-up, and CRM updates.",
+      direction: "Capture → qualify → route → follow up → synchronize."
+    },
+    "operational-visibility": {
+      label: "LOW OPERATIONAL VISIBILITY",
+      desc: "Managers cannot easily see what is active, blocked, owned, or waiting for action.",
+      direction: "Centralize state → define status → surface exceptions → create control."
+    },
+    "disconnected-tools": {
+      label: "DISCONNECTED SYSTEMS",
+      desc: "Different tools hold different pieces of the same operational process.",
+      direction: "Connect → synchronize → centralize state → automate."
+    }
+  };
+
+  const matchedIndustry = industry ? industryMap[industry] : null;
+  const matchedProblem = problem ? problemMap[problem] : null;
+  const showPersonalizedContext = !!(matchedIndustry || matchedProblem);
 
   // Dynamic Industry Personalization mapping
   let headlineLine2 = "BUSINESS SYSTEMS";
@@ -127,6 +195,53 @@ export default function Hero() {
           >
             {supportingText}
           </motion.p>
+
+          {/* Personalized Context Box */}
+          {showPersonalizedContext && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="border border-hairline/65 bg-secondary-surface/5 p-6 rounded-2xl mb-8 w-full max-w-xl flex flex-col gap-4 text-left backdrop-blur-[1px]"
+            >
+              <div className="flex flex-col gap-1">
+                <span className="text-micro font-mono text-brass-accent font-bold uppercase tracking-widest">
+                  {company ? `A SYSTEMS REVIEW FOR ${company}` : "WHY THIS MAY BE RELEVANT"}
+                </span>
+                
+                {matchedIndustry && (
+                  <div className="flex flex-col gap-1 mt-1">
+                    <span className="text-[0.68rem] font-mono text-primary-text font-bold uppercase tracking-wider">
+                      {matchedIndustry.label}
+                    </span>
+                    <p className="text-[0.82rem] text-muted-text font-semibold leading-relaxed">
+                      {matchedIndustry.desc}
+                    </p>
+                  </div>
+                )}
+                
+                {matchedProblem && (
+                  <div className={`flex flex-col gap-1 mt-1 ${matchedIndustry ? "border-t border-hairline/25 pt-3" : ""}`}>
+                    <span className="text-[0.68rem] font-mono text-primary-text font-bold uppercase tracking-wider">
+                      OPERATIONAL PATTERN // {matchedProblem.label}
+                    </span>
+                    <p className="text-[0.82rem] text-muted-text font-semibold leading-relaxed">
+                      {matchedProblem.desc}
+                    </p>
+                    <p className="font-mono text-micro font-bold text-brass-accent uppercase mt-1">
+                      System direction: {matchedProblem.direction}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="border-t border-hairline/25 pt-3">
+                <strong className="text-[0.88rem] text-primary-text font-display uppercase tracking-tight block">
+                  THE FIRST STEP IS NOT TO AUTOMATE IT. IT IS TO UNDERSTAND IT.
+                </strong>
+              </div>
+            </motion.div>
+          )}
 
           {/* CTAs */}
           <motion.div
