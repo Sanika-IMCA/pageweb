@@ -24,7 +24,7 @@ export default function HeroVisual({ activeState, setActiveState }: HeroVisualPr
       try {
         const canvas = document.createElement("canvas");
         const supported = !!(
-          window.WebGL2RenderingContext ||
+          canvas.getContext("webgl2") ||
           canvas.getContext("webgl") ||
           canvas.getContext("experimental-webgl")
         );
