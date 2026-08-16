@@ -12,7 +12,7 @@ export default function RouteTransition({ children }: { children: React.ReactNod
   // Stored state rendering children currently shown on screen
   const [displayChildren, setDisplayChildren] = useState<React.ReactNode>(children);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = !!useReducedMotion();
 
   useEffect(() => {
     if (prevPathname.current === pathname) {

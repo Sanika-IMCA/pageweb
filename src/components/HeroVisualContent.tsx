@@ -600,19 +600,19 @@ export default function HeroVisualContent({
 
             // Draw glowing packet
             graphics.fill({ color: packet.color, alpha: 0.95 });
-            graphics.drawCircle(px, py, packet.size);
+            graphics.circle(px, py, packet.size);
           }
         });
 
         // 3d. Draw nodes
         nodes.current.forEach((node) => {
           graphics.fill({ color: node.color, alpha: node.alpha });
-          graphics.drawCircle(node.x, node.y, node.radius);
+          graphics.circle(node.x, node.y, node.radius);
           
           // Draw subtle outline for larger nodes (Control center / Red nodes)
           if (node.radius > 5) {
             graphics.stroke({ width: 1, color: node.color, alpha: 0.3 });
-            graphics.drawCircle(node.x, node.y, node.radius + 3);
+            graphics.circle(node.x, node.y, node.radius + 3);
           }
         });
       };

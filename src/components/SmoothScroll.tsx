@@ -30,8 +30,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       ScrollTrigger.update();
     });
 
+    let isDestroyed = false;
+
     // Coordinate GSAP ticker animation loop with Lenis
     const tickerUpdate = (time: number) => {
+      if (isDestroyed) return;
       lenis.raf(time * 1000);
     };
 
@@ -39,11 +42,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // Refresh ScrollTrigger and Lenis sizing after dynamic render delays
     const timer = setTimeout(() => {
+      if (isDestroyed) return;
       lenis.resize();
       ScrollTrigger.refresh();
     }, 150);
 
     return () => {
+      isDestroyed = true;
       lenis.destroy();
       gsap.ticker.remove(tickerUpdate);
       clearTimeout(timer);
