@@ -4,93 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-interface CaseStudyItem {
-  id: string;
-  index: string;
-  category: string;
-  project: string;
-  status: string;
-  systemBuilt: string;
-  description: string;
-  problem: string;
-  approach: string;
-  impact: string;
-  image: string;
-  altText: string;
-  metaResolution: string;
-  metaComponent: string;
-}
+import { STUDIES_DB } from "@/lib/caseStudies";
 
 export default function CaseStudies() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  const caseStudies: CaseStudyItem[] = [
-    {
-      id: "outreach",
-      index: "01",
-      category: "LOGISTICS",
-      project: "OUTREACH ENGINE",
-      status: "SAYAGAA PROTOTYPE",
-      systemBuilt: "Workflow Automation & Dispatch Sequencer",
-      description: "Prototype demonstrating automated dispatch routing based on operator availability.",
-      problem: "Manual dispatch coordination creates repeated operator handoffs and scheduling delays.",
-      approach: "Centralized workflow state machine + automated operator availability routing logic.",
-      impact: "Reduced manual coordination and dispatch lag in the prototype workflow.",
-      image: "/assets/outreach-engine.png",
-      altText: "Outreach Engine campaign sequencer interface displaying multi-step automated dispatch node pathways.",
-      metaResolution: "1920x1080 PX",
-      metaComponent: "REACT-FLOW // NODE-GRAPH"
-    },
-    {
-      id: "inbox",
-      index: "02",
-      category: "B2B SERVICES",
-      project: "FOUNDER INBOX",
-      status: "SAYAGAA PROTOTYPE",
-      systemBuilt: "AI Email Agent & CRM Integration Hub",
-      description: "Prototype demonstrating semantic email classification, qualification workflows, and CRM synchronization.",
-      problem: "Incoming operational emails must be manually sorted, qualified, and updated in the CRM.",
-      approach: "LLM semantic triage layer + message parsing integrations + CRM queuing updates.",
-      impact: "Eliminated copy-paste tasks and qualified records instantly in testing pipelines.",
-      image: "/assets/founder-inbox.png",
-      altText: "Founder Inbox UI displaying semantic artificial intelligence triage summaries.",
-      metaResolution: "1440x900 PX",
-      metaComponent: "OPENAI-API // TAILWIND-UI"
-    },
-    {
-      id: "pipeline",
-      index: "03",
-      category: "SAAS OPERATIONS",
-      project: "SAYAGAA PIPELINE",
-      status: "SAYAGAA PROTOTYPE",
-      systemBuilt: "High-Volume Lead Pipeline",
-      description: "Prototype demonstrating automated lead ingestion, processing, enrichment, and structured pipeline management.",
-      problem: "Ingesting lead sheets, verifying contacts, and enriching records is handled via manual imports.",
-      approach: "Continuous automated ingestion scripts + third-party enrichment APIs + sanitization rules.",
-      impact: "Ingested and enriched contact uploads with zero manual operator intervention in tests.",
-      image: "/assets/content-engine.png",
-      altText: "Sayagaa Pipeline data compiler analytics displaying route scraping structures.",
-      metaResolution: "1920x1200 PX",
-      metaComponent: "SUPABASE-DB // API-SCRIPTS"
-    },
-    {
-      id: "auditor",
-      index: "04",
-      category: "FINANCE & COMPLIANCE",
-      project: "BRAND AUDITOR",
-      status: "SAYAGAA PROTOTYPE",
-      systemBuilt: "Regulatory Document Scan Compiler",
-      description: "Prototype demonstrating automated document analysis and visual verification workflows for compliance-oriented operations.",
-      problem: "Auditors must manually review regulatory document scans for missing fields and stamps.",
-      approach: "OCR document classification + visual verification filters + severity ranking rules.",
-      impact: "Scanned and highlighted compliance infractions instantly in testing datasets.",
-      image: "/assets/brand-auditor.png",
-      altText: "Brand Auditor visual scanner displaying browser capture outputs.",
-      metaResolution: "1280x800 PX",
-      metaComponent: "VISION-AI // COMPILER-SUITE"
-    }
-  ];
+  const caseStudies = Object.values(STUDIES_DB);
 
   return (
     <section id="work" className="relative w-full bg-transparent overflow-hidden">
@@ -140,7 +59,7 @@ export default function CaseStudies() {
       <div className="max-w-6xl mx-auto px-6 md:px-12 py-24 flex flex-col gap-24 relative z-10">
         
         <div className="flex flex-col gap-32">
-          {caseStudies.map((study) => (
+          {caseStudies.map((study, idx) => (
             <div
               key={study.id}
               className="flex flex-col gap-10 border-t border-hairline/65 pt-16 first:border-none first:pt-0"
@@ -152,7 +71,7 @@ export default function CaseStudies() {
                 {/* Num & Category */}
                 <div className="md:col-span-3 flex flex-col gap-1">
                   <span className="text-micro font-mono text-brass-accent font-bold">
-                    0{study.index} / {study.category}
+                    0{idx + 1} / {study.category}
                   </span>
                   
                   {/* Status label tag */}
@@ -164,7 +83,7 @@ export default function CaseStudies() {
                 {/* Project Title */}
                 <div className="md:col-span-5">
                   <h3 className="text-[1.85rem] sm:text-[2.25rem] font-bold tracking-tight text-primary-text font-display leading-[1.0] uppercase">
-                    {study.project}
+                    {study.client}
                   </h3>
                   <p className="text-[0.88rem] text-muted-text font-semibold leading-relaxed mt-2.5">
                     {study.description}
@@ -247,7 +166,7 @@ export default function CaseStudies() {
                     SYSTEM APPROACH
                   </span>
                   <p className="text-[0.88rem] text-muted-text font-semibold leading-relaxed">
-                    {study.approach}
+                    {study.research}
                   </p>
                 </div>
 
@@ -256,9 +175,11 @@ export default function CaseStudies() {
                   <span className="text-[0.68rem] font-mono text-brass-accent uppercase tracking-wider font-bold">
                     SYSTEM IMPACT
                   </span>
-                  <p className="text-[0.88rem] text-primary-text font-bold leading-relaxed">
-                    {study.impact}
-                  </p>
+                  <ul className="flex flex-col gap-1 text-[0.88rem] text-primary-text font-bold leading-relaxed font-mono uppercase">
+                    {study.impact.map((item) => (
+                      <li key={item}>&bull; {item}</li>
+                    ))}
+                  </ul>
                 </div>
 
               </div>
@@ -269,7 +190,7 @@ export default function CaseStudies() {
                   href={`/work/${study.id}`}
                   className="group inline-flex items-center gap-2 text-[0.82rem] font-bold text-primary-text hover:text-brass-accent transition-colors"
                 >
-                  VIEW CASE STUDY
+                  READ CASE STUDY
                   <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">&rarr;</span>
                 </Link>
               </div>

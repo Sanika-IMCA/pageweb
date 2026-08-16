@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import CaseStudyContent, { STUDIES_DB } from "./CaseStudyContent";
+import CaseStudyContent from "./CaseStudyContent";
+import { STUDIES_DB } from "@/lib/caseStudies";
 
 interface PageProps {
   params: Promise<{ id: string }>;
