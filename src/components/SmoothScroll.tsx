@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
+  // 1. Initialize Lenis scroll runner once on mount
   useEffect(() => {
     // Disable smooth scroll if user prefers reduced motion
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -40,19 +41,37 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     gsap.ticker.add(tickerUpdate);
 
-    // Refresh ScrollTrigger and Lenis sizing after dynamic render delays
+    // Refresh sizing on initial render
     const timer = setTimeout(() => {
       if (isDestroyed) return;
       lenis.resize();
       ScrollTrigger.refresh();
     }, 150);
 
+    // Keep global lenis instance accessible if needed by window elements
+    (window as unknown as { lenisInstance: Lenis }).lenisInstance = lenis;
+
     return () => {
       isDestroyed = true;
       lenis.destroy();
       gsap.ticker.remove(tickerUpdate);
       clearTimeout(timer);
+      delete (window as unknown as { lenisInstance?: Lenis }).lenisInstance;
     };
+  }, []);
+
+  // 2. Refresh layouts and trigger resize calculations on page navigations
+  useEffect(() => {
+    const lenis = (window as unknown as { lenisInstance?: Lenis }).lenisInstance;
+    
+    const timer = setTimeout(() => {
+      if (lenis) {
+        lenis.resize();
+      }
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return <>{children}</>;
