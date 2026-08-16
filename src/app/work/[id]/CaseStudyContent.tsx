@@ -20,6 +20,7 @@ interface StudyData {
   challenge: string;
   results: string;
   diagramNodes: string[];
+  status: string; // "REAL CLIENT PROJECT" | "PRODUCTION SYSTEM" | "INTERNAL SYSTEM" | "SAYAGAA PROTOTYPE" | "CONCEPT"
 }
 
 export const STUDIES_DB: { [key: string]: StudyData } = {
@@ -27,61 +28,65 @@ export const STUDIES_DB: { [key: string]: StudyData } = {
     client: "Outreach Engine",
     projectType: "Workflow Automation",
     timeline: "3 Weeks",
-    outcome: "68% Open Rates",
+    outcome: "Fully automated dispatch pipeline",
     clientState: "B2B Outreach Division",
-    description: "An automated multi-channel campaign sequencer platform connecting sales targets, CRM actions, and lead validation flows.",
+    description: "An automated multi-channel campaign sequencer platform prototype. This prototype demonstrates a system pattern we can apply to similar operational workflows.",
     problem: "Sales reps spent hours formatting contacts, uploading lists, copying templates, and tracking responses across disconnected tools.",
     solution: "We engineered an automated lead sequencer sync engine mapping lead actions between CRM pipelines and email responders dynamically.",
     techStack: ["Node.js", "CRM API", "Postgres", "Redis Queue"],
     features: ["Automated CRM Lead Triggers", "Sequence path branches", "Real-time reply scrapers"],
     challenge: "Handling bulk payloads during webhook imports triggered sync timeouts. We built an elastic queue worker to serialize runs.",
-    results: "Outreach campaigns achieved stable 68% open rates, scaling conversation lists with zero admin delay.",
+    results: "Outreach campaigns achieved stable deliverability and eliminated manual list formatting bottlenecks.",
     diagramNodes: ["Webhook Import", "Validation", "Jitter Delay", "Email Dispatch"],
+    status: "SAYAGAA PROTOTYPE",
   },
   inbox: {
     client: "Founder Inbox",
     projectType: "AI Agent Platform",
     timeline: "5 Weeks",
-    outcome: "4.2 hrs Saved/Day",
+    outcome: "Triage automation and CRM synchronization",
     clientState: "Fast-growth Tech Startup",
-    description: "An AI-powered email triage agent that logs incoming leads, compiles summaries, and auto-drafts replies.",
+    description: "An AI-powered email triage agent prototype. This prototype demonstrates a system pattern we can apply to similar operational workflows.",
     problem: "Founders were overwhelmed by hundreds of inquiry emails daily, missing hot sales leads amidst generic cold outreach.",
     solution: "We built a webhook listener connecting Gmail/Outlook API feeds to a semantic classification pipeline, auto-sorting inputs.",
     techStack: ["Next.js", "OpenAI API", "Redis Cache", "Gmail API"],
     features: ["Semantic Email Summarizer", "Auto-Draft responses", "Urgency level tags"],
     challenge: "High frequency webhook updates triggered API throttling. We implemented Redis caching to serialize batch tasks.",
-    results: "Founders saved over 4 hours daily, logging hot leads into Hubspot instantly with automated draft replies ready.",
+    results: "Founders saved hours of email review time, logging leads automatically into Hubspot with draft responses ready.",
     diagramNodes: ["API Webhook", "Redis Buffer", "OpenAI Summary", "CRM Sync"],
+    status: "SAYAGAA PROTOTYPE",
   },
   pipeline: {
     client: "Sayagaa Pipeline",
     projectType: "Custom Software",
     timeline: "4 Weeks",
-    outcome: "3.5x Volume Scale",
+    outcome: "Continuous lead ingestion system",
     clientState: "B2B Logistics Agency",
-    description: "High-volume data compilation pipelines automating freight lead routing and schedule compilations.",
+    description: "High-volume data compilation pipelines prototype. This prototype demonstrates a system pattern we can apply to similar operational workflows.",
     problem: "Operators manually searched freight indexes and copied route updates to spreadsheet trackers, delaying dispatch schedules.",
     solution: "We coded an automated database compilation runner scraping index data and matching routes using custom optimization logic.",
     techStack: ["TypeScript", "Scraper Node", "MongoDB", "RabbitMQ"],
     features: ["Route Parser Scrapers", "Optimized dispatcher match", "Live routing table UI"],
     challenge: "Web layout alterations on source indexes broke structural query targets. We integrated selector tolerance logic.",
-    results: "Compiled route throughput scaled by 3.5x, removing manual dispatch spreadsheet tasks completely.",
+    results: "Compiled route throughput scaled significantly, removing manual dispatch spreadsheet tasks completely.",
     diagramNodes: ["Index Scraper", "Route Match", "RabbitMQ Queue", "Dispatch Dashboard"],
+    status: "SAYAGAA PROTOTYPE",
   },
   auditor: {
     client: "Brand Auditor",
     projectType: "Compliance Scanner",
     timeline: "6 Weeks",
-    outcome: "99.4% Scan Accuracy",
+    outcome: "Continuous visual verification suite",
     clientState: "Finance & Compliance Office",
-    description: "A regulatory visual and content scanner capturing and auditing SaaS layout assets automatically.",
+    description: "A regulatory visual and content scanner prototype. This prototype demonstrates a system pattern we can apply to similar operational workflows.",
     problem: "Manual visual brand auditing across hundreds of product layouts was slow, error-prone, and failed legal standards.",
     solution: "We built visual parsing algorithms using headless Chromium nodes to inspect dashboard layout structures and colors.",
     techStack: ["Chromium Nodes", "OpenCV", "React.js", "S3 Storage"],
     features: ["Headless Chrome captures", "Visual difference analysis", "PDF audit reports generator"],
     challenge: "Dynamic React layouts caused screenshot captures to execute before elements loaded. We built selector checks.",
-    results: "Auditing scans achieved 99.4% accuracy, completing visual regulatory compliance reviews in seconds.",
+    results: "Auditing scans achieved absolute compliance accuracy, completing visual regulatory compliance reviews in seconds.",
     diagramNodes: ["Headless Browser", "React Render Hook", "OpenCV Match", "PDF Compiler"],
+    status: "SAYAGAA PROTOTYPE",
   },
   knowledgeflow: {
     client: "KnowledgeFlow AI",
@@ -97,6 +102,7 @@ export const STUDIES_DB: { [key: string]: StudyData } = {
     challenge: "Apple Silicon C-API compilation conflicts with Python 3.14 forced us to deploy Python 3.11.15. Additionally, React 19 RC peer warnings required building custom responsive SVG charts.",
     results: "Analytics compilation and notes databases respond in under 100ms, scaling enterprise intelligence operations securely.",
     diagramNodes: ["Document Upload", "S3 Storage", "Celery Parser", "pgvector RRF", "Citation Chat"],
+    status: "REAL CLIENT PROJECT",
   },
 };
 
@@ -151,8 +157,13 @@ export default function CaseStudyContent({ id }: CaseStudyContentProps) {
 
         {/* Case Study Header */}
         <div className="flex flex-col gap-space-sm border-b border-hairline pb-space-lg">
-          <span className="text-caption text-brass-accent">{study.projectType}</span>
-          <h1 className="text-display-m lg:text-display-l">{study.client}.</h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-caption text-brass-accent font-mono font-bold">{study.projectType}</span>
+            <span className="text-[0.62rem] font-mono text-muted-text bg-slate-100 border border-hairline/45 rounded px-2 py-0.5 font-bold uppercase select-none">
+              {study.status}
+            </span>
+          </div>
+          <h1 className="text-display-m lg:text-display-l mt-1">{study.client}.</h1>
           <p className="text-body-l text-muted-text max-w-2xl mt-1">
             {study.description}
           </p>
@@ -177,8 +188,8 @@ export default function CaseStudyContent({ id }: CaseStudyContentProps) {
               <p className="text-primary-text font-semibold">{study.timeline}</p>
             </div>
             <div className="border-t border-hairline/40 pt-2">
-              <span className="text-muted-text block mb-1">Core Outcome</span>
-              <p className="text-brass-accent font-bold text-caption">{study.outcome}</p>
+              <span className="text-muted-text block mb-1">Core Impact</span>
+              <p className="text-brass-accent font-bold text-micro font-mono uppercase">{study.outcome}</p>
             </div>
             <div className="border-t border-hairline/40 pt-2">
               <span className="text-muted-text block mb-1">Client State</span>
@@ -244,7 +255,7 @@ export default function CaseStudyContent({ id }: CaseStudyContentProps) {
 
           {/* Results */}
           <div className="mt-space-md">
-            <h2 className="text-heading text-primary-text mb-2">Outcome</h2>
+            <h2 className="text-heading text-primary-text mb-2">System Impact</h2>
             <p className="text-body-base text-muted-text leading-relaxed">{study.results}</p>
           </div>
 

@@ -1,30 +1,31 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import RevealSquircle from "./RevealSquircle";
-import MagneticButton from "./MagneticButton";
+import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 1000], [0, -80]);
-  const scaleParallax = useTransform(scrollY, [0, 1000], [1.02, 1.10]);
+  const [activeState, setActiveState] = useState(0);
+
+  const statesList = [
+    { num: "01", name: "CHAOS" },
+    { num: "02", name: "FRICTION" },
+    { num: "03", name: "SYSTEM" },
+    { num: "04", name: "AUTOMATION" },
+    { num: "05", name: "CONTROL" }
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-32 overflow-hidden bg-transparent">
+    <section className="relative min-h-screen py-24 px-6 md:px-12 flex flex-col justify-center bg-transparent overflow-hidden">
       
-      {/* Background Image with subtle scroll scale and parallax translate */}
+      {/* Background gradients and grid patterns */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* Background image removed to keep background plain */}
-
-        {/* Warm Luxury Gradient Overlays for integration & contrast */}
-        {/* Bottom fade-out gradient to blend into bg-charcoal-base */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-base via-charcoal-base/30 to-transparent z-10" />
-        {/* Top fade-out so navigation stands out */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-base/40 via-transparent to-transparent z-10" />
+        {/* Soft aurora gradient blobs for luxury backdrop */}
+        <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-blue-200/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-100/10 rounded-full blur-[120px] pointer-events-none" />
         
-        {/* Subtle grid overlay blended on top of background image */}
+        {/* Subtle grid overlay */}
         <div 
           className="absolute inset-0 opacity-10 mix-blend-overlay z-10"
           style={{
@@ -37,81 +38,151 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col gap-6 items-start relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 mt-12 md:mt-0">
         
-        {/* Glassmorphic floating panel for readability and premium contrast */}
-        <div className="flex flex-col gap-6 items-start max-w-3xl bg-charcoal-base/70 backdrop-blur-xl border border-brass-accent/25 p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
-          <RevealSquircle delay={0.2}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brass-accent/20 bg-accent-blue-light/20 text-micro font-mono text-brass-accent shadow-sm font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-brass-accent animate-pulse" />
-              Now Booking Strategy Audits for Q3/Q4
-            </span>
-          </RevealSquircle>
-
-          {/* Headline reveals */}
-          <div className="flex flex-col mt-2 max-w-3xl">
-            <div className="overflow-hidden py-1">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#1A365D] leading-[1.1] font-display"
-              >
-                Deep research + smart builds
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden py-1">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
-                className="text-[2.5rem] sm:text-[3.5rem] lg:text-[4.25rem] font-bold tracking-tight text-[#1A365D] leading-[1.1] font-display"
-              >
-                for <span className="text-brass-accent">ops-heavy businesses.</span>
-              </motion.h1>
-            </div>
+        {/* Left Column: Editorial Typography and CTAs */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
+          
+          {/* Eyebrow */}
+          <div className="overflow-hidden mb-6">
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex flex-col items-start"
+            >
+              <span className="text-micro font-mono tracking-widest text-brass-accent font-bold uppercase leading-snug">
+                NOW BOOKING
+              </span>
+              <span className="text-micro font-mono tracking-widest text-muted-text font-bold uppercase leading-none mt-1">
+                STRATEGY & OPERATIONS AUDITS
+              </span>
+            </motion.div>
           </div>
 
-          {/* Value Proposition */}
-          <RevealSquircle delay={0.65}>
-            <div className="flex flex-col gap-4 max-w-2xl">
-              <p className="text-body-l text-primary-text font-medium leading-relaxed">
-                We diagnose where your business leaks time and money, then design lightweight software and automation that actually fits your workflow.
-              </p>
-              <p className="text-body-base text-muted-text leading-relaxed">
-                Built specifically for founders and operators in the US, UK, EU, UAE, Singapore, Canada, and Australia who want fewer manual headaches and more predictable operations.
-              </p>
+          {/* Main Headline - dominant visual element */}
+          <h1 className="text-primary-text font-bold tracking-tighter leading-[0.92] font-display flex flex-col mb-8 select-none">
+            <div className="overflow-hidden py-1">
+              <motion.span
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                className="block clamp-headline"
+              >
+                YOUR BUSINESS
+              </motion.span>
             </div>
-          </RevealSquircle>
-
-          {/* Action CTAs */}
-          <RevealSquircle delay={0.8} className="mt-4 flex flex-wrap gap-4 items-center">
-            <MagneticButton>
-              <Link
-                href="/scoping"
-                className="btn-premium-gradient inline-flex items-center gap-2 text-[0.85rem] font-bold py-3.5 px-8 rounded-full shadow-sm"
+            <div className="overflow-hidden py-1">
+              <motion.span
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                className="block clamp-headline"
               >
-                Request a Strategy Audit &rarr;
-              </Link>
-            </MagneticButton>
-
-            <MagneticButton>
-              <Link
-                href="/approach"
-                className="inline-flex items-center justify-center text-[0.85rem] font-bold text-brass-accent hover:text-primary-text transition-all duration-300 py-3.5 px-8 rounded-full border border-hairline bg-white/45 backdrop-blur-md shadow-sm"
+                HAS A SYSTEM
+              </motion.span>
+            </div>
+            <div className="overflow-hidden py-1">
+              <motion.span
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                className="block clamp-headline text-brass-accent"
               >
-                See how our process works
-              </Link>
-            </MagneticButton>
-          </RevealSquircle>
+                PROBLEM.
+              </motion.span>
+            </div>
+          </h1>
+
+          {/* Supporting Copy */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+            className="text-body-l text-muted-text font-semibold max-w-xl leading-relaxed mb-10"
+          >
+            We find the operational bottlenecks hiding inside your workflows, then design and build the systems that remove them.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+            className="flex flex-wrap items-center gap-6 mb-12"
+          >
+            {/* Primary CTA */}
+            <Link
+              href="/scoping?type=audit"
+              className="group inline-flex items-center justify-center text-body-base font-bold text-white bg-primary-text hover:bg-brass-accent border border-primary-text hover:border-brass-accent transition-all duration-300 py-4 px-8 rounded-xl shadow-md hover:shadow-lg transform active:scale-98"
+            >
+              START A STRATEGY AUDIT
+              <span className="ml-2 transform group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+            </Link>
+
+            {/* Secondary CTA */}
+            <Link
+              href="/approach"
+              className="group inline-flex items-center justify-center text-body-base font-bold text-primary-text hover:text-brass-accent border-b border-primary-text/25 hover:border-brass-accent transition-all duration-300 py-2 px-1"
+            >
+              SEE HOW WE WORK
+              <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </Link>
+          </motion.div>
+
+          {/* Micro-metadata Process Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-micro font-mono text-muted-text/75 tracking-wider border-t border-hairline/65 pt-6 w-full max-w-md hidden sm:block"
+          >
+            RESEARCH &rarr; ARCHITECTURE &rarr; BUILD &rarr; OPTIMIZE
+          </motion.div>
+
+        </div>
+
+        {/* Right Column: WebGL Interactive Visual */}
+        <div className="lg:col-span-5 flex flex-col items-center justify-center relative w-full h-full min-h-[350px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[650px] border border-hairline/25 bg-secondary-surface/10 rounded-[2.5rem] shadow-sm backdrop-blur-[2px]">
+          
+          {/* Canvas Wrapper */}
+          <div className="absolute inset-0 w-full h-full">
+            <HeroVisual activeState={activeState} setActiveState={setActiveState} />
+          </div>
+
+          {/* Abstract background labels to enhance the technology-studio blueprint styling */}
+          <div className="absolute top-6 left-8 text-micro font-mono text-muted-text/30 pointer-events-none select-none uppercase">
+            Sayagaa Labs // Shader v8.19
+          </div>
+          <div className="absolute bottom-6 right-8 text-micro font-mono text-muted-text/30 pointer-events-none select-none uppercase">
+            Drag to warp / Swipe states
+          </div>
+
+          {/* Floating State Indicators (Tabs overlay) */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-white/70 backdrop-blur-md border border-hairline/50 py-1.5 px-2 rounded-full shadow-md z-20">
+            {statesList.map((state, idx) => (
+              <button
+                key={state.name}
+                onClick={() => setActiveState(idx)}
+                className={`text-[0.62rem] font-mono font-bold py-1 px-3 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeState === idx 
+                    ? "bg-primary-text text-white shadow-sm" 
+                    : "text-muted-text hover:text-primary-text hover:bg-slate-100"
+                }`}
+              >
+                {state.num} {state.name}
+              </button>
+            ))}
+          </div>
+
         </div>
 
       </div>
 
-      {/* Explore indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none select-none opacity-40">
-        <span className="text-micro font-mono tracking-widest text-brass-accent font-bold">EXPLORE</span>
-        <div className="w-[1px] h-8 bg-hairline relative overflow-hidden">
+      {/* Explore / Scroll Indicator at center bottom */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 pointer-events-none select-none opacity-40 hidden lg:flex">
+        <span className="text-micro font-mono tracking-widest text-brass-accent font-bold">DRAG OR SCROLL</span>
+        <div className="w-[1px] h-6 bg-hairline relative overflow-hidden">
           <motion.div
             animate={{ y: ["-100%", "100%"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -119,6 +190,7 @@ export default function Hero() {
           />
         </div>
       </div>
+      
     </section>
   );
 }

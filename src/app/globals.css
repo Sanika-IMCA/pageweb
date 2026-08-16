@@ -33,6 +33,12 @@
 }
 
 /* Custom Typography Utility Classes matching §10 */
+@utility clamp-headline {
+  font-size: clamp(2.5rem, 7.5vw, 8rem);
+  letter-spacing: -0.04em;
+  font-family: var(--font-display), Georgia, serif;
+}
+
 @utility text-display-xl {
   font-family: var(--font-display);
   font-size: 3.5rem;

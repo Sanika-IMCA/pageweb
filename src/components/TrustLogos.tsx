@@ -31,7 +31,7 @@ export default function TrustLogos() {
               GLOBAL FOOTPRINT
             </span>
             <p className="text-body-base text-primary-text font-semibold">
-              Serving operators in US, UK, EU, UAE, Singapore, Canada, and Australia.
+              Geographic availability across US, UK, EU, UAE, Singapore, Canada, and Australia.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function TrustLogos() {
               BUILD IMPACT
             </span>
             <p className="text-body-base text-primary-text font-semibold">
-              Average 30–50% reduction in manual operations time from first build phase.
+              Measurable reduction in manual steps and operational friction from the first build release.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export default function TrustLogos() {
               RESEARCH MANDATE
             </span>
             <p className="text-body-base text-primary-text font-semibold">
-              We start every engagement with a research sprint — absolutely no blind builds.
+              We start every engagement with a strategy audit — absolutely no blind builds.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function TrustLogos() {
         {/* Bottom: Tool Stack & Partner Logos */}
         <div className="flex flex-col gap-4">
           <span className="text-micro font-mono text-muted-text uppercase tracking-widest block font-bold text-center opacity-65">
-            SUPPORTED INTEGRATIONS & TOOLSTACKS
+            WORKS WITH YOUR EXISTING STACK
           </span>
 
           {/* Marquee Container */}

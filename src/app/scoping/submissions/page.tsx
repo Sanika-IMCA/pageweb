@@ -14,6 +14,8 @@ interface Submission {
   solvedBefore: string;
   headache: string;
   nextStep: string;
+  submissionType: string;
+  changeImpact: string;
   created_at: string;
 }
 
@@ -23,6 +25,36 @@ export default function SubmissionsPage() {
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSubmission, setSelectedSubmission] = useState<Submission | null>(null);
+
+  const getTypeBadge = (type: string) => {
+    switch (type) {
+      case "audit":
+        return "bg-brass-accent/10 border-brass-accent/30 text-brass-accent";
+      case "sprint":
+        return "bg-blue-500/10 border-blue-500/30 text-blue-500";
+      case "build":
+        return "bg-emerald-500/10 border-emerald-500/30 text-emerald-500";
+      case "retainer":
+        return "bg-purple-500/10 border-purple-500/30 text-purple-500";
+      default:
+        return "bg-neutral-500/10 border-neutral-500/30 text-neutral-500";
+    }
+  };
+
+  const getTypeText = (type: string) => {
+    switch (type) {
+      case "audit":
+        return "Strategy Audit";
+      case "sprint":
+        return "Research Sprint";
+      case "build":
+        return "Solution Build";
+      case "retainer":
+        return "Retainer";
+      default:
+        return "General Intake";
+    }
+  };
 
   const fetchSubmissions = async () => {
     setLoading(true);
@@ -47,7 +79,7 @@ export default function SubmissionsPage() {
   }, []);
 
   const filteredSubmissions = submissions.filter((sub) => {
-    const text = `${sub.name} ${sub.company} ${sub.role} ${sub.headache}`.toLowerCase();
+    const text = `${sub.name} ${sub.company} ${sub.role} ${sub.headache} ${sub.submissionType || ""}`.toLowerCase();
     return text.includes(searchTerm.toLowerCase());
   });
 
@@ -141,6 +173,7 @@ export default function SubmissionsPage() {
                     <thead>
                       <tr className="border-b border-hairline bg-white/30 text-micro font-mono text-muted-text uppercase tracking-wider font-bold">
                         <th className="p-5">ID</th>
+                        <th className="p-5">Type</th>
                         <th className="p-5">Company / Client</th>
                         <th className="p-5">Contact</th>
                         <th className="p-5">Preferred Step</th>
@@ -157,6 +190,11 @@ export default function SubmissionsPage() {
                           }`}
                         >
                           <td className="p-5 font-mono text-brass-accent font-bold">#{sub.id}</td>
+                          <td className="p-5">
+                            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-micro font-mono font-bold border ${getTypeBadge(sub.submissionType || "general")}`}>
+                              {getTypeText(sub.submissionType || "general")}
+                            </span>
+                          </td>
                           <td className="p-5 font-semibold text-primary-text">
                             {sub.company}
                             <span className="block text-micro font-mono text-muted-text font-normal">
@@ -211,8 +249,23 @@ export default function SubmissionsPage() {
 
                 <div className="grid grid-cols-2 gap-4 border-t border-hairline/45 pt-4">
                   <div>
+                    <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Inquiry Type</span>
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-micro font-mono font-bold border ${getTypeBadge(selectedSubmission.submissionType || "general")}`}>
+                      {getTypeText(selectedSubmission.submissionType || "general")}
+                    </span>
+                  </div>
+                  <div>
                     <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Timezone</span>
                     <span className="font-semibold text-primary-text">{selectedSubmission.timezone}</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 border-t border-hairline/45 pt-4">
+                  <div>
+                    <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1 font-bold">Preferred Next Step</span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-micro font-mono font-bold bg-charcoal-base/60 border border-hairline text-primary-text">
+                      {selectedSubmission.nextStep === "call" ? "Intro Call" : "Email Review"}
+                    </span>
                   </div>
                   <div>
                     <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Team Size</span>
@@ -221,13 +274,16 @@ export default function SubmissionsPage() {
                 </div>
 
                 <div className="border-t border-hairline/45 pt-4">
-                  <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Tried Solving Before?</span>
-                  <span className="font-semibold text-primary-text capitalize">
-                    {selectedSubmission.solvedBefore === "yes"
-                      ? "Yes (Failed / Too Complex)"
-                      : selectedSubmission.solvedBefore === "no"
-                      ? "No (First Time)"
-                      : "Not Sure / Temporary Custom Setup"}
+                  <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Current Tools & Software</span>
+                  <span className="font-semibold text-primary-text">
+                    {selectedSubmission.solvedBefore || "Not specified"}
+                  </span>
+                </div>
+
+                <div className="border-t border-hairline/45 pt-4">
+                  <span className="block text-micro font-mono text-muted-text uppercase tracking-widest font-bold mb-1">Expected Change / Impact</span>
+                  <span className="font-semibold text-brass-accent">
+                    {selectedSubmission.changeImpact || "Not specified"}
                   </span>
                 </div>
 

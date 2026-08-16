@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Preloader() {
@@ -14,23 +14,25 @@ export default function Preloader() {
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
 
   // Function to skip loader instantly
-  const skipLoader = () => {
-    if (isSkipped) return;
-    setIsSkipped(true);
-    
-    // Clear all scheduled timeouts
-    timeoutsRef.current.forEach((t) => clearTimeout(t));
-    
-    // Set final states
-    setIsLocked(true);
-    setStatusText("SAYAGAA STUDIOS");
-    setLineWidth("100%");
-    setNodes([15, 25, 35, 40]);
-    
-    // Close overlay
-    setIsVisible(false);
-    sessionStorage.setItem("sayaga-preloaded", "true");
-  };
+  const skipLoader = useCallback(() => {
+    setIsSkipped((skipped) => {
+      if (skipped) return skipped;
+
+      // Clear all scheduled timeouts
+      timeoutsRef.current.forEach((t) => clearTimeout(t));
+
+      // Set final states
+      setIsLocked(true);
+      setStatusText("SAYAGAA");
+      setLineWidth("100%");
+      setNodes([15, 25, 35, 40]);
+
+      // Close overlay
+      setIsVisible(false);
+      sessionStorage.setItem("sayaga-preloaded", "true");
+      return true;
+    });
+  }, []);
 
   useEffect(() => {
     const hasPreloaded = sessionStorage.getItem("sayaga-preloaded");
@@ -89,7 +91,7 @@ export default function Preloader() {
     // 1.35s: Display final logo "SAYAGA STUDIOS" in locked styling
     timeoutsRef.current.push(
       setTimeout(() => {
-        setStatusText("SAYAGAA STUDIOS");
+        setStatusText("SAYAGAA");
         setIsLocked(true);
       }, 1350)
     );
@@ -102,11 +104,13 @@ export default function Preloader() {
       }, 1800)
     );
 
+    const activeTimeouts = timeoutsRef.current;
+
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      timeoutsRef.current.forEach((t) => clearTimeout(t));
+      activeTimeouts.forEach((t) => clearTimeout(t));
     };
-  }, []);
+  }, [skipLoader]);
 
   return (
     <AnimatePresence>

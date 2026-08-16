@@ -24,8 +24,8 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sayagaa Studios — We study businesses before we build software.",
-  description: "We study businesses before we build software. Coded for operational rigor and precision.",
+  title: "Sayagaa — Find what's slowing your business down. We'll build what fixes it.",
+  description: "Sayagaa is an AI systems company that helps founders and operators identify expensive business bottlenecks and build the software, AI, automation, and integrations that remove them.",
 };
 
 export default function RootLayout({
@@ -36,14 +36,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full antialiased`}
+      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} min-h-full antialiased`}
     >
       <body className="bg-charcoal-base text-primary-text font-sans min-h-full flex flex-col relative">
         
         {/* Global Parallax Backdrop Container */}
         <div className="fixed inset-0 w-screen h-screen overflow-hidden pointer-events-none z-0">
           
-          {/* Background image removed to keep background plain/solid */}
+          {/* Faint tech wave background image in a very light shade */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06] z-15"
+            style={{
+              backgroundImage: "url('/bg-wave.png')"
+            }}
+          />
 
           {/* Luxury metallic glassy overlay (white/light) */}
           <div className="absolute inset-0 bg-white/70 backdrop-blur-[6px] z-10" />

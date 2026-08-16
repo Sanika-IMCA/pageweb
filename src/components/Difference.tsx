@@ -14,10 +14,10 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Sayagaa Studios re-engineered our delivery dispatch pipeline. The technical implementation was clean, but their deep understanding of our business operations is what truly set them apart.",
+    quote: "Sayagaa re-engineered our delivery dispatch pipeline. The technical implementation was clean, but their deep understanding of our business operations is what truly set them apart.",
     author: "Marcus Chen",
     role: "VP of Operations",
-    company: "Outreach Engine",
+    company: "Outreach Engine (Example System)",
     metric: "4.2 hrs",
     metricLabel: "Saved Per Operator / Day",
     type: "blue",
@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
     quote: "The AI communication agents they built are extremely robust. They avoided the standard over-engineering pitfalls and built exactly what we needed to scale our qualification queues.",
     author: "Sarah Jenkins",
     role: "Founder",
-    company: "Founder Inbox",
+    company: "Founder Inbox (Example System)",
     metric: "3.5x",
     metricLabel: "Lead Processing Scale",
     type: "red",
@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
     quote: "Their developer team delivered production-grade compliance scanning automation ahead of schedule. The accuracy is absolute and our operational cost dropped instantly.",
     author: "David Vance",
     role: "CTO",
-    company: "Brand Auditor",
+    company: "Brand Auditor (Example System)",
     metric: "99.4%",
     metricLabel: "Scrape Scan Accuracy",
     type: "purple",

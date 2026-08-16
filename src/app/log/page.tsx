@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import RevealSquircle from "@/components/RevealSquircle";
 
 export const metadata: Metadata = {
-  title: "Build Log | Sayagaa Studios — Business Systems & AI Engineering",
+  title: "Build Log | Sayagaa — AI Systems & Automation",
   description: "A public timeline documenting daily iterations, features shipped, technical challenges, and engineering lessons.",
 };
 

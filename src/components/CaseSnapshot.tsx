@@ -11,7 +11,7 @@ export default function CaseSnapshot() {
         {/* Section Header */}
         <div className="flex flex-col gap-3 max-w-xl">
           <span className="text-caption text-brass-accent font-mono tracking-widest font-bold">
-            04 / CASE SNAPSHOT
+            07 / SELECTED WORK
           </span>
           <h2 className="text-[2rem] md:text-[2.75rem] font-bold tracking-tight text-primary-text leading-tight font-display">
             Proof in action.
@@ -28,14 +28,14 @@ export default function CaseSnapshot() {
 
           {/* Left panel: Info teaser */}
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <span className="text-micro font-mono text-accent-red uppercase tracking-widest font-bold bg-accent-red-light/10 border border-accent-red/15 rounded-full px-3 py-1 self-start backdrop-blur-md">
-              FEATURED OUTCOME
+            <span className="text-micro font-mono text-brass-accent uppercase tracking-widest font-bold bg-brass-accent/[0.06] border border-brass-accent/15 rounded-full px-3 py-1 self-start backdrop-blur-md">
+              SAYAGAA PROTOTYPE
             </span>
             <h3 className="text-[1.75rem] md:text-[2.25rem] font-bold tracking-tight text-primary-text font-display leading-tight">
-              Example: From chaotic ops to clear pipeline.
+              Prototype: From chaotic ops to clear pipeline.
             </h3>
             <p className="text-body-base text-muted-text leading-relaxed mt-2">
-              For an operations-heavy client running regional dispatch teams, we audited their communication bottlenecks and integrated lightweight CRM database automation pipelines.
+              This prototype demonstrates a campaign sequencer and dispatch pipeline system pattern. We mapped this architecture to solve manual coordination bottlenecks in regional operator dispatch workflows.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function CaseSnapshot() {
               <li className="flex gap-3 items-start text-primary-text bg-accent-red-light/10 border border-accent-red/15 rounded-2xl px-4 py-3 shadow-[0_10px_35px_rgba(229,147,147,0.04)] backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-red shadow-[0_0_8px_rgba(229,147,147,0.85)] mt-2 shrink-0" />
                 <span className="text-[0.95rem] font-extrabold leading-relaxed text-primary-text">
-                  Implemented 2 quick wins &rarr; reduced manual follow‑ups by 40%.
+                  Implemented automated pipelines &rarr; removed manual dispatcher handoffs.
                 </span>
               </li>
             </ul>

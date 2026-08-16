@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     // Disable smooth scroll if user prefers reduced motion
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -34,14 +37,18 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     gsap.ticker.add(tickerUpdate);
 
-    // Refresh ScrollTrigger settings once layout stabilizes
-    ScrollTrigger.refresh();
+    // Refresh ScrollTrigger and Lenis sizing after dynamic render delays
+    const timer = setTimeout(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    }, 150);
 
     return () => {
       lenis.destroy();
       gsap.ticker.remove(tickerUpdate);
+      clearTimeout(timer);
     };
-  }, []);
+  }, [pathname]);
 
   return <>{children}</>;
 }

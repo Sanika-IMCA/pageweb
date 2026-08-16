@@ -26,9 +26,24 @@ db.exec(`
     solved_before TEXT NOT NULL,
     headache TEXT NOT NULL,
     next_step TEXT NOT NULL,
+    submission_type TEXT NOT NULL DEFAULT 'general',
+    change_impact TEXT DEFAULT '',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 `);
+
+// Gracefully run ALTER TABLE to add the columns if the table already existed previously
+try {
+  db.exec(`ALTER TABLE submissions ADD COLUMN submission_type TEXT NOT NULL DEFAULT 'general'`);
+} catch (err) {
+  // Column already exists, safe to ignore
+}
+
+try {
+  db.exec(`ALTER TABLE submissions ADD COLUMN change_impact TEXT DEFAULT ''`);
+} catch (err) {
+  // Column already exists, safe to ignore
+}
 
 export interface SubmissionInput {
   name: string;
@@ -39,10 +54,22 @@ export interface SubmissionInput {
   solvedBefore: string;
   headache: string;
   nextStep: string;
+  submissionType?: string;
+  changeImpact?: string;
 }
 
-export interface Submission extends SubmissionInput {
+export interface Submission {
   id: number;
+  name: string;
+  role: string;
+  company: string;
+  timezone: string;
+  teamSize: string;
+  solvedBefore: string;
+  headache: string;
+  nextStep: string;
+  submissionType: string;
+  changeImpact: string;
   created_at: string;
 }
 
@@ -53,8 +80,8 @@ export const dbService = {
   createSubmission(input: SubmissionInput): number | bigint {
     const stmt = db.prepare(`
       INSERT INTO submissions (
-        name, role, company, timezone, team_size, solved_before, headache, next_step
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        name, role, company, timezone, team_size, solved_before, headache, next_step, submission_type, change_impact
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const result = stmt.run(
@@ -65,7 +92,9 @@ export const dbService = {
       input.teamSize,
       input.solvedBefore,
       input.headache,
-      input.nextStep
+      input.nextStep,
+      input.submissionType || "general",
+      input.changeImpact || ""
     );
 
     return result.lastInsertRowid;
@@ -86,6 +115,8 @@ export const dbService = {
         solved_before AS solvedBefore, 
         headache, 
         next_step AS nextStep, 
+        submission_type AS submissionType,
+        change_impact AS changeImpact,
         created_at
       FROM submissions
       ORDER BY id DESC

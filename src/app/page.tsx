@@ -4,8 +4,10 @@ import Preloader from "@/components/Preloader";
 import Hero from "@/components/Hero";
 import WhoWeHelp from "@/components/WhoWeHelp";
 import Capabilities from "@/components/Capabilities";
+import Scenarios from "@/components/Scenarios";
 import TrustLogos from "@/components/TrustLogos";
 import CaseSnapshot from "@/components/CaseSnapshot";
+import Industries from "@/components/Industries";
 
 export default function Home() {
   return (
@@ -31,11 +33,17 @@ export default function Home() {
         {/* What We Do In One Look */}
         <Capabilities />
 
+        {/* Concrete Operational Blueprints */}
+        <Scenarios />
+
         {/* Authority & Trust Band */}
         <TrustLogos />
 
         {/* Featured Case Snapshot */}
         <CaseSnapshot />
+
+        {/* Sectors and Industries We Work In */}
+        <Industries />
 
       </main>
 
