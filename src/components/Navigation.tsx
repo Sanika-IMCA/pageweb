@@ -152,7 +152,7 @@ export default function Navigation() {
               href="/scoping?type=audit"
               className="hidden md:inline-flex items-center justify-center px-5.5 py-2 rounded-xl border border-primary-text text-[0.78rem] font-bold text-white bg-primary-text hover:bg-brass-accent hover:border-brass-accent transition-all duration-300 shadow-sm active:scale-98 font-mono uppercase tracking-wider"
             >
-              START AN AUDIT →
+              START A STRATEGY AUDIT →
             </Link>
 
             {/* Mobile Takeover Hamburger Menu Button */}
@@ -221,7 +221,7 @@ export default function Navigation() {
                   onClick={() => setIsMenuOpen(false)}
                   className="inline-flex items-center justify-center text-[0.85rem] font-bold text-white bg-primary-text hover:bg-brass-accent py-3.5 px-6 rounded-xl transition-all duration-300 w-full mt-4 font-mono uppercase tracking-wider text-center"
                 >
-                  START AN AUDIT →
+                  START A STRATEGY AUDIT →
                 </Link>
               </nav>
 

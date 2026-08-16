@@ -2,12 +2,18 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import Hero from "@/components/Hero";
+import ProblemRecognition from "@/components/ProblemRecognition";
+import SymptomSystem from "@/components/SymptomSystem";
 import WhoWeHelp from "@/components/WhoWeHelp";
+import Qualification from "@/components/Qualification";
 import Capabilities from "@/components/Capabilities";
+import WhatWeInvestigate from "@/components/WhatWeInvestigate";
 import Scenarios from "@/components/Scenarios";
 import TrustLogos from "@/components/TrustLogos";
 import CaseSnapshot from "@/components/CaseSnapshot";
 import Industries from "@/components/Industries";
+import WhatHappensAfter from "@/components/WhatHappensAfter";
+import AuditSummary from "@/components/AuditSummary";
 
 export default function Home() {
   return (
@@ -27,23 +33,41 @@ export default function Home() {
           <Hero />
         </div>
 
-        {/* Who We Help Strip */}
+        {/* 02 — Problem Recognition Strip */}
+        <ProblemRecognition />
+
+        {/* 03 — Symptom -> System interactive diagnosis block */}
+        <SymptomSystem />
+
+        {/* 04 — Who We Help Strip */}
         <WhoWeHelp />
 
-        {/* What We Do In One Look */}
+        {/* 05 — Qualification fit/no-fit checklist */}
+        <Qualification />
+
+        {/* 06 — What We Do In One Look */}
         <Capabilities />
 
-        {/* Concrete Operational Blueprints */}
+        {/* 07 — What We Investigate checklist */}
+        <WhatWeInvestigate />
+
+        {/* 08 — Concrete Operational Blueprints */}
         <Scenarios />
 
-        {/* Authority & Trust Band */}
+        {/* 09 — Authority & Trust Band */}
         <TrustLogos />
 
-        {/* Featured Case Snapshot */}
+        {/* 10 — Featured Case Snapshot */}
         <CaseSnapshot />
 
-        {/* Sectors and Industries We Work In */}
+        {/* 11 — Sectors and Industries We Work In */}
         <Industries />
+
+        {/* 12 — Reassurance Timeline */}
+        <WhatHappensAfter />
+
+        {/* 13 — Final Audit summary & Scoping CTA */}
+        <AuditSummary />
 
       </main>
 

@@ -23,7 +23,7 @@ export default function Footer() {
             href="/scoping?type=audit"
             className="group inline-flex items-center justify-center text-[0.88rem] font-bold text-white bg-primary-text hover:bg-brass-accent transition-all duration-300 py-4 px-8 rounded-xl shadow transform active:scale-98 font-mono uppercase tracking-wider whitespace-nowrap"
           >
-            START WITH THE AUDIT →
+            START A STRATEGY AUDIT →
           </Link>
         </div>
 
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/scoping?type=audit" className="hover:text-primary-text transition-colors text-brass-accent">
-                  START AN AUDIT
+                  START A STRATEGY AUDIT
                 </Link>
               </li>
             </ul>

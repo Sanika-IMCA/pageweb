@@ -1,12 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
   const [activeState, setActiveState] = useState(0);
+  const [industry, setIndustry] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const ind = params.get("industry");
+      if (ind) setIndustry(ind.toLowerCase());
+    }
+  }, []);
+
+  // Dynamic Industry Personalization mapping
+  let headlineLine2 = "BUSINESS SYSTEMS";
+  let supportingText = "We identify where manual work, disconnected tools, and operational bottlenecks are slowing your business down — then design and build the systems that remove the friction.";
+
+  if (industry === "recruitment") {
+    headlineLine2 = "RECRUITMENT OPERATIONS";
+    supportingText = "We identify where manual candidate tracking, disconnected database tools, and screening bottlenecks are slowing your placement queues down — then design and build the systems that remove the friction.";
+  } else if (industry === "logistics") {
+    headlineLine2 = "LOGISTICS OPERATIONS";
+    supportingText = "We identify where manual dispatch scheduling, disconnected tracking tools, and operator handoff bottlenecks are slowing your fleet down — then design and build the systems that remove the friction.";
+  } else if (industry === "professional-services" || industry === "services" || industry === "professional") {
+    headlineLine2 = "SERVICE OPERATIONS";
+    supportingText = "We identify where manual lead intake, disconnected scoping tools, and client handoff bottlenecks are slowing your project delivery down — then design and build the systems that remove the friction.";
+  }
 
   const statesList = [
     { num: "01", name: "CHAOS" },
@@ -69,7 +93,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                 className="block clamp-headline"
               >
-                YOUR BUSINESS
+                THE FUTURE OF
               </motion.span>
             </div>
             <div className="overflow-hidden py-1">
@@ -79,7 +103,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                 className="block clamp-headline"
               >
-                HAS A SYSTEM
+                {headlineLine2}
               </motion.span>
             </div>
             <div className="overflow-hidden py-1">
@@ -89,7 +113,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                 className="block clamp-headline text-brass-accent"
               >
-                PROBLEM.
+                STARTS HERE.
               </motion.span>
             </div>
           </h1>
@@ -101,7 +125,7 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
             className="text-body-l text-muted-text font-semibold max-w-xl leading-relaxed mb-10"
           >
-            We find the operational bottlenecks hiding inside your workflows, then design and build the systems that remove them.
+            {supportingText}
           </motion.p>
 
           {/* CTAs */}
@@ -122,10 +146,10 @@ export default function Hero() {
 
             {/* Secondary CTA */}
             <Link
-              href="/approach"
+              href="/work"
               className="group inline-flex items-center justify-center text-body-base font-bold text-primary-text hover:text-brass-accent border-b border-primary-text/25 hover:border-brass-accent transition-all duration-300 py-2 px-1"
             >
-              SEE HOW WE WORK
+              SEE OUR WORK
               <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </motion.div>
