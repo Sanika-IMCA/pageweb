@@ -331,8 +331,11 @@ export default function HeroVisualContent({
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
 
+    let isDestroyed = false;
+
     // Set dimensions
     const updateSize = () => {
+      if (isDestroyed) return;
       if (!containerRef.current || !canvasRef.current) return;
       const width = containerRef.current.clientWidth;
       const height = containerRef.current.clientHeight || 500;
@@ -455,6 +458,7 @@ export default function HeroVisualContent({
 
       // PixiJS animation ticker loop
       const tickerCallback = (ticker: PIXI.Ticker) => {
+        if (isDestroyed) return;
         timeElapsed += 0.02 * ticker.deltaTime;
 
         // 1. Uniforms update (distort shader)
@@ -630,9 +634,10 @@ export default function HeroVisualContent({
 
     // Clean up
     return () => {
+      isDestroyed = true;
       window.removeEventListener("resize", updateSize);
       if (appRef.current) {
-        appRef.current.destroy(true, { children: true, texture: true });
+        appRef.current.destroy({ removeView: true });
         appRef.current = null;
       }
     };
