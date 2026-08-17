@@ -118,6 +118,22 @@ db.exec(`
     status TEXT DEFAULT 'PROPOSED',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS sales_research (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    company TEXT NOT NULL,
+    website TEXT,
+    linkedin_url TEXT,
+    industry TEXT,
+    country TEXT,
+    decision_maker TEXT,
+    campaign TEXT,
+    status TEXT NOT NULL DEFAULT 'NOT STARTED',
+    priority TEXT DEFAULT 'B',
+    research_data TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 export interface SubmissionInput {
